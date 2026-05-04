@@ -1,0 +1,965 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+<meta name="theme-color" content="#FAF7F2">
+<title>Autocomplete Showdown</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,700;1,9..144,700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --bg: #FAF7F2;
+    --bg-warm: #F5F0E8;
+    --ink: #1A1A1A;
+    --ink-muted: #6B6560;
+    --ink-faint: #A09890;
+    --accent: #C75B39;
+    --accent-hover: #B04D2E;
+    --green: #4A7C59;
+    --yellow: #D4A373;
+    --dark: #2C2C2C;
+    --border: #E8E2D9;
+    --card: #FFFFFF;
+    --shadow: 0 2px 8px rgba(26,26,26,0.06);
+    --shadow-lg: 0 8px 24px rgba(26,26,26,0.10);
+  }
+
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+
+  html, body {
+    height: 100%;
+    background: var(--bg);
+    color: var(--ink);
+    font-family: 'Inter', system-ui, -apple-system, sans-serif;
+    -webkit-font-smoothing: antialiased;
+    -webkit-tap-highlight-color: transparent;
+  }
+
+  #app {
+    max-width: 480px;
+    margin: 0 auto;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    padding: 0 20px;
+    position: relative;
+    overflow-x: hidden;
+  }
+
+  /* Typography */
+  .serif {
+    font-family: 'Fraunces', Georgia, serif;
+    font-weight: 700;
+  }
+
+  /* Animations */
+  @keyframes fadeIn {
+    from { opacity: 0; transform: translateY(12px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+  @keyframes fadeInScale {
+    from { opacity: 0; transform: scale(0.96); }
+    to { opacity: 1; transform: scale(1); }
+  }
+  @keyframes slideUp {
+    from { opacity: 0; transform: translateY(24px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+  @keyframes pulse {
+    0%, 100% { transform: scale(1); }
+    50% { transform: scale(1.03); }
+  }
+  @keyframes popIn {
+    0% { opacity: 0; transform: scale(0.7); }
+    60% { transform: scale(1.05); }
+    100% { opacity: 1; transform: scale(1); }
+  }
+  @keyframes shimmer {
+    0% { background-position: -200% 0; }
+    100% { background-position: 200% 0; }
+  }
+
+  .animate-fade { animation: fadeIn 0.5s ease-out forwards; }
+  .animate-slide { animation: slideUp 0.5s ease-out forwards; }
+  .animate-pop { animation: popIn 0.35s ease-out forwards; }
+
+  /* Screen management */
+  .screen {
+    display: none;
+    flex-direction: column;
+    flex: 1;
+    padding-bottom: 32px;
+  }
+  .screen.active {
+    display: flex;
+  }
+
+  /* Header */
+  .header {
+    padding: 20px 0 12px;
+    text-align: center;
+    border-bottom: 1px solid var(--border);
+    margin-bottom: 24px;
+  }
+  .header-logo {
+    font-size: 13px;
+    font-weight: 600;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--ink-faint);
+    margin-bottom: 4px;
+  }
+  .header-date {
+    font-size: 15px;
+    color: var(--ink-muted);
+    font-weight: 500;
+  }
+
+  /* Buttons */
+  .btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    padding: 14px 24px;
+    border-radius: 12px;
+    border: none;
+    font-family: inherit;
+    font-size: 16px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: transform 0.1s ease, background 0.2s ease, box-shadow 0.2s ease;
+    width: 100%;
+    -webkit-appearance: none;
+  }
+  .btn:active { transform: scale(0.97); }
+  .btn-primary {
+    background: var(--accent);
+    color: white;
+    box-shadow: var(--shadow);
+  }
+  .btn-primary:hover { background: var(--accent-hover); }
+  .btn-secondary {
+    background: var(--card);
+    color: var(--ink);
+    border: 1.5px solid var(--border);
+    box-shadow: var(--shadow);
+  }
+  .btn-secondary:hover { background: var(--bg-warm); }
+  .btn-ghost {
+    background: transparent;
+    color: var(--ink-muted);
+    border: 1.5px solid transparent;
+    font-size: 14px;
+    padding: 10px 16px;
+    width: auto;
+  }
+  .btn-ghost:hover { color: var(--ink); }
+
+  /* Inputs */
+  .input {
+    width: 100%;
+    padding: 14px 16px;
+    border-radius: 12px;
+    border: 1.5px solid var(--border);
+    background: var(--card);
+    font-family: inherit;
+    font-size: 16px;
+    color: var(--ink);
+    outline: none;
+    transition: border-color 0.2s ease, box-shadow 0.2s ease;
+    -webkit-appearance: none;
+  }
+  .input:focus {
+    border-color: var(--accent);
+    box-shadow: 0 0 0 3px rgba(199,91,57,0.12);
+  }
+  .input::placeholder { color: var(--ink-faint); }
+
+  /* Cards */
+  .card {
+    background: var(--card);
+    border-radius: 16px;
+    padding: 20px;
+    box-shadow: var(--shadow);
+    border: 1px solid var(--border);
+  }
+
+  /* Landing Screen */
+  .landing-hero {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    padding: 40px 0;
+  }
+  .landing-title {
+    font-size: 42px;
+    line-height: 1.1;
+    margin-bottom: 16px;
+    color: var(--ink);
+  }
+  .landing-subtitle {
+    font-size: 17px;
+    color: var(--ink-muted);
+    line-height: 1.5;
+    max-width: 320px;
+    margin-bottom: 40px;
+  }
+  .landing-meta {
+    font-size: 14px;
+    color: var(--ink-faint);
+    margin-top: 24px;
+    font-weight: 500;
+  }
+  .tomorrow-teaser {
+    margin-top: 32px;
+    padding: 16px;
+    background: var(--bg-warm);
+    border-radius: 12px;
+    border: 1px dashed var(--border);
+  }
+  .tomorrow-teaser-label {
+    font-size: 11px;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    color: var(--ink-faint);
+    margin-bottom: 6px;
+    font-weight: 600;
+  }
+  .tomorrow-teaser-text {
+    font-size: 18px;
+    color: var(--ink-muted);
+    font-style: italic;
+  }
+
+  /* Game Screen */
+  .round-header {
+    text-align: center;
+    margin-bottom: 28px;
+  }
+  .round-counter {
+    font-size: 12px;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    color: var(--accent);
+    margin-bottom: 12px;
+  }
+  .prefix-box {
+    background: var(--card);
+    border-radius: 16px;
+    padding: 24px 20px;
+    box-shadow: var(--shadow);
+    border: 1px solid var(--border);
+    text-align: center;
+  }
+  .prefix-text {
+    font-size: 28px;
+    line-height: 1.3;
+    color: var(--ink);
+  }
+  .prefix-dots {
+    color: var(--accent);
+  }
+
+  .guess-area {
+    margin-top: 24px;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+  }
+  .guess-chip {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding: 14px 16px;
+    background: var(--card);
+    border-radius: 12px;
+    border: 1.5px solid var(--border);
+    font-size: 15px;
+    animation: fadeIn 0.3s ease-out;
+  }
+  .guess-chip-num {
+    width: 24px;
+    height: 24px;
+    border-radius: 50%;
+    background: var(--bg-warm);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 12px;
+    font-weight: 700;
+    color: var(--ink-muted);
+    flex-shrink: 0;
+  }
+  .guess-chip-text {
+    flex: 1;
+    color: var(--ink);
+    font-weight: 500;
+  }
+
+  .guess-input-wrap {
+    display: flex;
+    gap: 10px;
+    margin-top: 4px;
+  }
+  .guess-input-wrap .input {
+    flex: 1;
+  }
+  .guess-input-wrap .btn {
+    width: auto;
+    padding: 14px 18px;
+    border-radius: 12px;
+  }
+
+  /* Reveal Screen */
+  .reveal-prefix {
+    margin-bottom: 24px;
+  }
+  .reveal-prefix-title {
+    font-size: 22px;
+    margin-bottom: 4px;
+  }
+  .reveal-prefix-sub {
+    font-size: 13px;
+    color: var(--ink-faint);
+    font-weight: 500;
+  }
+
+  .reveal-row {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding: 14px 16px;
+    background: var(--card);
+    border-radius: 12px;
+    border: 1px solid var(--border);
+    margin-bottom: 10px;
+    opacity: 0;
+    transform: translateY(10px);
+    transition: opacity 0.4s ease, transform 0.4s ease;
+  }
+  .reveal-row.visible {
+    opacity: 1;
+    transform: translateY(0);
+  }
+  .reveal-row.guess-row {
+    border-left: 3px solid var(--border);
+  }
+  .reveal-row.answer-row {
+    border-left: 3px solid var(--green);
+  }
+  .reveal-square {
+    width: 28px;
+    height: 28px;
+    border-radius: 6px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 14px;
+    flex-shrink: 0;
+  }
+  .sq-green { background: var(--green); color: white; }
+  .sq-yellow { background: var(--yellow); color: white; }
+  .sq-dark { background: var(--dark); color: white; }
+  .reveal-text {
+    flex: 1;
+    font-size: 15px;
+    font-weight: 500;
+  }
+  .reveal-rank {
+    font-size: 12px;
+    font-weight: 700;
+    color: var(--ink-faint);
+    background: var(--bg-warm);
+    padding: 4px 8px;
+    border-radius: 6px;
+  }
+
+  .answer-section {
+    margin-top: 20px;
+  }
+  .answer-label {
+    font-size: 11px;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    color: var(--ink-faint);
+    font-weight: 600;
+    margin-bottom: 10px;
+  }
+
+  /* Share Screen */
+  .share-hero {
+    text-align: center;
+    margin-bottom: 28px;
+  }
+  .share-score {
+    font-size: 48px;
+    line-height: 1;
+    margin-bottom: 8px;
+  }
+  .share-score-label {
+    font-size: 15px;
+    color: var(--ink-muted);
+    font-weight: 500;
+  }
+
+  .grid-box {
+    background: var(--card);
+    border-radius: 16px;
+    padding: 24px 20px;
+    box-shadow: var(--shadow);
+    border: 1px solid var(--border);
+    text-align: center;
+    margin-bottom: 20px;
+  }
+  .grid-emoji {
+    font-size: 28px;
+    line-height: 1.6;
+    letter-spacing: 4px;
+    font-family: "Apple Color Emoji", "Segoe UI Emoji", "Noto Color Emoji", sans-serif;
+  }
+  .grid-header {
+    font-size: 14px;
+    font-weight: 600;
+    color: var(--ink-muted);
+    margin-bottom: 12px;
+    word-break: break-word;
+  }
+
+  .copy-toast {
+    position: fixed;
+    bottom: 100px;
+    left: 50%;
+    transform: translateX(-50%) translateY(20px);
+    background: var(--dark);
+    color: white;
+    padding: 12px 20px;
+    border-radius: 10px;
+    font-size: 14px;
+    font-weight: 500;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.3s ease, transform 0.3s ease;
+    z-index: 100;
+    white-space: nowrap;
+  }
+  .copy-toast.show {
+    opacity: 1;
+    transform: translateX(-50%) translateY(0);
+  }
+
+  /* Utility */
+  .spacer { flex: 1; }
+  .mt-2 { margin-top: 8px; }
+  .mt-3 { margin-top: 12px; }
+  .mt-4 { margin-top: 16px; }
+  .mt-6 { margin-top: 24px; }
+  .text-center { text-align: center; }
+  .fade-in { animation: fadeIn 0.5s ease-out forwards; }
+
+  /* Responsive tweaks */
+  @media (max-width: 380px) {
+    .landing-title { font-size: 36px; }
+    .prefix-text { font-size: 24px; }
+    .grid-emoji { font-size: 24px; letter-spacing: 2px; }
+  }
+</style>
+</head>
+<body>
+<div id="app">
+  <div class="header">
+    <div class="header-logo">Autocomplete Showdown</div>
+    <div class="header-date" id="header-date"></div>
+  </div>
+
+  <!-- Landing Screen -->
+  <div class="screen active" id="screen-landing">
+    <div class="landing-hero">
+      <div class="animate-fade">
+        <div class="landing-title serif">Autocomplete Showdown</div>
+      </div>
+      <div class="animate-fade" style="animation-delay:0.1s">
+        <p class="landing-subtitle">Guess the top search completions for your city. Three guesses. Five prefixes. One shared ritual.</p>
+      </div>
+      <div class="animate-fade" style="animation-delay:0.2s; width:100%; max-width:280px;">
+        <button class="btn btn-primary" id="btn-play" onclick="startGame()">
+          Play today's game
+        </button>
+      </div>
+      <div class="animate-fade" style="animation-delay:0.3s">
+        <p class="landing-meta" id="landing-meta"></p>
+      </div>
+      <div class="animate-fade tomorrow-teaser" style="animation-delay:0.4s">
+        <div class="tomorrow-teaser-label">Tomorrow's first prefix</div>
+        <div class="tomorrow-teaser-text serif" id="tomorrow-teaser"></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Playing Screen -->
+  <div class="screen" id="screen-playing">
+    <div class="round-header animate-fade">
+      <div class="round-counter" id="round-counter">Round 1 of 3</div>
+      <div class="prefix-box">
+        <div class="prefix-text serif"><span id="prefix-text"></span><span class="prefix-dots">...</span></div>
+      </div>
+    </div>
+
+    <div class="guess-area" id="guess-area">
+      <div id="guess-chips"></div>
+      <div class="guess-input-wrap" id="guess-input-wrap">
+        <input type="text" class="input" id="guess-input" placeholder="Type a completion..." autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" onkeydown="if(event.key==='Enter') submitGuess()">
+        <button class="btn btn-primary" onclick="submitGuess()" style="width:auto; padding:14px 20px;">Add</button>
+      </div>
+    </div>
+
+    <div class="spacer"></div>
+    <div class="mt-4" id="round-actions" style="display:none;">
+      <button class="btn btn-primary" id="btn-next-round" onclick="nextRound()">
+        Next prefix →
+      </button>
+    </div>
+  </div>
+
+  <!-- Reveal Screen -->
+  <div class="screen" id="screen-reveal">
+    <div id="reveal-container"></div>
+    <div class="spacer"></div>
+    <div class="mt-6" id="reveal-actions">
+      <button class="btn btn-primary" id="btn-reveal-next" onclick="nextReveal()">Next prefix →</button>
+    </div>
+  </div>
+
+  <!-- Share Screen -->
+  <div class="screen" id="screen-share">
+    <div class="share-hero animate-fade">
+      <div class="share-score serif" id="share-score"></div>
+      <div class="share-score-label">matches out of 9 guesses</div>
+    </div>
+
+    <div class="grid-box animate-fade" style="animation-delay:0.15s">
+      <div class="grid-header" id="grid-header"></div>
+      <div class="grid-emoji" id="grid-emoji"></div>
+    </div>
+
+    <div class="animate-fade" style="animation-delay:0.3s">
+      <button class="btn btn-primary" id="btn-copy" onclick="copyResults()">
+        Copy results
+      </button>
+      <button class="btn btn-secondary mt-3" onclick="resetGame()">
+        Play again
+      </button>
+    </div>
+
+    <div class="tomorrow-teaser animate-fade mt-6" style="animation-delay:0.45s">
+      <div class="tomorrow-teaser-label">Tomorrow's first prefix</div>
+      <div class="tomorrow-teaser-text serif" id="share-tomorrow"></div>
+    </div>
+  </div>
+</div>
+
+<div class="copy-toast" id="copy-toast">Copied to clipboard!</div>
+
+<script>
+// ============================
+// DATA
+// ============================
+const PUZZLE = {
+  date: new Date().toLocaleDateString("en-US", { month: "long", day: "numeric", year: "numeric" }),
+  city: "Bangkok",
+  flag: "🇹🇭",
+  tomorrowTeaser: "why is the sky",
+  prefixes: [
+    {
+      prefix: "why does my cat",
+      completions: [
+        { text: "stare at the wall", rank: 1 },
+        { text: "meow at 3am", rank: 2 },
+        { text: "sleep on my keyboard", rank: 3 },
+        { text: "hate water", rank: 4 },
+        { text: "bring me lizards", rank: 5 }
+      ]
+    },
+    {
+      prefix: "how do I stop",
+      completions: [
+        { text: "sweating in Bangkok", rank: 1 },
+        { text: "my phone from autocorrecting", rank: 2 },
+        { text: "eating mango sticky rice", rank: 3 },
+        { text: "the BTS from being crowded", rank: 4 },
+        { text: "my neighbor from singing", rank: 5 }
+      ]
+    },
+    {
+      prefix: "is it legal to",
+      completions: [
+        { text: "ride without a helmet", rank: 1 },
+        { text: "drink beer on the street", rank: 2 },
+        { text: "own a monkey in Thailand", rank: 3 },
+        { text: "sell durian on the BTS", rank: 4 },
+        { text: "fish in Lumpini Park", rank: 5 }
+      ]
+    }
+  ]
+};
+
+// ============================
+// STATE
+// ============================
+let state = {
+  screen: "landing",
+  round: 0,
+  guesses: [[], [], []], // 3 prefixes, each with up to 3 guesses
+  guessIndex: 0, // current guess within round (0-2)
+  revealRound: 0,
+  revealStep: 0, // animation step within reveal
+};
+
+// localStorage key for today
+function getStorageKey() {
+  const d = new Date();
+  return `as_${d.getFullYear()}_${d.getMonth()}_${d.getDate()}`;
+}
+
+function loadState() {
+  try {
+    const raw = localStorage.getItem(getStorageKey());
+    if (raw) {
+      const saved = JSON.parse(raw);
+      if (saved.completed) {
+        state = { ...state, ...saved };
+        state.screen = "share";
+        return;
+      }
+      if (saved.guesses) {
+        state.guesses = saved.guesses;
+        state.round = saved.round || 0;
+        state.guessIndex = saved.guessIndex || 0;
+        if (state.round < PUZZLE.prefixes.length) {
+          state.screen = "playing";
+        }
+      }
+    }
+  } catch (e) { /* ignore */ }
+}
+
+function saveState() {
+  try {
+    localStorage.setItem(getStorageKey(), JSON.stringify({
+      guesses: state.guesses,
+      round: state.round,
+      guessIndex: state.guessIndex,
+      completed: state.screen === "share"
+    }));
+  } catch (e) { /* ignore */ }
+}
+
+// ============================
+// UTILS
+// ============================
+function normalize(str) {
+  return str.toLowerCase().replace(/[^a-z0-9\s]/g, "").trim();
+}
+
+function getSquare(guessText, completions) {
+  const norm = normalize(guessText);
+  const top3 = completions.slice(0, 3).map(c => normalize(c.text));
+  const rest = completions.slice(3).map(c => normalize(c.text));
+
+  if (top3.includes(norm)) return "green";
+  if (rest.includes(norm)) return "yellow";
+  return "dark";
+}
+
+function getEmoji(color) {
+  if (color === "green") return "🟩";
+  if (color === "yellow") return "🟨";
+  return "⬛";
+}
+
+function scoreGame() {
+  let score = 0;
+  for (let r = 0; r < PUZZLE.prefixes.length; r++) {
+    const comp = PUZZLE.prefixes[r].completions;
+    for (const g of state.guesses[r] || []) {
+      const sq = getSquare(g, comp);
+      if (sq === "green" || sq === "yellow") score++;
+    }
+  }
+  return score;
+}
+
+function buildGrid() {
+  const totalGuesses = PUZZLE.prefixes.length * 3;
+  const score = scoreGame();
+  const lines = [
+    `Autocomplete Showdown — ${PUZZLE.date} — ${PUZZLE.city} ${PUZZLE.flag} — ${score}/${totalGuesses}`
+  ];
+  for (let r = 0; r < PUZZLE.prefixes.length; r++) {
+    const comp = PUZZLE.prefixes[r].completions;
+    const row = (state.guesses[r] || []).map(g => getEmoji(getSquare(g, comp))).join("");
+    lines.push(row);
+  }
+  return lines.join("\n");
+}
+
+// ============================
+// SCREEN NAVIGATION
+// ============================
+function showScreen(name) {
+  state.screen = name;
+  document.querySelectorAll(".screen").forEach(s => s.classList.remove("active"));
+  document.getElementById("screen-" + name).classList.add("active");
+  window.scrollTo(0, 0);
+}
+
+// ============================
+// LANDING
+// ============================
+function initLanding() {
+  document.getElementById("header-date").textContent = `${PUZZLE.date} — ${PUZZLE.city} ${PUZZLE.flag}`;
+  document.getElementById("landing-meta").textContent = `3 prefixes • 3 guesses each • ~2 minutes`;
+  document.getElementById("tomorrow-teaser").textContent = `${PUZZLE.tomorrowTeaser}...`;
+  document.getElementById("share-tomorrow").textContent = `${PUZZLE.tomorrowTeaser}...`;
+}
+
+function startGame() {
+  showScreen("playing");
+  renderRound();
+  setTimeout(() => document.getElementById("guess-input").focus(), 300);
+}
+
+// ============================
+// PLAYING
+// ============================
+function renderRound() {
+  const p = PUZZLE.prefixes[state.round];
+  document.getElementById("round-counter").textContent = `Round ${state.round + 1} of ${PUZZLE.prefixes.length}`;
+  document.getElementById("prefix-text").textContent = p.prefix;
+
+  // Render existing guesses as chips
+  const chipsEl = document.getElementById("guess-chips");
+  chipsEl.innerHTML = "";
+  const currentGuesses = state.guesses[state.round] || [];
+  currentGuesses.forEach((g, i) => {
+    const chip = document.createElement("div");
+    chip.className = "guess-chip animate-pop";
+    chip.innerHTML = `<div class="guess-chip-num">${i + 1}</div><div class="guess-chip-text">${escapeHtml(g)}</div>`;
+    chipsEl.appendChild(chip);
+  });
+
+  const inputWrap = document.getElementById("guess-input-wrap");
+  const actions = document.getElementById("round-actions");
+  const input = document.getElementById("guess-input");
+
+  if (currentGuesses.length >= 3) {
+    inputWrap.style.display = "none";
+    actions.style.display = "block";
+    const btn = document.getElementById("btn-next-round");
+    if (state.round === PUZZLE.prefixes.length - 1) {
+      btn.textContent = "See results →";
+    } else {
+      btn.textContent = "Next prefix →";
+    }
+  } else {
+    inputWrap.style.display = "flex";
+    actions.style.display = "none";
+    input.value = "";
+    setTimeout(() => input.focus(), 100);
+  }
+}
+
+function escapeHtml(text) {
+  const div = document.createElement("div");
+  div.textContent = text;
+  return div.innerHTML;
+}
+
+function submitGuess() {
+  const input = document.getElementById("guess-input");
+  const val = input.value.trim();
+  if (!val) return;
+
+  if (!state.guesses[state.round]) state.guesses[state.round] = [];
+  state.guesses[state.round].push(val);
+  state.guessIndex = state.guesses[state.round].length;
+  saveState();
+
+  // Haptic-like feedback
+  input.style.transform = "scale(0.98)";
+  setTimeout(() => input.style.transform = "scale(1)", 100);
+
+  renderRound();
+}
+
+function nextRound() {
+  state.round++;
+  state.guessIndex = 0;
+  saveState();
+  if (state.round >= PUZZLE.prefixes.length) {
+    startReveal();
+  } else {
+    renderRound();
+  }
+}
+
+// ============================
+// REVEAL
+// ============================
+function startReveal() {
+  state.revealRound = 0;
+  state.revealStep = 0;
+  showScreen("reveal");
+  renderReveal();
+}
+
+function renderReveal() {
+  const container = document.getElementById("reveal-container");
+  const p = PUZZLE.prefixes[state.revealRound];
+  const guesses = state.guesses[state.revealRound] || [];
+  const comp = p.completions;
+
+  // Build the reveal content
+  let html = `
+    <div class="reveal-prefix animate-fade">
+      <div class="reveal-prefix-title serif">${escapeHtml(p.prefix)}...</div>
+      <div class="reveal-prefix-sub">Your guesses vs. the top completions</div>
+    </div>
+  `;
+
+  // Your guesses
+  html += `<div class="answer-label">Your guesses</div>`;
+  guesses.forEach((g, i) => {
+    const sq = getSquare(g, comp);
+    html += `
+      <div class="reveal-row guess-row" id="rg-${i}">
+        <div class="reveal-square sq-${sq}">${getEmoji(sq)}</div>
+        <div class="reveal-text">${escapeHtml(g)}</div>
+      </div>
+    `;
+  });
+
+  // Top completions
+  html += `<div class="answer-section"><div class="answer-label">Top completions</div>`;
+  comp.slice(0, 3).forEach((c, i) => {
+    html += `
+      <div class="reveal-row answer-row" id="ra-${i}">
+        <div class="reveal-text">${escapeHtml(c.text)}</div>
+        <div class="reveal-rank">#${c.rank}</div>
+      </div>
+    `;
+  });
+  html += `</div>`;
+
+  container.innerHTML = html;
+
+  // Animate in with stagger
+  const allRows = container.querySelectorAll(".reveal-row");
+  allRows.forEach((row, i) => {
+    setTimeout(() => {
+      row.classList.add("visible");
+    }, 200 + i * 350);
+  });
+
+  // Update button
+  const btn = document.getElementById("btn-reveal-next");
+  if (state.revealRound === PUZZLE.prefixes.length - 1) {
+    btn.textContent = "Share results →";
+  } else {
+    btn.textContent = "Next prefix →";
+  }
+}
+
+function nextReveal() {
+  state.revealRound++;
+  if (state.revealRound >= PUZZLE.prefixes.length) {
+    showShare();
+  } else {
+    renderReveal();
+  }
+}
+
+// ============================
+// SHARE
+// ============================
+function showShare() {
+  state.screen = "share";
+  saveState();
+  showScreen("share");
+
+  const totalGuesses = PUZZLE.prefixes.length * 3;
+  const score = scoreGame();
+  document.getElementById("share-score").textContent = `${score}/${totalGuesses}`;
+
+  const gridText = buildGrid();
+  document.getElementById("grid-header").textContent = `Autocomplete Showdown — ${PUZZLE.date} — ${PUZZLE.city} ${PUZZLE.flag}`;
+
+  // Build visual emoji grid
+  let emojiHtml = "";
+  for (let r = 0; r < PUZZLE.prefixes.length; r++) {
+    const comp = PUZZLE.prefixes[r].completions;
+    const rowEmojis = (state.guesses[r] || []).map(g => getEmoji(getSquare(g, comp))).join(" ");
+    emojiHtml += `<div>${rowEmojis}</div>`;
+  }
+  document.getElementById("grid-emoji").innerHTML = emojiHtml;
+}
+
+function copyResults() {
+  const text = buildGrid();
+  if (navigator.clipboard && navigator.clipboard.writeText) {
+    navigator.clipboard.writeText(text).then(showToast, () => fallbackCopy(text));
+  } else {
+    fallbackCopy(text);
+  }
+}
+
+function fallbackCopy(text) {
+  const ta = document.createElement("textarea");
+  ta.value = text;
+  document.body.appendChild(ta);
+  ta.select();
+  document.execCommand("copy");
+  document.body.removeChild(ta);
+  showToast();
+}
+
+function showToast() {
+  const t = document.getElementById("copy-toast");
+  t.classList.add("show");
+  setTimeout(() => t.classList.remove("show"), 2000);
+}
+
+function resetGame() {
+  state = {
+    screen: "landing",
+    round: 0,
+    guesses: [[], [], []],
+    guessIndex: 0,
+    revealRound: 0,
+    revealStep: 0,
+  };
+  try { localStorage.removeItem(getStorageKey()); } catch (e) {}
+  showScreen("landing");
+  initLanding();
+}
+
+// ============================
+// INIT
+// ============================
+loadState();
+initLanding();
+if (state.screen === "playing") {
+  showScreen("playing");
+  renderRound();
+} else if (state.screen === "share") {
+  showShare();
+}
+</script>
+</body>
+</html>
