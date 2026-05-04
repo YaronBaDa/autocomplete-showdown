@@ -1,16 +1,16 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="he" dir="rtl">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
 <meta name="theme-color" content="#FAF7F2">
-<meta property="og:title" content="Backsearch — Daily Reverse Autocomplete Puzzle">
-<meta property="og:description" content="Five unhinged completions. One hidden search. Can you reverse-engineer it?">
+<meta property="og:title" content="Backsearch — חידת ההשלמה האחורית היומית">
+<meta property="og:description" content="חמש השלמות המטורפות. חיפוש אחד חבוי. האם תצליחו לפענח?">
 <meta property="og:type" content="website">
 <title>Backsearch</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,500;0,9..144,700;1,9..144,500;1,9..144,700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Frank+Ruhl+Libre:wght@400;500;700&family=Heebo:wght@400;500;600;700&display=swap" rel="stylesheet">
 <style>
   :root {
     --bg: #FAF7F2;
@@ -38,7 +38,7 @@
     height: 100%;
     background: var(--bg);
     color: var(--ink);
-    font-family: 'Inter', system-ui, -apple-system, sans-serif;
+    font-family: 'Heebo', system-ui, -apple-system, sans-serif;
     -webkit-font-smoothing: antialiased;
     -webkit-tap-highlight-color: transparent;
   }
@@ -54,8 +54,8 @@
     overflow-x: hidden;
   }
 
-  .serif { font-family: 'Fraunces', Georgia, serif; font-weight: 700; }
-  .serif-med { font-family: 'Fraunces', Georgia, serif; font-weight: 500; font-style: italic; }
+  .serif { font-family: 'Frank Ruhl Libre', Georgia, serif; font-weight: 700; }
+  .serif-med { font-family: 'Frank Ruhl Libre', Georgia, serif; font-weight: 500; font-style: italic; }
 
   @keyframes fadeIn {
     from { opacity: 0; transform: translateY(12px); }
@@ -74,14 +74,6 @@
     60% { transform: scale(1.05); }
     100% { opacity: 1; transform: scale(1); }
   }
-  @keyframes typewriter {
-    from { width: 0; }
-    to { width: 100%; }
-  }
-  @keyframes blink {
-    0%, 100% { opacity: 1; }
-    50% { opacity: 0; }
-  }
 
   .animate-fade { animation: fadeIn 0.5s ease-out forwards; }
   .animate-slide { animation: slideUp 0.5s ease-out forwards; }
@@ -95,111 +87,135 @@
     border-bottom: 1px solid var(--border); margin-bottom: 24px;
   }
   .header-logo {
-    font-size: 13px; font-weight: 600; letter-spacing: 0.08em;
-    text-transform: uppercase; color: var(--ink-faint); margin-bottom: 4px;
+    font-size: 13px; font-weight: 600; letter-spacing: 0.04em;
+    color: var(--ink-faint); margin-bottom: 4px;
   }
-  .header-date { font-size: 15px; color: var(--ink-muted); font-weight: 500; }
-
-  .btn {
-    display: inline-flex; align-items: center; justify-content: center; gap: 8px;
-    padding: 14px 24px; border-radius: 12px; border: none;
-    font-family: inherit; font-size: 16px; font-weight: 600; cursor: pointer;
-    transition: transform 0.1s ease, background 0.2s ease, box-shadow 0.2s ease, opacity 0.2s ease;
-    width: 100%; -webkit-appearance: none;
+  .header-date {
+    font-size: 14px; color: var(--ink-muted); font-weight: 500;
   }
-  .btn:active { transform: scale(0.97); }
-  .btn:disabled { opacity: 0.45; cursor: not-allowed; transform: none !important; }
-  .btn-primary { background: var(--accent); color: white; box-shadow: var(--shadow); }
-  .btn-primary:hover:not(:disabled) { background: var(--accent-hover); }
-  .btn-secondary { background: var(--card); color: var(--ink); border: 1.5px solid var(--border); box-shadow: var(--shadow); }
-  .btn-secondary:hover:not(:disabled) { background: var(--bg-warm); }
-  .btn-ghost { background: transparent; color: var(--ink-muted); border: 1.5px solid transparent; font-size: 14px; padding: 10px 16px; width: auto; }
-  .btn-ghost:hover { color: var(--ink); }
-  .btn-danger { background: transparent; color: var(--ink-faint); border: 1.5px solid var(--border); font-size: 14px; }
-  .btn-danger:hover { color: var(--accent); border-color: var(--accent); }
-
-  .input {
-    width: 100%; padding: 14px 16px; border-radius: 12px;
-    border: 1.5px solid var(--border); background: var(--card);
-    font-family: inherit; font-size: 16px; color: var(--ink); outline: none;
-    transition: border-color 0.2s ease, box-shadow 0.2s ease; -webkit-appearance: none;
-  }
-  .input:focus { border-color: var(--accent); box-shadow: 0 0 0 3px rgba(199,91,57,0.12); }
-  .input::placeholder { color: var(--ink-faint); }
-  .input:disabled { background: var(--bg-warm); opacity: 0.7; }
-
-  .card { background: var(--card); border-radius: 16px; padding: 20px; box-shadow: var(--shadow); border: 1px solid var(--border); }
 
   /* Landing */
-  .landing-hero { flex: 1; display: flex; flex-direction: column; justify-content: center; align-items: center; text-align: center; padding: 40px 0; }
-  .landing-title { font-size: 48px; line-height: 1.05; margin-bottom: 16px; color: var(--ink); }
-  .landing-subtitle { font-size: 17px; color: var(--ink-muted); line-height: 1.5; max-width: 340px; margin-bottom: 40px; }
-  .landing-meta { font-size: 14px; color: var(--ink-faint); margin-top: 24px; font-weight: 500; }
-  .tomorrow-teaser { margin-top: 32px; padding: 16px; background: var(--bg-warm); border-radius: 12px; border: 1px dashed var(--border); }
-  .tomorrow-teaser-label { font-size: 11px; text-transform: uppercase; letter-spacing: 0.1em; color: var(--ink-faint); margin-bottom: 6px; font-weight: 600; }
-  .tomorrow-teaser-text { font-size: 18px; color: var(--ink-muted); font-style: italic; }
+  .landing-hero {
+    flex: 1; display: flex; flex-direction: column;
+    align-items: center; justify-content: center;
+    text-align: center; padding: 40px 0;
+  }
+  .landing-title {
+    font-size: 52px; line-height: 1.1; color: var(--ink);
+    margin-bottom: 16px; letter-spacing: -0.02em;
+  }
+  .landing-subtitle {
+    font-size: 17px; line-height: 1.55; color: var(--ink-muted);
+    max-width: 340px; margin-bottom: 32px; font-weight: 400;
+  }
+  .landing-meta {
+    font-size: 13px; color: var(--ink-faint); font-weight: 500;
+    margin-top: 16px;
+  }
+  .tomorrow-teaser {
+    margin-top: 40px; padding: 16px 20px;
+    background: var(--card); border-radius: 12px;
+    border: 1px solid var(--border); box-shadow: var(--shadow);
+    max-width: 320px; width: 100%;
+  }
+  .tomorrow-teaser-label {
+    font-size: 11px; text-transform: uppercase; letter-spacing: 0.06em;
+    color: var(--ink-faint); font-weight: 600; margin-bottom: 6px;
+  }
+  .tomorrow-teaser-text {
+    font-size: 16px; line-height: 1.4; color: var(--ink-muted);
+  }
+
+  /* Buttons */
+  .btn {
+    display: inline-flex; align-items: center; justify-content: center;
+    border: none; border-radius: 12px; padding: 14px 28px;
+    font-family: inherit; font-size: 15px; font-weight: 600; cursor: pointer;
+    transition: transform 0.15s ease, box-shadow 0.15s ease, background 0.15s ease;
+    width: 100%; letter-spacing: 0.01em;
+  }
+  .btn:active { transform: scale(0.97); }
+  .btn-primary {
+    background: var(--accent); color: white;
+    box-shadow: 0 4px 12px rgba(199,91,57,0.25);
+  }
+  .btn-primary:hover { background: var(--accent-hover); }
+  .btn-secondary {
+    background: var(--card); color: var(--ink);
+    border: 1px solid var(--border); box-shadow: var(--shadow);
+  }
+  .btn-secondary:hover { background: var(--bg-warm); }
+  .btn-ghost {
+    background: transparent; color: var(--ink-faint);
+    font-size: 13px; padding: 10px 16px; width: auto;
+  }
+  .btn-ghost:hover { color: var(--ink-muted); }
+  .btn-danger {
+    background: var(--bg-warm); color: var(--accent);
+    border: 1px solid var(--border); font-size: 13px;
+  }
 
   /* Playing */
-  .round-header { text-align: center; margin-bottom: 20px; }
-  .round-counter { font-size: 12px; font-weight: 600; text-transform: uppercase; letter-spacing: 0.1em; color: var(--accent); margin-bottom: 8px; }
-  .round-score { font-size: 13px; color: var(--ink-muted); font-weight: 500; margin-bottom: 16px; }
+  .round-header {
+    text-align: center; margin-bottom: 20px;
+  }
+  .round-counter {
+    font-size: 12px; font-weight: 600; letter-spacing: 0.05em;
+    color: var(--ink-faint); text-transform: uppercase; margin-bottom: 4px;
+  }
+  .round-score {
+    font-size: 14px; color: var(--ink-muted); font-weight: 500;
+  }
   .round-score .score-val { color: var(--accent); font-weight: 700; }
 
   .completions-label {
-    font-size: 11px; text-transform: uppercase; letter-spacing: 0.1em;
-    color: var(--ink-faint); font-weight: 600; margin-bottom: 12px; text-align: center;
+    font-size: 11px; font-weight: 600; letter-spacing: 0.06em;
+    color: var(--ink-faint); text-transform: uppercase;
+    margin-bottom: 10px; text-align: center;
   }
 
   .completion-card {
-    background: var(--paper);
-    border: 1px solid var(--paper-border);
-    border-radius: 10px;
-    padding: 14px 16px;
-    margin-bottom: 10px;
-    box-shadow: 0 1px 3px rgba(0,0,0,0.04);
-    position: relative;
-    font-family: 'Fraunces', Georgia, serif;
-    font-weight: 500;
-    font-style: italic;
-    font-size: 17px;
-    line-height: 1.4;
-    color: var(--ink);
-    animation: fadeIn 0.4s ease-out forwards;
+    background: var(--card); border: 1px solid var(--border);
+    border-radius: 14px; padding: 16px 18px; margin-bottom: 10px;
+    box-shadow: var(--shadow); display: flex; align-items: baseline;
+    animation: fadeInScale 0.35s ease-out forwards;
+    opacity: 0;
   }
-  .completion-card::before {
-    content: """;
-    position: absolute;
-    top: 10px; left: 10px;
-    font-size: 28px; color: var(--border); line-height: 1;
-    font-family: Georgia, serif;
+  .completion-card .num { margin-left: 10px; color: var(--ink-faint); font-weight: 600; font-size: 13px; flex-shrink: 0; }
+  .completion-card .text {
+    font-family: 'Frank Ruhl Libre', Georgia, serif;
+    font-weight: 500; font-style: italic;
+    font-size: 17px; line-height: 1.45; color: var(--ink); flex: 1;
   }
-  .completion-card .num {
-    display: inline-block;
-    width: 20px; font-family: 'Inter', sans-serif;
-    font-size: 12px; font-weight: 700; font-style: normal;
-    color: var(--ink-faint); margin-right: 8px; vertical-align: top;
-  }
-  .completion-card .text { position: relative; z-index: 1; }
 
   .guess-area { margin-top: 20px; }
   .guess-prompt {
-    font-size: 14px; color: var(--ink-muted); font-weight: 500;
-    text-align: center; margin-bottom: 10px;
+    font-size: 14px; font-weight: 600; color: var(--ink-muted);
+    margin-bottom: 10px; text-align: center;
   }
-  .guess-input-wrap { display: flex; gap: 10px; }
-  .guess-input-wrap .input { flex: 1; }
-  .guess-input-wrap .btn { width: auto; padding: 14px 20px; border-radius: 12px; }
+  .guess-input-wrap {
+    display: flex; gap: 8px; margin-bottom: 8px;
+  }
+  .input {
+    flex: 1; background: var(--card); border: 1.5px solid var(--border);
+    border-radius: 12px; padding: 14px 16px; font-family: inherit;
+    font-size: 15px; color: var(--ink); outline: none;
+    transition: border-color 0.2s ease, box-shadow 0.2s ease;
+    direction: rtl;
+  }
+  .input::placeholder { color: var(--ink-faint); }
+  .input:focus { border-color: var(--accent); box-shadow: 0 0 0 3px var(--accent-light); }
 
-  .hint-area { margin-top: 16px; }
+  .hint-area { margin-top: 8px; }
   .hint-row {
-    display: flex; align-items: center; justify-content: center; gap: 8px;
-    padding: 10px 14px; background: var(--bg-warm); border-radius: 10px;
-    border: 1px dashed var(--border); font-size: 14px; color: var(--ink-muted);
-    font-weight: 500; margin-bottom: 8px; opacity: 0; transform: translateY(-6px);
+    display: flex; align-items: center; gap: 10px;
+    background: var(--accent-light); border-radius: 10px;
+    padding: 10px 14px; margin-bottom: 6px;
+    font-size: 14px; opacity: 0; transform: translateY(6px);
     transition: opacity 0.4s ease, transform 0.4s ease;
   }
   .hint-row.visible { opacity: 1; transform: translateY(0); }
-  .hint-row .hint-key { font-size: 10px; text-transform: uppercase; letter-spacing: 0.08em; font-weight: 700; color: var(--ink-faint); }
+  .hint-row .hint-key { font-size: 10px; text-transform: uppercase; letter-spacing: 0.05em; font-weight: 700; color: var(--ink-faint); }
   .hint-row .hint-val { color: var(--accent); font-weight: 600; }
 
   .wrong-toast {
@@ -221,7 +237,7 @@
     animation: fadeIn 0.6s ease-out forwards;
   }
   .reveal-prefix-big .label {
-    font-size: 11px; text-transform: uppercase; letter-spacing: 0.1em;
+    font-size: 11px; text-transform: uppercase; letter-spacing: 0.08em;
     color: var(--ink-faint); font-weight: 600; margin-bottom: 8px;
   }
   .reveal-prefix-big .prefix {
@@ -233,14 +249,14 @@
     background: var(--paper); border: 1px solid var(--paper-border);
     border-radius: 10px; padding: 14px 16px; margin-bottom: 10px;
     box-shadow: 0 1px 3px rgba(0,0,0,0.04);
-    font-family: 'Fraunces', Georgia, serif;
+    font-family: 'Frank Ruhl Libre', Georgia, serif;
     font-weight: 500; font-style: italic;
     font-size: 16px; line-height: 1.45; color: var(--ink);
     opacity: 0; transform: translateY(10px);
     transition: opacity 0.5s ease, transform 0.5s ease;
   }
   .reveal-sentence.visible { opacity: 1; transform: translateY(0); }
-  .reveal-sentence .prefix-part { color: var(--ink-faint); font-style: normal; font-family: 'Inter', sans-serif; font-weight: 400; }
+  .reveal-sentence .prefix-part { color: var(--ink-faint); font-style: normal; font-family: 'Heebo', sans-serif; font-weight: 400; }
 
   .reveal-score {
     text-align: center; margin: 20px 0 8px;
@@ -298,16 +314,16 @@
     <div class="landing-hero">
       <div class="animate-fade"><div class="landing-title serif">Backsearch</div></div>
       <div class="animate-fade" style="animation-delay:0.1s">
-        <p class="landing-subtitle">Five unhinged completions. One hidden search. Reverse-engineer the internet's weirdest questions.</p>
+        <p class="landing-subtitle">חמש השלמות המטורפות. חיפוש אחד חבוי. פענחו את השאלות הכי משוגעות של הרשת.</p>
       </div>
       <div class="animate-fade" style="animation-delay:0.2s; width:100%; max-width:280px;">
-        <button class="btn btn-primary" onclick="startGame()">Play today's game</button>
+        <button class="btn btn-primary" onclick="startGame()">שחקו את המשחק של היום</button>
       </div>
       <div class="animate-fade" style="animation-delay:0.3s">
         <p class="landing-meta" id="landing-meta"></p>
       </div>
       <div class="animate-fade tomorrow-teaser" style="animation-delay:0.4s">
-        <div class="tomorrow-teaser-label">Tomorrow's first completion</div>
+        <div class="tomorrow-teaser-label">ההשלמה הראשונה של מחר</div>
         <div class="tomorrow-teaser-text serif" id="tomorrow-teaser"></div>
       </div>
     </div>
@@ -316,30 +332,30 @@
   <!-- Playing -->
   <div class="screen" id="screen-playing">
     <div class="round-header animate-fade">
-      <div class="round-counter" id="round-counter">Puzzle 1 of 5</div>
-      <div class="round-score" id="round-score">Running total: <span class="score-val">0</span> / 15</div>
+      <div class="round-counter" id="round-counter">חידה 1 מתוך 5</div>
+      <div class="round-score" id="round-score">ניקוד מצטבר: <span class="score-val">0</span> / 15</div>
     </div>
 
-    <div class="completions-label" id="completions-label">Today's search</div>
+    <div class="completions-label" id="completions-label">החיפוש של היום</div>
     <div id="completions-list"></div>
 
     <div class="guess-area" id="guess-area">
-      <div class="guess-prompt" id="guess-prompt">What search produced these?</div>
+      <div class="guess-prompt" id="guess-prompt">איזה חיפוש יצר את אלה?</div>
       <div class="guess-input-wrap" id="input-wrap">
-        <input type="text" class="input" id="guess-input" placeholder="Type the search prefix..." autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" onkeydown="if(event.key==='Enter') submitGuess()">
-        <button class="btn btn-primary" onclick="submitGuess()" style="width:auto; padding:14px 22px;">Guess</button>
+        <input type="text" class="input" id="guess-input" placeholder="הקלידו את תחילת החיפוש..." autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" onkeydown="if(event.key==='Enter') submitGuess()">
+        <button class="btn btn-primary" onclick="submitGuess()" style="width:auto; padding:14px 22px;">נחשו</button>
       </div>
       <div class="hint-area" id="hint-area"></div>
-      <div class="wrong-toast" id="wrong-toast">Not quite — a hint appears below</div>
+      <div class="wrong-toast" id="wrong-toast">קרוב, אבל לא בול — הנה רמז</div>
     </div>
 
     <div class="action-row" id="action-row" style="display:none;">
-      <button class="btn btn-primary" id="btn-next" onclick="nextRound()">Next puzzle &rarr;</button>
+      <button class="btn btn-primary" id="btn-next" onclick="nextRound()">לחידה הבאה &larr;</button>
     </div>
 
     <div class="spacer"></div>
     <div class="mt-3" style="text-align:center;">
-      <button class="btn btn-ghost" onclick="skipRound()">Skip this puzzle</button>
+      <button class="btn btn-ghost" onclick="skipRound()">דלגו על החידה</button>
     </div>
   </div>
 
@@ -348,7 +364,7 @@
     <div id="reveal-container"></div>
     <div class="spacer"></div>
     <div class="mt-6">
-      <button class="btn btn-primary" id="btn-reveal-next" onclick="nextReveal()">Next puzzle &rarr;</button>
+      <button class="btn btn-primary" id="btn-reveal-next" onclick="nextReveal()">לחידה הבאה &larr;</button>
     </div>
   </div>
 
@@ -356,7 +372,7 @@
   <div class="screen" id="screen-share">
     <div class="share-hero animate-fade">
       <div class="share-score serif" id="share-score"></div>
-      <div class="share-score-label" id="share-score-label">out of 15 points</div>
+      <div class="share-score-label" id="share-score-label">מתוך 15 נקודות</div>
     </div>
 
     <div class="grid-box animate-fade" style="animation-delay:0.15s">
@@ -366,82 +382,87 @@
     </div>
 
     <div class="animate-fade" style="animation-delay:0.3s">
-      <button class="btn btn-primary" onclick="copyResults()">Copy results</button>
-      <button class="btn btn-secondary mt-3" onclick="resetGame()">Play again</button>
+      <button class="btn btn-primary" onclick="copyResults()">העתקו תוצאות</button>
+      <button class="btn btn-secondary mt-3" onclick="resetGame()">שחקו שוב</button>
     </div>
 
     <div class="tomorrow-teaser animate-fade mt-6" style="animation-delay:0.45s">
-      <div class="tomorrow-teaser-label">Tomorrow's first completion</div>
+      <div class="tomorrow-teaser-label">ההשלמה הראשונה של מחר</div>
       <div class="tomorrow-teaser-text serif" id="share-tomorrow"></div>
     </div>
   </div>
 </div>
 
-<div class="copy-toast" id="copy-toast">Copied to clipboard!</div>
+<div class="copy-toast" id="copy-toast">התוצאות הועתקו!</div>
 
 <script>
 // ============================
 // DATA
 // ============================
+function formatHebrewDate(d) {
+  const months = ["ינואר", "פברואר", "מרץ", "אפריל", "מאי", "יוני", "יולי", "אוגוסט", "ספטמבר", "אוקטובר", "נובמבר", "דצמבר"];
+  return `${d.getDate()} ב${months[d.getMonth()]} ${d.getFullYear()}`;
+}
+
 const PUZZLE = {
-  date: new Date().toLocaleDateString("en-US", { month: "long", day: "numeric", year: "numeric" }),
-  city: "Bangkok",
-  flag: "\uD83C\uDDF9\uD83C\uDDED",
-  tomorrowTeaser: "dream about my ex every night",
+  date: formatHebrewDate(new Date()),
+  city: "תל אביב",
+  flag: "\uD83C\uDDEE\uD83C\uDDF1",
+  tomorrowTeaser: "לדבר עם עצמי במקלחת",
   puzzles: [
     {
-      prefix: "why does my cat",
-      category: "pet behavior",
+      prefix: "למה החתול שלי",
+      category: "חיות מחמד",
       completions: [
-        "stare at me",
-        "knead me with their paws",
-        "sleep on my face",
-        "bite my ankles",
-        "hate my boyfriend"
+        "בוהה בי",
+        "לועס לי את הנעליים",
+        "ישן על הפנים שלי",
+        "שונא את החבר שלי",
+        "עושה קקי מחוץ לארגז"
       ]
     },
     {
-      prefix: "how do I tell my boss",
-      category: "workplace",
+      prefix: "איך אומרים לבוס",
+      category: "עבודה",
       completions: [
-        "I quit without crying",
-        "I need a raise",
-        "I replied-all by accident",
-        "I burned popcorn in the break room",
-        "their breath smells"
+        "שאני מתפטר",
+        "שאני צריך העלאה",
+        "שהוא מסריח מהפה",
+        "שאני עובד מהבית לנצח",
+        "שאני שונא את העבודה הזאת"
       ]
     },
     {
-      prefix: "is it normal to",
-      category: "human behavior",
+      prefix: "האם זה נורמלי",
+      category: "התנהגות",
       completions: [
-        "cry during commercials",
-        "talk to my plants",
-        "forget my own address",
-        "name my car",
-        "have a crush on a cartoon"
+        "לדבר עם הצמחים",
+        "לבכות במהלך פרסומות",
+        "לשכוח את הכתובת שלי",
+        "לתת שם למכונית",
+        "להתעורר בלילה ולאכול"
       ]
     },
     {
-      prefix: "why does my phone",
-      category: "technology",
+      prefix: "למה הטלפון שלי",
+      category: "טכנולוגיה",
       completions: [
-        "die at 20%",
-        "get hot in my pocket",
-        "autocorrect \"duck\" to \"duck\"",
-        "buzz for no reason",
-        "take worse photos than my eyes"
+        "נדלק באמצע הלילה",
+        "נותן לי סוללה של אחוז אחד",
+        "מתקן לי את הדיבור",
+        "מתחמם בכיס",
+        "מצלם גרוע ממה שאני רואה"
       ]
     },
     {
-      prefix: "why do I keep",
-      category: "habits",
+      prefix: "למה אני ממשיך",
+      category: "הרגלים",
       completions: [
-        "dreaming about my ex",
-        "checking the fridge",
-        "losing one sock",
-        "getting recommended cat videos",
-        "saying I'll go to bed early"
+        "לחלום על האקסית",
+        "לפתוח את המקרר",
+        "לאבד גרב אחת",
+        "לדחות הכל לרגע האחרון",
+        "לומר שאני הולך לישון מוקדם"
       ]
     }
   ]
@@ -453,15 +474,15 @@ const PUZZLE = {
 let state = {
   screen: "landing",
   round: 0,
-  results: [], // { text, score, hintsUsed } for each round
-  wrongCount: 0, // wrong guesses for current round
+  results: [],
+  wrongCount: 0,
   revealRound: 0,
   completed: false
 };
 
 function getStorageKey() {
   const d = new Date();
-  return `bs_${d.getFullYear()}_${d.getMonth()}_${d.getDate()}`;
+  return `bs_il_${d.getFullYear()}_${d.getMonth()}_${d.getDate()}`;
 }
 
 function loadState() {
@@ -504,7 +525,7 @@ function saveState() {
 // UTILS
 // ============================
 function normalize(str) {
-  return str.toLowerCase().replace(/[^a-z0-9\s]/g, "").trim();
+  return str.replace(/[^\u0590-\u05FFa-z0-9\s]/g, "").trim().replace(/\s+/g, " ");
 }
 
 function getScore(hintsUsed) {
@@ -514,9 +535,9 @@ function getScore(hintsUsed) {
 }
 
 function getEmoji(score) {
-  if (score === 3) return "\uD83D\uDFE9"; // cold
-  if (score >= 1) return "\uD83D\uDFE8"; // hints
-  return "\u2B1B"; // miss
+  if (score === 3) return "\uD83D\uDFE9";
+  if (score >= 1) return "\uD83D\uDFE8";
+  return "\u2B1B";
 }
 
 function totalScore() {
@@ -531,7 +552,7 @@ function buildGrid() {
   const score = totalScore();
   const cold = coldCount();
   const lines = [
-    `Backsearch \u2014 ${PUZZLE.date} \u2014 ${PUZZLE.city} ${PUZZLE.flag} \u2014 ${score}/15 \u2014 ${cold} cold`
+    `Backsearch \u2014 ${PUZZLE.date} \u2014 ${PUZZLE.city} ${PUZZLE.flag} \u2014 ${score}/15 \u2014 ${cold} ללא רמזים`
   ];
   state.results.forEach(r => {
     lines.push(getEmoji(r.score));
@@ -564,7 +585,7 @@ function showScreen(name) {
 // ============================
 function initLanding() {
   document.getElementById("header-date").textContent = `${PUZZLE.date} \u2014 ${PUZZLE.city} ${PUZZLE.flag}`;
-  document.getElementById("landing-meta").textContent = `5 puzzles \u2022 3 points each \u2022 Hints unlock on wrong guesses`;
+  document.getElementById("landing-meta").textContent = `5 חידות \u2022 3 נקודות לכל אחת \u2022 רמזים נפתחים בניחושים שגויים`;
   document.getElementById("tomorrow-teaser").textContent = `"${PUZZLE.tomorrowTeaser}"`;
   document.getElementById("share-tomorrow").textContent = `"${PUZZLE.tomorrowTeaser}"`;
 }
@@ -581,9 +602,9 @@ function renderRound() {
   state.wrongCount = 0;
   const p = PUZZLE.puzzles[state.round];
 
-  document.getElementById("round-counter").textContent = `Puzzle ${state.round + 1} of ${PUZZLE.puzzles.length}`;
-  document.getElementById("round-score").innerHTML = `Running total: <span class="score-val">${runningTotal()}</span> / 15`;
-  document.getElementById("completions-label").textContent = state.round === 0 ? "Today's search" : "Today's search";
+  document.getElementById("round-counter").textContent = `חידה ${state.round + 1} מתוך ${PUZZLE.puzzles.length}`;
+  document.getElementById("round-score").innerHTML = `ניקוד מצטבר: <span class="score-val">${runningTotal()}</span> / 15`;
+  document.getElementById("completions-label").textContent = state.round === 0 ? "החיפוש של היום" : "החיפוש של היום";
 
   // Render completion cards
   const list = document.getElementById("completions-list");
@@ -609,7 +630,7 @@ function renderRound() {
   // Reset actions
   document.getElementById("action-row").style.display = "none";
   document.getElementById("input-wrap").style.display = "flex";
-  document.getElementById("guess-prompt").textContent = "What search produced these?";
+  document.getElementById("guess-prompt").textContent = "איזה חיפוש יצר את אלה?";
 }
 
 function submitGuess() {
@@ -621,12 +642,6 @@ function submitGuess() {
   const isCorrect = normalize(val) === normalize(p.prefix);
 
   if (isCorrect) {
-    // Calculate score based on wrongCount
-    // wrongCount 0 = cold (3 pts)
-    // wrongCount 1 = got word count hint, still 3 pts (free)
-    // wrongCount 2 = got category hint, 2 pts
-    // wrongCount 3 = got first word hint, 1 pt
-    // wrongCount 4+ = got first letters hint, 1 pt
     let hintsUsed = Math.max(0, state.wrongCount - 1);
     let score = getScore(hintsUsed);
 
@@ -637,7 +652,6 @@ function submitGuess() {
     document.getElementById("input-wrap").style.display = "none";
     document.getElementById("wrong-toast").classList.remove("visible");
 
-    // Show reveal instead of auto-advancing
     showReveal();
   } else {
     state.wrongCount++;
@@ -656,41 +670,41 @@ function showHint(p) {
   const area = document.getElementById("hint-area");
   const wc = p.prefix.split(/\s+/).length;
 
-  // Hint 1 (free): word count — shown after 1st wrong guess
+  // Hint 1 (free): word count
   if (state.wrongCount === 1) {
     const row = document.createElement("div");
     row.className = "hint-row";
-    row.innerHTML = `<span class="hint-key">Word count</span><span class="hint-val">${"\u25A1 ".repeat(wc).trim()}</span>`;
+    row.innerHTML = `<span class="hint-key">מספר מילים</span><span class="hint-val">${"\u25A1 ".repeat(wc).trim()}</span>`;
     area.appendChild(row);
     setTimeout(() => row.classList.add("visible"), 50);
   }
 
-  // Hint 2 (penalty): category — shown after 2nd wrong guess
+  // Hint 2 (penalty): category
   if (state.wrongCount === 2) {
     const row = document.createElement("div");
     row.className = "hint-row";
-    row.innerHTML = `<span class="hint-key">Category</span><span class="hint-val">${escapeHtml(p.category)}</span>`;
+    row.innerHTML = `<span class="hint-key">קטגוריה</span><span class="hint-val">${escapeHtml(p.category)}</span>`;
     area.appendChild(row);
     setTimeout(() => row.classList.add("visible"), 50);
   }
 
-  // Hint 3 (penalty): first word — shown after 3rd wrong guess
+  // Hint 3 (penalty): first word
   if (state.wrongCount === 3) {
     const first = p.prefix.split(/\s+/)[0];
     const row = document.createElement("div");
     row.className = "hint-row";
-    row.innerHTML = `<span class="hint-key">First word</span><span class="hint-val">${escapeHtml(first)}</span>`;
+    row.innerHTML = `<span class="hint-key">המילה הראשונה</span><span class="hint-val">${escapeHtml(first)}</span>`;
     area.appendChild(row);
     setTimeout(() => row.classList.add("visible"), 50);
   }
 
-  // Hint 4 (penalty): first letters of remaining words — shown after 4th+ wrong guess
+  // Hint 4 (penalty): first letters of remaining words
   if (state.wrongCount >= 4) {
     const words = p.prefix.split(/\s+/);
-    const letters = words.map((w, i) => i === 0 ? w : w.charAt(0).toUpperCase() + "...").join(" ");
+    const letters = words.map((w, i) => i === 0 ? w : w.charAt(0) + "...").join(" ");
     const row = document.createElement("div");
     row.className = "hint-row";
-    row.innerHTML = `<span class="hint-key">Letters</span><span class="hint-val">${escapeHtml(letters)}</span>`;
+    row.innerHTML = `<span class="hint-key">אותיות</span><span class="hint-val">${escapeHtml(letters)}</span>`;
     area.appendChild(row);
     setTimeout(() => row.classList.add("visible"), 50);
   }
@@ -738,7 +752,7 @@ function renderReveal() {
 
   let html = `
     <div class="reveal-prefix-big">
-      <div class="label">The search was</div>
+      <div class="label">החיפוש היה</div>
       <div class="prefix serif">${escapeHtml(p.prefix)}<span class="dots">...</span></div>
     </div>
   `;
@@ -751,10 +765,10 @@ function renderReveal() {
     `;
   });
 
-  const scoreLabel = result.skipped ? "Skipped" :
-    result.score === 3 ? "Solved cold \u2014 3 points" :
-    result.score === 2 ? "Solved with a hint \u2014 2 points" :
-    result.score === 1 ? "Solved with hints \u2014 1 point" : "Failed";
+  const scoreLabel = result.skipped ? "דולג" :
+    result.score === 3 ? "פתרון קר \u2014 3 נקודות" :
+    result.score === 2 ? "פתרון עם רמז \u2014 2 נקודות" :
+    result.score === 1 ? "פתרון עם רמזים \u2014 נקודה אחת" : "נכשל";
 
   html += `
     <div class="reveal-score animate-fade">
@@ -764,7 +778,6 @@ function renderReveal() {
 
   container.innerHTML = html;
 
-  // Staggered animation: prefix already visible, sentences appear one by one
   p.completions.forEach((_, i) => {
     setTimeout(() => {
       document.getElementById(`rs-${i}`).classList.add("visible");
@@ -773,14 +786,13 @@ function renderReveal() {
 
   const btn = document.getElementById("btn-reveal-next");
   if (state.revealRound === PUZZLE.puzzles.length - 1) {
-    btn.textContent = "See final score \u2192";
+    btn.textContent = "לתוצאה הסופית \u2190";
   } else {
-    btn.textContent = "Next puzzle \u2192";
+    btn.textContent = "לחידה הבאה \u2190";
   }
 }
 
 function nextReveal() {
-  // Called from reveal screen — advance to next round
   state.round = state.revealRound + 1;
   saveState();
   if (state.round >= PUZZLE.puzzles.length) {
@@ -804,7 +816,7 @@ function showShare() {
   const score = totalScore();
   const cold = coldCount();
   document.getElementById("share-score").textContent = `${score}/15`;
-  document.getElementById("share-score-label").textContent = `${cold} cold \u2022 ${score - cold * 3 > 0 ? score - cold * 3 : 0} with hints`;
+  document.getElementById("share-score-label").textContent = `${cold} ללא רמזים \u2022 ${score - cold * 3 > 0 ? score - cold * 3 : 0} עם רמזים`;
 
   document.getElementById("grid-header").textContent = `Backsearch \u2014 ${PUZZLE.date} \u2014 ${PUZZLE.city} ${PUZZLE.flag}`;
 
@@ -815,9 +827,9 @@ function showShare() {
   document.getElementById("grid-emoji").innerHTML = emojiHtml;
 
   document.getElementById("grid-legend").innerHTML = `
-    <div class="legend-item"><div class="legend-dot" style="background:#4A7C59"></div>Cold (3 pts)</div>
-    <div class="legend-item"><div class="legend-dot" style="background:#D4A373"></div>Hints (1\u20132 pts)</div>
-    <div class="legend-item"><div class="legend-dot" style="background:#2C2C2C"></div>Miss (0 pts)</div>
+    <div class="legend-item"><div class="legend-dot" style="background:#4A7C59"></div>ללא רמזים (3 נק')</div>
+    <div class="legend-item"><div class="legend-dot" style="background:#D4A373"></div>עם רמזים (1\u20132 נק')</div>
+    <div class="legend-item"><div class="legend-dot" style="background:#2C2C2C"></div>פספוס (0 נק')</div>
   `;
 }
 
