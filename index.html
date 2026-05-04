@@ -19,12 +19,14 @@
     --accent-hover: #B04D2E;
     --accent-light: #FDF1ED;
     --green: #4A7C59;
+    --green-light: #8FB89A;
     --yellow: #D4A373;
+    --orange: #E07A5F;
+    --blue: #6B8E9F;
     --dark: #2C2C2C;
     --border: #E8E2D9;
     --card: #FFFFFF;
     --shadow: 0 2px 8px rgba(26,26,26,0.06);
-    --shadow-lg: 0 8px 24px rgba(26,26,26,0.10);
   }
 
   * { box-sizing: border-box; margin: 0; padding: 0; }
@@ -49,10 +51,7 @@
     overflow-x: hidden;
   }
 
-  .serif {
-    font-family: 'Fraunces', Georgia, serif;
-    font-weight: 700;
-  }
+  .serif { font-family: 'Fraunces', Georgia, serif; font-weight: 700; }
 
   @keyframes fadeIn {
     from { opacity: 0; transform: translateY(12px); }
@@ -67,359 +66,185 @@
     60% { transform: scale(1.05); }
     100% { opacity: 1; transform: scale(1); }
   }
+  @keyframes hintPulse {
+    0%, 100% { opacity: 1; }
+    50% { opacity: 0.7; }
+  }
 
   .animate-fade { animation: fadeIn 0.5s ease-out forwards; }
   .animate-slide { animation: slideUp 0.5s ease-out forwards; }
   .animate-pop { animation: popIn 0.35s ease-out forwards; }
 
-  .screen {
-    display: none;
-    flex-direction: column;
-    flex: 1;
-    padding-bottom: 32px;
-  }
+  .screen { display: none; flex-direction: column; flex: 1; padding-bottom: 32px; }
   .screen.active { display: flex; }
 
   .header {
-    padding: 20px 0 12px;
-    text-align: center;
-    border-bottom: 1px solid var(--border);
-    margin-bottom: 24px;
+    padding: 20px 0 12px; text-align: center;
+    border-bottom: 1px solid var(--border); margin-bottom: 24px;
   }
   .header-logo {
-    font-size: 13px;
-    font-weight: 600;
-    letter-spacing: 0.08em;
-    text-transform: uppercase;
-    color: var(--ink-faint);
-    margin-bottom: 4px;
+    font-size: 13px; font-weight: 600; letter-spacing: 0.08em;
+    text-transform: uppercase; color: var(--ink-faint); margin-bottom: 4px;
   }
-  .header-date {
-    font-size: 15px;
-    color: var(--ink-muted);
-    font-weight: 500;
-  }
+  .header-date { font-size: 15px; color: var(--ink-muted); font-weight: 500; }
 
   .btn {
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-    gap: 8px;
-    padding: 14px 24px;
-    border-radius: 12px;
-    border: none;
-    font-family: inherit;
-    font-size: 16px;
-    font-weight: 600;
-    cursor: pointer;
+    display: inline-flex; align-items: center; justify-content: center; gap: 8px;
+    padding: 14px 24px; border-radius: 12px; border: none;
+    font-family: inherit; font-size: 16px; font-weight: 600; cursor: pointer;
     transition: transform 0.1s ease, background 0.2s ease, box-shadow 0.2s ease, opacity 0.2s ease;
-    width: 100%;
-    -webkit-appearance: none;
+    width: 100%; -webkit-appearance: none;
   }
   .btn:active { transform: scale(0.97); }
-  .btn:disabled {
-    opacity: 0.45;
-    cursor: not-allowed;
-    transform: none !important;
-  }
-  .btn-primary {
-    background: var(--accent);
-    color: white;
-    box-shadow: var(--shadow);
-  }
+  .btn:disabled { opacity: 0.45; cursor: not-allowed; transform: none !important; }
+  .btn-primary { background: var(--accent); color: white; box-shadow: var(--shadow); }
   .btn-primary:hover:not(:disabled) { background: var(--accent-hover); }
-  .btn-secondary {
-    background: var(--card);
-    color: var(--ink);
-    border: 1.5px solid var(--border);
-    box-shadow: var(--shadow);
-  }
+  .btn-secondary { background: var(--card); color: var(--ink); border: 1.5px solid var(--border); box-shadow: var(--shadow); }
   .btn-secondary:hover:not(:disabled) { background: var(--bg-warm); }
 
-  .card {
-    background: var(--card);
-    border-radius: 16px;
-    padding: 20px;
-    box-shadow: var(--shadow);
-    border: 1px solid var(--border);
+  .input {
+    width: 100%; padding: 14px 16px; border-radius: 12px;
+    border: 1.5px solid var(--border); background: var(--card);
+    font-family: inherit; font-size: 16px; color: var(--ink); outline: none;
+    transition: border-color 0.2s ease, box-shadow 0.2s ease; -webkit-appearance: none;
   }
+  .input:focus { border-color: var(--accent); box-shadow: 0 0 0 3px rgba(199,91,57,0.12); }
+  .input::placeholder { color: var(--ink-faint); }
+
+  .card { background: var(--card); border-radius: 16px; padding: 20px; box-shadow: var(--shadow); border: 1px solid var(--border); }
 
   /* Landing */
-  .landing-hero {
-    flex: 1;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    text-align: center;
-    padding: 40px 0;
-  }
-  .landing-title {
-    font-size: 42px;
-    line-height: 1.1;
-    margin-bottom: 16px;
-    color: var(--ink);
-  }
-  .landing-subtitle {
-    font-size: 17px;
-    color: var(--ink-muted);
-    line-height: 1.5;
-    max-width: 320px;
-    margin-bottom: 40px;
-  }
-  .landing-meta {
-    font-size: 14px;
-    color: var(--ink-faint);
-    margin-top: 24px;
-    font-weight: 500;
-  }
-  .tomorrow-teaser {
-    margin-top: 32px;
-    padding: 16px;
-    background: var(--bg-warm);
-    border-radius: 12px;
-    border: 1px dashed var(--border);
-  }
-  .tomorrow-teaser-label {
-    font-size: 11px;
-    text-transform: uppercase;
-    letter-spacing: 0.1em;
-    color: var(--ink-faint);
-    margin-bottom: 6px;
-    font-weight: 600;
-  }
-  .tomorrow-teaser-text {
-    font-size: 18px;
-    color: var(--ink-muted);
-    font-style: italic;
-  }
+  .landing-hero { flex: 1; display: flex; flex-direction: column; justify-content: center; align-items: center; text-align: center; padding: 40px 0; }
+  .landing-title { font-size: 42px; line-height: 1.1; margin-bottom: 16px; color: var(--ink); }
+  .landing-subtitle { font-size: 17px; color: var(--ink-muted); line-height: 1.5; max-width: 320px; margin-bottom: 40px; }
+  .landing-meta { font-size: 14px; color: var(--ink-faint); margin-top: 24px; font-weight: 500; }
+  .tomorrow-teaser { margin-top: 32px; padding: 16px; background: var(--bg-warm); border-radius: 12px; border: 1px dashed var(--border); }
+  .tomorrow-teaser-label { font-size: 11px; text-transform: uppercase; letter-spacing: 0.1em; color: var(--ink-faint); margin-bottom: 6px; font-weight: 600; }
+  .tomorrow-teaser-text { font-size: 18px; color: var(--ink-muted); font-style: italic; }
 
   /* Playing */
-  .round-header {
-    text-align: center;
-    margin-bottom: 24px;
-  }
-  .round-counter {
-    font-size: 12px;
-    font-weight: 600;
-    text-transform: uppercase;
-    letter-spacing: 0.1em;
-    color: var(--accent);
-    margin-bottom: 12px;
-  }
-  .prefix-box {
-    background: var(--card);
-    border-radius: 16px;
-    padding: 24px 20px;
-    box-shadow: var(--shadow);
-    border: 1px solid var(--border);
-    text-align: center;
-  }
-  .prefix-text {
-    font-size: 28px;
-    line-height: 1.3;
-    color: var(--ink);
-  }
+  .round-header { text-align: center; margin-bottom: 20px; }
+  .round-counter { font-size: 12px; font-weight: 600; text-transform: uppercase; letter-spacing: 0.1em; color: var(--accent); margin-bottom: 12px; }
+  .prefix-box { background: var(--card); border-radius: 16px; padding: 24px 20px; box-shadow: var(--shadow); border: 1px solid var(--border); text-align: center; }
+  .prefix-text { font-size: 28px; line-height: 1.3; color: var(--ink); }
   .prefix-dots { color: var(--accent); }
 
-  .pick-hint {
-    text-align: center;
-    font-size: 14px;
-    color: var(--ink-muted);
-    font-weight: 500;
-    margin-top: 20px;
-    margin-bottom: 8px;
+  .hint-banner {
+    margin-top: 12px; padding: 12px 16px; background: var(--accent-light);
+    border-radius: 10px; border: 1px solid rgba(199,91,57,0.15);
+    font-size: 14px; font-weight: 500; color: var(--accent);
+    text-align: center; opacity: 0; transform: translateY(-6px);
+    transition: opacity 0.4s ease, transform 0.4s ease;
   }
-  .pick-hint .accent { color: var(--accent); font-weight: 700; }
+  .hint-banner.visible { opacity: 1; transform: translateY(0); }
+  .hint-banner .hint-label { font-size: 11px; text-transform: uppercase; letter-spacing: 0.08em; font-weight: 700; margin-bottom: 4px; opacity: 0.8; }
 
-  .options-list {
-    display: flex;
-    flex-direction: column;
-    gap: 10px;
-    margin-top: 4px;
+  .guess-area { margin-top: 16px; }
+  .guess-chips { display: flex; flex-direction: column; gap: 10px; margin-bottom: 12px; }
+  .guess-chip {
+    display: flex; align-items: center; gap: 12px;
+    padding: 12px 14px; background: var(--card); border-radius: 10px;
+    border: 1.5px solid var(--border); font-size: 15px; animation: fadeIn 0.3s ease-out;
   }
-  .option-btn {
-    display: flex;
-    align-items: center;
-    gap: 12px;
-    padding: 14px 16px;
-    background: var(--card);
-    border-radius: 12px;
-    border: 1.5px solid var(--border);
-    font-family: inherit;
-    font-size: 15px;
-    font-weight: 500;
-    color: var(--ink);
-    cursor: pointer;
-    text-align: left;
+  .guess-chip-badge {
+    width: 22px; height: 22px; border-radius: 50%;
+    background: var(--bg-warm); display: flex; align-items: center; justify-content: center;
+    font-size: 10px; font-weight: 700; color: var(--ink-muted); flex-shrink: 0;
+  }
+  .guess-chip-text { flex: 1; color: var(--ink); font-weight: 500; }
+  .guess-chip-hint { font-size: 11px; font-weight: 600; color: var(--ink-faint); text-transform: uppercase; letter-spacing: 0.05em; }
+
+  .guess-input-wrap { display: flex; gap: 10px; }
+  .guess-input-wrap .input { flex: 1; }
+  .guess-input-wrap .btn { width: auto; padding: 14px 18px; border-radius: 12px; }
+
+  .mc-fallback { margin-top: 16px; }
+  .mc-label { font-size: 11px; text-transform: uppercase; letter-spacing: 0.1em; color: var(--ink-faint); font-weight: 600; margin-bottom: 10px; text-align: center; }
+  .mc-options { display: flex; flex-direction: column; gap: 10px; }
+  .mc-btn {
+    display: flex; align-items: center; gap: 12px;
+    padding: 14px 16px; background: var(--card); border-radius: 12px;
+    border: 1.5px solid var(--border); font-family: inherit; font-size: 15px;
+    font-weight: 500; color: var(--ink); cursor: pointer; text-align: left;
     transition: border-color 0.15s ease, background 0.15s ease, transform 0.1s ease;
     -webkit-appearance: none;
   }
-  .option-btn:active { transform: scale(0.98); }
-  .option-btn:hover { border-color: var(--ink-faint); }
-  .option-btn.selected {
-    border-color: var(--accent);
-    background: var(--accent-light);
+  .mc-btn:active { transform: scale(0.98); }
+  .mc-btn:hover:not(:disabled) { border-color: var(--accent); }
+  .mc-btn:disabled { opacity: 0.4; cursor: not-allowed; }
+  .mc-btn .mc-dot {
+    width: 10px; height: 10px; border-radius: 50%; background: var(--border); flex-shrink: 0;
+    transition: background 0.2s ease;
   }
-  .option-btn.disabled {
-    opacity: 0.4;
-    cursor: not-allowed;
-  }
-  .option-check {
-    width: 22px;
-    height: 22px;
-    border-radius: 50%;
-    border: 2px solid var(--border);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-size: 12px;
-    flex-shrink: 0;
-    transition: border-color 0.15s ease, background 0.15s ease;
-    color: transparent;
-  }
-  .option-btn.selected .option-check {
-    border-color: var(--accent);
-    background: var(--accent);
-    color: white;
-  }
-  .option-text { flex: 1; }
+  .mc-btn:hover:not(:disabled) .mc-dot { background: var(--accent); }
 
   /* Reveal */
   .reveal-prefix { margin-bottom: 24px; }
-  .reveal-prefix-title {
-    font-size: 22px;
-    margin-bottom: 4px;
-  }
-  .reveal-prefix-sub {
-    font-size: 13px;
-    color: var(--ink-faint);
-    font-weight: 500;
-  }
+  .reveal-prefix-title { font-size: 22px; margin-bottom: 4px; }
+  .reveal-prefix-sub { font-size: 13px; color: var(--ink-faint); font-weight: 500; }
 
   .reveal-row {
-    display: flex;
-    align-items: center;
-    gap: 12px;
-    padding: 14px 16px;
-    background: var(--card);
-    border-radius: 12px;
-    border: 1px solid var(--border);
-    margin-bottom: 10px;
-    opacity: 0;
-    transform: translateY(10px);
+    display: flex; align-items: center; gap: 12px;
+    padding: 14px 16px; background: var(--card); border-radius: 12px;
+    border: 1px solid var(--border); margin-bottom: 10px;
+    opacity: 0; transform: translateY(10px);
     transition: opacity 0.4s ease, transform 0.4s ease;
   }
-  .reveal-row.visible {
-    opacity: 1;
-    transform: translateY(0);
-  }
+  .reveal-row.visible { opacity: 1; transform: translateY(0); }
   .reveal-row.guess-row { border-left: 3px solid var(--border); }
   .reveal-row.answer-row { border-left: 3px solid var(--green); }
   .reveal-square {
-    width: 28px;
-    height: 28px;
-    border-radius: 6px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-size: 14px;
-    flex-shrink: 0;
+    width: 28px; height: 28px; border-radius: 6px;
+    display: flex; align-items: center; justify-content: center;
+    font-size: 14px; flex-shrink: 0;
   }
-  .sq-green { background: var(--green); color: white; }
-  .sq-yellow { background: var(--yellow); color: white; }
-  .sq-dark { background: var(--dark); color: white; }
-  .reveal-text {
-    flex: 1;
-    font-size: 15px;
-    font-weight: 500;
-  }
+  .sq-cold { background: var(--green); color: white; }
+  .sq-hint { background: var(--yellow); color: white; }
+  .sq-mc { background: var(--orange); color: white; }
+  .sq-semantic { background: var(--blue); color: white; }
+  .sq-miss { background: var(--dark); color: white; }
+  .reveal-text { flex: 1; font-size: 15px; font-weight: 500; }
+  .reveal-meta { font-size: 11px; font-weight: 600; color: var(--ink-faint); text-transform: uppercase; letter-spacing: 0.05em; }
   .reveal-rank {
-    font-size: 12px;
-    font-weight: 700;
-    color: var(--ink-faint);
-    background: var(--bg-warm);
-    padding: 4px 8px;
-    border-radius: 6px;
+    font-size: 12px; font-weight: 700; color: var(--ink-faint);
+    background: var(--bg-warm); padding: 4px 8px; border-radius: 6px;
   }
 
   .answer-section { margin-top: 20px; }
   .answer-label {
-    font-size: 11px;
-    text-transform: uppercase;
-    letter-spacing: 0.1em;
-    color: var(--ink-faint);
-    font-weight: 600;
-    margin-bottom: 10px;
+    font-size: 11px; text-transform: uppercase; letter-spacing: 0.1em;
+    color: var(--ink-faint); font-weight: 600; margin-bottom: 10px;
   }
 
   /* Share */
-  .share-hero {
-    text-align: center;
-    margin-bottom: 28px;
-  }
-  .share-score {
-    font-size: 48px;
-    line-height: 1;
-    margin-bottom: 8px;
-  }
-  .share-score-label {
-    font-size: 15px;
-    color: var(--ink-muted);
-    font-weight: 500;
-  }
+  .share-hero { text-align: center; margin-bottom: 28px; }
+  .share-score { font-size: 48px; line-height: 1; margin-bottom: 8px; }
+  .share-score-label { font-size: 15px; color: var(--ink-muted); font-weight: 500; }
 
-  .grid-box {
-    background: var(--card);
-    border-radius: 16px;
-    padding: 24px 20px;
-    box-shadow: var(--shadow);
-    border: 1px solid var(--border);
-    text-align: center;
-    margin-bottom: 20px;
-  }
-  .grid-emoji {
-    font-size: 28px;
-    line-height: 1.6;
-    letter-spacing: 4px;
-    font-family: "Apple Color Emoji", "Segoe UI Emoji", "Noto Color Emoji", sans-serif;
-  }
-  .grid-header {
-    font-size: 14px;
-    font-weight: 600;
-    color: var(--ink-muted);
-    margin-bottom: 12px;
-    word-break: break-word;
-  }
+  .grid-box { background: var(--card); border-radius: 16px; padding: 24px 20px; box-shadow: var(--shadow); border: 1px solid var(--border); text-align: center; margin-bottom: 20px; }
+  .grid-emoji { font-size: 28px; line-height: 1.6; letter-spacing: 4px; font-family: "Apple Color Emoji", "Segoe UI Emoji", "Noto Color Emoji", sans-serif; }
+  .grid-header { font-size: 14px; font-weight: 600; color: var(--ink-muted); margin-bottom: 12px; word-break: break-word; }
 
   .copy-toast {
-    position: fixed;
-    bottom: 100px;
-    left: 50%;
+    position: fixed; bottom: 100px; left: 50%;
     transform: translateX(-50%) translateY(20px);
-    background: var(--dark);
-    color: white;
-    padding: 12px 20px;
-    border-radius: 10px;
-    font-size: 14px;
-    font-weight: 500;
-    opacity: 0;
-    pointer-events: none;
+    background: var(--dark); color: white; padding: 12px 20px;
+    border-radius: 10px; font-size: 14px; font-weight: 500;
+    opacity: 0; pointer-events: none;
     transition: opacity 0.3s ease, transform 0.3s ease;
-    z-index: 100;
-    white-space: nowrap;
+    z-index: 100; white-space: nowrap;
   }
-  .copy-toast.show {
-    opacity: 1;
-    transform: translateX(-50%) translateY(0);
-  }
+  .copy-toast.show { opacity: 1; transform: translateX(-50%) translateY(0); }
+
+  .legend { display: flex; flex-wrap: wrap; gap: 10px; justify-content: center; margin-top: 12px; }
+  .legend-item { display: flex; align-items: center; gap: 6px; font-size: 12px; color: var(--ink-muted); font-weight: 500; }
+  .legend-dot { width: 12px; height: 12px; border-radius: 3px; }
 
   .spacer { flex: 1; }
   .mt-2 { margin-top: 8px; }
   .mt-3 { margin-top: 12px; }
   .mt-4 { margin-top: 16px; }
   .mt-6 { margin-top: 24px; }
-  .text-center { text-align: center; }
 
   @media (max-width: 380px) {
     .landing-title { font-size: 36px; }
@@ -438,11 +263,9 @@
   <!-- Landing -->
   <div class="screen active" id="screen-landing">
     <div class="landing-hero">
-      <div class="animate-fade">
-        <div class="landing-title serif">Autocomplete Showdown</div>
-      </div>
+      <div class="animate-fade"><div class="landing-title serif">Autocomplete Showdown</div></div>
       <div class="animate-fade" style="animation-delay:0.1s">
-        <p class="landing-subtitle">Pick the top 3 autocomplete completions for your city. Five options. Three picks. One shared ritual.</p>
+        <p class="landing-subtitle">Type the top completions. Hints appear if you stall. Nail it cold for max bragging rights.</p>
       </div>
       <div class="animate-fade" style="animation-delay:0.2s; width:100%; max-width:280px;">
         <button class="btn btn-primary" onclick="startGame()">Play today's game</button>
@@ -464,15 +287,24 @@
       <div class="prefix-box">
         <div class="prefix-text serif"><span id="prefix-text"></span><span class="prefix-dots">...</span></div>
       </div>
+      <div class="hint-banner" id="hint-banner"></div>
     </div>
 
-    <div class="pick-hint" id="pick-hint">Pick <span class="accent">3</span> completions you think are top searched</div>
-
-    <div class="options-list" id="options-list"></div>
+    <div class="guess-area" id="guess-area">
+      <div class="guess-chips" id="guess-chips"></div>
+      <div class="guess-input-wrap" id="input-wrap">
+        <input type="text" class="input" id="guess-input" placeholder="Type a completion..." autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" onkeydown="if(event.key==='Enter') submitGuess()">
+        <button class="btn btn-primary" onclick="submitGuess()" style="width:auto; padding:14px 20px;">Add</button>
+      </div>
+      <div class="mc-fallback" id="mc-fallback" style="display:none;">
+        <div class="mc-label">Pick from the options</div>
+        <div class="mc-options" id="mc-options"></div>
+      </div>
+    </div>
 
     <div class="spacer"></div>
-    <div class="mt-4">
-      <button class="btn btn-primary" id="btn-lock" onclick="lockGuesses()" disabled>Lock in guesses</button>
+    <div class="mt-4" id="round-actions" style="display:none;">
+      <button class="btn btn-primary" id="btn-next" onclick="nextRound()">Next prefix &rarr;</button>
     </div>
   </div>
 
@@ -489,12 +321,13 @@
   <div class="screen" id="screen-share">
     <div class="share-hero animate-fade">
       <div class="share-score serif" id="share-score"></div>
-      <div class="share-score-label">matches out of 9 guesses</div>
+      <div class="share-score-label" id="share-score-label">matches out of 9 guesses</div>
     </div>
 
     <div class="grid-box animate-fade" style="animation-delay:0.15s">
       <div class="grid-header" id="grid-header"></div>
       <div class="grid-emoji" id="grid-emoji"></div>
+      <div class="legend" id="grid-legend"></div>
     </div>
 
     <div class="animate-fade" style="animation-delay:0.3s">
@@ -554,25 +387,16 @@ const PUZZLE = {
   ]
 };
 
-// Pre-shuffle option order for each round (stable for the day)
-const OPTION_ORDERS = PUZZLE.prefixes.map(p => {
-  const idxs = [0,1,2,3,4];
-  // Fisher-Yates
-  for (let i = idxs.length - 1; i > 0; i--) {
-    const j = Math.floor(Math.random() * (i + 1));
-    [idxs[i], idxs[j]] = [idxs[j], idxs[i]];
-  }
-  return idxs;
-});
-
 // ============================
 // STATE
 // ============================
 let state = {
   screen: "landing",
   round: 0,
-  guesses: [[], [], []],
-  selected: new Set(), // indices in OPTION_ORDERS for current round
+  guesses: [[], [], []], // each guess = { text, hintLevel }
+  timers: [],
+  currentHintLevel: 0,
+  mcShown: false,
   revealRound: 0,
   completed: false
 };
@@ -618,6 +442,11 @@ function saveState() {
   } catch (e) {}
 }
 
+function clearTimers() {
+  state.timers.forEach(t => clearTimeout(t));
+  state.timers = [];
+}
+
 // ============================
 // UTILS
 // ============================
@@ -625,19 +454,35 @@ function normalize(str) {
   return str.toLowerCase().replace(/[^a-z0-9\s]/g, "").trim();
 }
 
-function getSquare(text, completions) {
-  const norm = normalize(text);
+function getSquare(guess, completions) {
+  const norm = normalize(guess.text);
   const top3 = completions.slice(0, 3).map(c => normalize(c.text));
   const rest = completions.slice(3).map(c => normalize(c.text));
-  if (top3.includes(norm)) return "green";
-  if (rest.includes(norm)) return "yellow";
-  return "dark";
+  if (top3.includes(norm)) return "exact";
+  if (rest.includes(norm)) return "semantic";
+  return "miss";
 }
 
-function getEmoji(color) {
-  if (color === "green") return "\uD83D\uDFE9";
-  if (color === "yellow") return "\uD83D\uDFE8";
-  return "\u2B1B";
+function getEmoji(guess, completions) {
+  const sq = getSquare(guess, completions);
+  if (sq === "exact") {
+    if (guess.hintLevel === 0) return "\uD83D\uDFE9"; // cold
+    if (guess.hintLevel <= 2) return "\uD83D\uDFE8"; // hinted
+    return "\uD83D\uDFE7"; // MC fallback
+  }
+  if (sq === "semantic") return "\uD83D\uDDFE"; // semantic
+  return "\u2B1B"; // miss
+}
+
+function getScoreClass(guess, completions) {
+  const sq = getSquare(guess, completions);
+  if (sq === "exact") {
+    if (guess.hintLevel === 0) return "cold";
+    if (guess.hintLevel <= 2) return "hint";
+    return "mc";
+  }
+  if (sq === "semantic") return "semantic";
+  return "miss";
 }
 
 function scoreGame() {
@@ -645,22 +490,33 @@ function scoreGame() {
   for (let r = 0; r < PUZZLE.prefixes.length; r++) {
     const comp = PUZZLE.prefixes[r].completions;
     for (const g of state.guesses[r] || []) {
-      const sq = getSquare(g, comp);
-      if (sq === "green" || sq === "yellow") score++;
+      if (getSquare(g, comp) === "exact") score++;
     }
   }
   return score;
 }
 
+function coldCount() {
+  let n = 0;
+  for (let r = 0; r < PUZZLE.prefixes.length; r++) {
+    const comp = PUZZLE.prefixes[r].completions;
+    for (const g of state.guesses[r] || []) {
+      if (getSquare(g, comp) === "exact" && g.hintLevel === 0) n++;
+    }
+  }
+  return n;
+}
+
 function buildGrid() {
   const totalGuesses = PUZZLE.prefixes.length * 3;
   const score = scoreGame();
+  const cold = coldCount();
   const lines = [
-    `Autocomplete Showdown \u2014 ${PUZZLE.date} \u2014 ${PUZZLE.city} ${PUZZLE.flag} \u2014 ${score}/${totalGuesses}`
+    `Autocomplete Showdown \u2014 ${PUZZLE.date} \u2014 ${PUZZLE.city} ${PUZZLE.flag} \u2014 ${score}/${totalGuesses} \u2014 ${cold} cold`
   ];
   for (let r = 0; r < PUZZLE.prefixes.length; r++) {
     const comp = PUZZLE.prefixes[r].completions;
-    const row = (state.guesses[r] || []).map(g => getEmoji(getSquare(g, comp))).join("");
+    const row = (state.guesses[r] || []).map(g => getEmoji(g, comp)).join("");
     lines.push(row);
   }
   return lines.join("\n");
@@ -670,6 +526,15 @@ function escapeHtml(text) {
   const div = document.createElement("div");
   div.textContent = text;
   return div.innerHTML;
+}
+
+function shuffle(arr) {
+  const a = [...arr];
+  for (let i = a.length - 1; i > 0; i--) {
+    const j = Math.floor(Math.random() * (i + 1));
+    [a[i], a[j]] = [a[j], a[i]];
+  }
+  return a;
 }
 
 // ============================
@@ -687,14 +552,13 @@ function showScreen(name) {
 // ============================
 function initLanding() {
   document.getElementById("header-date").textContent = `${PUZZLE.date} \u2014 ${PUZZLE.city} ${PUZZLE.flag}`;
-  document.getElementById("landing-meta").textContent = `3 prefixes \u2022 3 picks each \u2022 ~2 minutes`;
+  document.getElementById("landing-meta").textContent = `3 prefixes \u2022 3 guesses each \u2022 Hints unlock automatically`;
   document.getElementById("tomorrow-teaser").textContent = `${PUZZLE.tomorrowTeaser}...`;
   document.getElementById("share-tomorrow").textContent = `${PUZZLE.tomorrowTeaser}...`;
 }
 
 function startGame() {
   showScreen("playing");
-  state.selected = new Set();
   renderRound();
 }
 
@@ -702,85 +566,182 @@ function startGame() {
 // PLAYING
 // ============================
 function renderRound() {
+  clearTimers();
+  state.currentHintLevel = 0;
+  state.mcShown = false;
+
   const p = PUZZLE.prefixes[state.round];
   document.getElementById("round-counter").textContent = `Round ${state.round + 1} of ${PUZZLE.prefixes.length}`;
   document.getElementById("prefix-text").textContent = p.prefix;
 
-  const hint = document.getElementById("pick-hint");
-  hint.innerHTML = `Pick <span class="accent">3</span> completions you think are top searched`;
+  const banner = document.getElementById("hint-banner");
+  banner.classList.remove("visible");
+  banner.innerHTML = "";
 
-  const list = document.getElementById("options-list");
-  list.innerHTML = "";
+  const inputWrap = document.getElementById("input-wrap");
+  inputWrap.style.display = "flex";
+  document.getElementById("guess-input").value = "";
+  document.getElementById("guess-input").disabled = false;
 
-  const order = OPTION_ORDERS[state.round];
-  order.forEach((compIdx, btnIdx) => {
-    const comp = p.completions[compIdx];
-    const btn = document.createElement("button");
-    btn.className = "option-btn animate-fade";
-    btn.style.animationDelay = `${btnIdx * 0.06}s`;
-    btn.dataset.text = comp.text;
-    btn.onclick = () => toggleOption(btn, comp.text);
-    btn.innerHTML = `
-      <div class="option-check">\u2713</div>
-      <div class="option-text">${escapeHtml(comp.text)}</div>
+  const mcFallback = document.getElementById("mc-fallback");
+  mcFallback.style.display = "none";
+  document.getElementById("mc-options").innerHTML = "";
+
+  renderGuessChips();
+  updateRoundActions();
+
+  setTimeout(() => document.getElementById("guess-input").focus(), 100);
+
+  // Schedule hints
+  const currentRound = state.round;
+  state.timers.push(setTimeout(() => {
+    if (state.round !== currentRound || state.screen !== "playing") return;
+    state.currentHintLevel = 1;
+    const letters = p.completions.slice(0, 3).map(c => c.text.charAt(0).toLowerCase()).join(" \u2022 ");
+    banner.innerHTML = `<div class="hint-label">First letters revealed</div>${letters}`;
+    banner.classList.add("visible");
+  }, 15000));
+
+  state.timers.push(setTimeout(() => {
+    if (state.round !== currentRound || state.screen !== "playing") return;
+    state.currentHintLevel = 2;
+    const counts = p.completions.slice(0, 3).map(c => c.text.length).join(" \u2022 ");
+    banner.innerHTML = `<div class="hint-label">Letter counts revealed</div>${counts} letters`;
+    banner.classList.add("visible");
+  }, 30000));
+
+  state.timers.push(setTimeout(() => {
+    if (state.round !== currentRound || state.screen !== "playing") return;
+    state.currentHintLevel = 3;
+    banner.classList.remove("visible");
+    showMCFallback(p);
+  }, 45000));
+}
+
+function renderGuessChips() {
+  const container = document.getElementById("guess-chips");
+  container.innerHTML = "";
+  const guesses = state.guesses[state.round] || [];
+  guesses.forEach((g, i) => {
+    const hintLabel = g.hintLevel === 0 ? "cold" : g.hintLevel <= 2 ? "hinted" : "fallback";
+    const chip = document.createElement("div");
+    chip.className = "guess-chip animate-pop";
+    chip.innerHTML = `
+      <div class="guess-chip-badge">${i + 1}</div>
+      <div class="guess-chip-text">${escapeHtml(g.text)}</div>
+      <div class="guess-chip-hint">${hintLabel}</div>
     `;
-    list.appendChild(btn);
+    container.appendChild(chip);
   });
-
-  updateLockButton();
 }
 
-function toggleOption(btn, text) {
-  if (btn.classList.contains("disabled")) return;
+function updateRoundActions() {
+  const guesses = state.guesses[state.round] || [];
+  const actions = document.getElementById("round-actions");
+  const inputWrap = document.getElementById("input-wrap");
+  const mcFallback = document.getElementById("mc-fallback");
 
-  if (state.selected.has(text)) {
-    state.selected.delete(text);
-    btn.classList.remove("selected");
+  if (guesses.length >= 3) {
+    inputWrap.style.display = "none";
+    mcFallback.style.display = "none";
+    actions.style.display = "block";
+    const btn = document.getElementById("btn-next");
+    btn.textContent = state.round === PUZZLE.prefixes.length - 1 ? "See results \u2192" : "Next prefix \u2192";
   } else {
-    if (state.selected.size >= 3) return; // max 3
-    state.selected.add(text);
-    btn.classList.add("selected");
-  }
-
-  // Disable unselected buttons once 3 are picked
-  document.querySelectorAll(".option-btn").forEach(b => {
-    const t = b.dataset.text;
-    if (state.selected.size >= 3 && !state.selected.has(t)) {
-      b.classList.add("disabled");
+    actions.style.display = "none";
+    if (!state.mcShown) {
+      inputWrap.style.display = "flex";
+      mcFallback.style.display = "none";
     } else {
-      b.classList.remove("disabled");
+      inputWrap.style.display = "none";
+      mcFallback.style.display = "block";
     }
-  });
-
-  updateLockButton();
-}
-
-function updateLockButton() {
-  const btn = document.getElementById("btn-lock");
-  const count = state.selected.size;
-  if (count === 3) {
-    btn.disabled = false;
-    btn.textContent = state.round === PUZZLE.prefixes.length - 1 ? "See results \u2192" : "Lock in guesses";
-  } else {
-    btn.disabled = true;
-    btn.textContent = `Pick ${3 - count} more`;
   }
 }
 
-function lockGuesses() {
-  if (state.selected.size !== 3) return;
-  state.guesses[state.round] = Array.from(state.selected);
+function submitGuess() {
+  const input = document.getElementById("guess-input");
+  const val = input.value.trim();
+  if (!val) return;
+
+  const guesses = state.guesses[state.round] || [];
+  if (guesses.length >= 3) return;
+
+  // Deduplicate
+  if (guesses.some(g => normalize(g.text) === normalize(val))) {
+    input.value = "";
+    input.focus();
+    return;
+  }
+
+  guesses.push({ text: val, hintLevel: state.currentHintLevel });
+  state.guesses[state.round] = guesses;
   saveState();
 
-  // Haptic-ish feedback
-  const btn = document.getElementById("btn-lock");
-  btn.style.transform = "scale(0.97)";
-  setTimeout(() => btn.style.transform = "scale(1)", 100);
+  input.value = "";
+  input.focus();
 
+  // Haptic feedback
+  input.style.transform = "scale(0.98)";
+  setTimeout(() => input.style.transform = "scale(1)", 100);
+
+  renderGuessChips();
+  updateRoundActions();
+}
+
+function showMCFallback(p) {
+  state.mcShown = true;
+  const inputWrap = document.getElementById("input-wrap");
+  const mcFallback = document.getElementById("mc-fallback");
+  inputWrap.style.display = "none";
+  mcFallback.style.display = "block";
+
+  // Build 4 options: 2 correct from top-3 + 2 decoys from #4-5
+  const top3 = shuffle([...p.completions.slice(0, 3)]).slice(0, 2);
+  const decoys = shuffle([...p.completions.slice(3)]).slice(0, 2);
+  const options = shuffle([...top3, ...decoys]);
+
+  const container = document.getElementById("mc-options");
+  container.innerHTML = "";
+
+  const guessedTexts = (state.guesses[state.round] || []).map(g => normalize(g.text));
+
+  options.forEach((opt, i) => {
+    const alreadyGuessed = guessedTexts.includes(normalize(opt.text));
+    const btn = document.createElement("button");
+    btn.className = "mc-btn animate-fade";
+    btn.style.animationDelay = `${i * 0.08}s`;
+    btn.disabled = alreadyGuessed;
+    btn.innerHTML = `<div class="mc-dot"></div><div class="mc-text">${escapeHtml(opt.text)}</div>`;
+    if (!alreadyGuessed) {
+      btn.onclick = () => submitMCGuess(opt.text, btn);
+    }
+    container.appendChild(btn);
+  });
+
+  updateRoundActions();
+}
+
+function submitMCGuess(text, btn) {
+  const guesses = state.guesses[state.round] || [];
+  if (guesses.length >= 3) return;
+
+  if (guesses.some(g => normalize(g.text) === normalize(text))) return;
+
+  guesses.push({ text, hintLevel: 3 });
+  state.guesses[state.round] = guesses;
+  saveState();
+
+  btn.disabled = true;
+
+  renderGuessChips();
+  updateRoundActions();
+}
+
+function nextRound() {
+  clearTimers();
   state.round++;
-  state.selected = new Set();
   saveState();
-
   if (state.round >= PUZZLE.prefixes.length) {
     state.completed = true;
     saveState();
@@ -808,17 +769,20 @@ function renderReveal() {
   let html = `
     <div class="reveal-prefix animate-fade">
       <div class="reveal-prefix-title serif">${escapeHtml(p.prefix)}...</div>
-      <div class="reveal-prefix-sub">Your picks vs. the top completions</div>
+      <div class="reveal-prefix-sub">Your guesses vs. the top completions</div>
     </div>
   `;
 
-  html += `<div class="answer-label">Your picks</div>`;
+  html += `<div class="answer-label">Your guesses</div>`;
   guesses.forEach((g, i) => {
-    const sq = getSquare(g, comp);
+    const cls = getScoreClass(g, comp);
+    const emoji = getEmoji(g, comp);
+    const meta = g.hintLevel === 0 ? "cold" : g.hintLevel <= 2 ? "hinted" : "fallback";
     html += `
       <div class="reveal-row guess-row" id="rg-${i}">
-        <div class="reveal-square sq-${sq}">${getEmoji(sq)}</div>
-        <div class="reveal-text">${escapeHtml(g)}</div>
+        <div class="reveal-square sq-${cls}">${emoji}</div>
+        <div class="reveal-text">${escapeHtml(g.text)}</div>
+        <div class="reveal-meta">${meta}</div>
       </div>
     `;
   });
@@ -868,17 +832,28 @@ function showShare() {
 
   const totalGuesses = PUZZLE.prefixes.length * 3;
   const score = scoreGame();
+  const cold = coldCount();
   document.getElementById("share-score").textContent = `${score}/${totalGuesses}`;
+  document.getElementById("share-score-label").textContent = `${cold} cold \u2022 ${score - cold} with hints`;
 
   document.getElementById("grid-header").textContent = `Autocomplete Showdown \u2014 ${PUZZLE.date} \u2014 ${PUZZLE.city} ${PUZZLE.flag}`;
 
   let emojiHtml = "";
   for (let r = 0; r < PUZZLE.prefixes.length; r++) {
     const comp = PUZZLE.prefixes[r].completions;
-    const rowEmojis = (state.guesses[r] || []).map(g => getEmoji(getSquare(g, comp))).join(" ");
+    const rowEmojis = (state.guesses[r] || []).map(g => getEmoji(g, comp)).join(" ");
     emojiHtml += `<div>${rowEmojis}</div>`;
   }
   document.getElementById("grid-emoji").innerHTML = emojiHtml;
+
+  // Legend
+  document.getElementById("grid-legend").innerHTML = `
+    <div class="legend-item"><div class="legend-dot" style="background:#4A7C59"></div>Cold</div>
+    <div class="legend-item"><div class="legend-dot" style="background:#D4A373"></div>Hinted</div>
+    <div class="legend-item"><div class="legend-dot" style="background:#E07A5F"></div>Fallback</div>
+    <div class="legend-item"><div class="legend-dot" style="background:#6B8E9F"></div>Close</div>
+    <div class="legend-item"><div class="legend-dot" style="background:#2C2C2C"></div>Miss</div>
+  `;
 }
 
 function copyResults() {
@@ -907,11 +882,14 @@ function showToast() {
 }
 
 function resetGame() {
+  clearTimers();
   state = {
     screen: "landing",
     round: 0,
     guesses: [[], [], []],
-    selected: new Set(),
+    timers: [],
+    currentHintLevel: 0,
+    mcShown: false,
     revealRound: 0,
     completed: false
   };
