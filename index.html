@@ -707,6 +707,7 @@ function renderReveal(correctIndex) {
   const scoreLabel = result.skipped ? "Skipped" :
     result.failed ? "Failed" :
     result.score === 3 ? "Solved cold \u2014 3 points" :
+    result.hintUsed ? `Solved on guess ${result.guessNum} with hint \u2014 ${result.score} point${result.score === 1 ? "" : "s"}` :
     result.score === 2 ? "Solved on guess 2 \u2014 2 points" :
     result.score === 1 ? "Solved on guess 3 \u2014 1 point" :
     "Failed";
