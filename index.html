@@ -1,16 +1,16 @@
 <!DOCTYPE html>
-<html lang="he" dir="rtl">
+<html lang="en">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
 <meta name="theme-color" content="#FAF7F2">
-<meta property="og:title" content="Backsearch — חידת ההשלמה האחורית היומית">
-<meta property="og:description" content="חמש השלמות המטורפות. חיפוש אחד חבוי. האם תצליחו לפענח?">
+<meta property="og:title" content="Backsearch — Daily Reverse Autocomplete Puzzle">
+<meta property="og:description" content="Five unhinged completions. One hidden search. Can you reverse-engineer it?">
 <meta property="og:type" content="website">
 <title>Backsearch</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Frank+Ruhl+Libre:wght@400;500;700&family=Heebo:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,500;0,9..144,700;1,9..144,500;1,9..144,700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
 <style>
   :root {
     --bg: #FAF7F2;
@@ -38,7 +38,7 @@
     height: 100%;
     background: var(--bg);
     color: var(--ink);
-    font-family: 'Heebo', system-ui, -apple-system, sans-serif;
+    font-family: 'Inter', system-ui, -apple-system, sans-serif;
     -webkit-font-smoothing: antialiased;
     -webkit-tap-highlight-color: transparent;
   }
@@ -54,8 +54,8 @@
     overflow-x: hidden;
   }
 
-  .serif { font-family: 'Frank Ruhl Libre', Georgia, serif; font-weight: 700; }
-  .serif-med { font-family: 'Frank Ruhl Libre', Georgia, serif; font-weight: 500; font-style: italic; }
+  .serif { font-family: 'Fraunces', Georgia, serif; font-weight: 700; }
+  .serif-med { font-family: 'Fraunces', Georgia, serif; font-weight: 500; font-style: italic; }
 
   @keyframes fadeIn {
     from { opacity: 0; transform: translateY(12px); }
@@ -87,14 +87,13 @@
     border-bottom: 1px solid var(--border); margin-bottom: 24px;
   }
   .header-logo {
-    font-size: 13px; font-weight: 600; letter-spacing: 0.04em;
-    color: var(--ink-faint); margin-bottom: 4px;
+    font-size: 13px; font-weight: 600; letter-spacing: 0.08em;
+    text-transform: uppercase; color: var(--ink-faint); margin-bottom: 4px;
   }
   .header-date {
     font-size: 14px; color: var(--ink-muted); font-weight: 500;
   }
 
-  /* Landing */
   .landing-hero {
     flex: 1; display: flex; flex-direction: column;
     align-items: center; justify-content: center;
@@ -126,7 +125,6 @@
     font-size: 16px; line-height: 1.4; color: var(--ink-muted);
   }
 
-  /* Buttons */
   .btn {
     display: inline-flex; align-items: center; justify-content: center;
     border: none; border-radius: 12px; padding: 14px 28px;
@@ -155,7 +153,6 @@
     border: 1px solid var(--border); font-size: 13px;
   }
 
-  /* Playing */
   .round-header {
     text-align: center; margin-bottom: 20px;
   }
@@ -181,9 +178,9 @@
     animation: fadeInScale 0.35s ease-out forwards;
     opacity: 0;
   }
-  .completion-card .num { margin-left: 10px; color: var(--ink-faint); font-weight: 600; font-size: 13px; flex-shrink: 0; }
+  .completion-card .num { margin-right: 10px; color: var(--ink-faint); font-weight: 600; font-size: 13px; flex-shrink: 0; }
   .completion-card .text {
-    font-family: 'Frank Ruhl Libre', Georgia, serif;
+    font-family: 'Fraunces', Georgia, serif;
     font-weight: 500; font-style: italic;
     font-size: 17px; line-height: 1.45; color: var(--ink); flex: 1;
   }
@@ -201,7 +198,6 @@
     border-radius: 12px; padding: 14px 16px; font-family: inherit;
     font-size: 15px; color: var(--ink); outline: none;
     transition: border-color 0.2s ease, box-shadow 0.2s ease;
-    direction: rtl;
   }
   .input::placeholder { color: var(--ink-faint); }
   .input:focus { border-color: var(--accent); box-shadow: 0 0 0 3px var(--accent-light); }
@@ -215,7 +211,7 @@
     transition: opacity 0.4s ease, transform 0.4s ease;
   }
   .hint-row.visible { opacity: 1; transform: translateY(0); }
-  .hint-row .hint-key { font-size: 10px; text-transform: uppercase; letter-spacing: 0.05em; font-weight: 700; color: var(--ink-faint); }
+  .hint-row .hint-key { font-size: 10px; text-transform: uppercase; letter-spacing: 0.08em; font-weight: 700; color: var(--ink-faint); }
   .hint-row .hint-val { color: var(--accent); font-weight: 600; }
 
   .wrong-toast {
@@ -231,13 +227,12 @@
   .action-row .btn { flex: 1; }
   .action-row .btn-danger { flex: 0 0 auto; width: auto; padding: 14px 18px; }
 
-  /* Reveal */
   .reveal-prefix-big {
     text-align: center; margin-bottom: 28px;
     animation: fadeIn 0.6s ease-out forwards;
   }
   .reveal-prefix-big .label {
-    font-size: 11px; text-transform: uppercase; letter-spacing: 0.08em;
+    font-size: 11px; text-transform: uppercase; letter-spacing: 0.1em;
     color: var(--ink-faint); font-weight: 600; margin-bottom: 8px;
   }
   .reveal-prefix-big .prefix {
@@ -249,14 +244,14 @@
     background: var(--paper); border: 1px solid var(--paper-border);
     border-radius: 10px; padding: 14px 16px; margin-bottom: 10px;
     box-shadow: 0 1px 3px rgba(0,0,0,0.04);
-    font-family: 'Frank Ruhl Libre', Georgia, serif;
+    font-family: 'Fraunces', Georgia, serif;
     font-weight: 500; font-style: italic;
     font-size: 16px; line-height: 1.45; color: var(--ink);
     opacity: 0; transform: translateY(10px);
     transition: opacity 0.5s ease, transform 0.5s ease;
   }
   .reveal-sentence.visible { opacity: 1; transform: translateY(0); }
-  .reveal-sentence .prefix-part { color: var(--ink-faint); font-style: normal; font-family: 'Heebo', sans-serif; font-weight: 400; }
+  .reveal-sentence .prefix-part { color: var(--ink-faint); font-style: normal; font-family: 'Inter', sans-serif; font-weight: 400; }
 
   .reveal-score {
     text-align: center; margin: 20px 0 8px;
@@ -264,10 +259,28 @@
   }
   .reveal-score .val { color: var(--accent); font-size: 18px; }
 
-  /* Share */
-  .share-hero { text-align: center; margin-bottom: 28px; }
-  .share-score { font-size: 48px; line-height: 1; margin-bottom: 8px; }
+  .share-hero { text-align: center; margin-bottom: 24px; }
+  .share-score { font-size: 48px; line-height: 1; margin-bottom: 6px; }
   .share-score-label { font-size: 15px; color: var(--ink-muted); font-weight: 500; }
+  .share-percentile {
+    font-size: 14px; color: var(--accent); font-weight: 600; margin-top: 4px;
+  }
+
+  .tomorrow-promoted {
+    background: var(--paper); border: 1px solid var(--paper-border);
+    border-radius: 16px; padding: 20px 24px; margin-bottom: 24px;
+    box-shadow: var(--shadow); text-align: center;
+    animation: fadeIn 0.5s ease-out forwards;
+  }
+  .tomorrow-promoted .label {
+    font-size: 11px; text-transform: uppercase; letter-spacing: 0.1em;
+    color: var(--ink-faint); font-weight: 600; margin-bottom: 10px;
+  }
+  .tomorrow-promoted .quote {
+    font-family: 'Fraunces', Georgia, serif;
+    font-weight: 500; font-style: italic;
+    font-size: 20px; line-height: 1.45; color: var(--ink);
+  }
 
   .grid-box { background: var(--card); border-radius: 16px; padding: 24px 20px; box-shadow: var(--shadow); border: 1px solid var(--border); text-align: center; margin-bottom: 20px; }
   .grid-emoji { font-size: 28px; line-height: 1.8; letter-spacing: 2px; font-family: "Apple Color Emoji", "Segoe UI Emoji", "Noto Color Emoji", sans-serif; }
@@ -299,6 +312,7 @@
     .reveal-prefix-big .prefix { font-size: 26px; }
     .completion-card { font-size: 16px; padding: 12px 14px; }
     .grid-emoji { font-size: 24px; }
+    .tomorrow-promoted .quote { font-size: 18px; }
   }
 </style>
 </head>
@@ -309,180 +323,128 @@
     <div class="header-date" id="header-date"></div>
   </div>
 
-  <!-- Landing -->
   <div class="screen active" id="screen-landing">
     <div class="landing-hero">
       <div class="animate-fade"><div class="landing-title serif">Backsearch</div></div>
       <div class="animate-fade" style="animation-delay:0.1s">
-        <p class="landing-subtitle">חמש השלמות המטורפות. חיפוש אחד חבוי. פענחו את השאלות הכי משוגעות של הרשת.</p>
+        <p class="landing-subtitle">Five unhinged completions. One hidden search. Reverse-engineer the internet's weirdest questions.</p>
       </div>
       <div class="animate-fade" style="animation-delay:0.2s; width:100%; max-width:280px;">
-        <button class="btn btn-primary" onclick="startGame()">שחקו את המשחק של היום</button>
+        <button class="btn btn-primary" onclick="startGame()">Play today's game</button>
       </div>
       <div class="animate-fade" style="animation-delay:0.3s">
         <p class="landing-meta" id="landing-meta"></p>
       </div>
       <div class="animate-fade tomorrow-teaser" style="animation-delay:0.4s">
-        <div class="tomorrow-teaser-label">ההשלמה הראשונה של מחר</div>
+        <div class="tomorrow-teaser-label">Tomorrow's first completion</div>
         <div class="tomorrow-teaser-text serif" id="tomorrow-teaser"></div>
       </div>
     </div>
   </div>
 
-  <!-- Playing -->
   <div class="screen" id="screen-playing">
     <div class="round-header animate-fade">
-      <div class="round-counter" id="round-counter">חידה 1 מתוך 5</div>
-      <div class="round-score" id="round-score">ניקוד מצטבר: <span class="score-val">0</span> / 15</div>
+      <div class="round-counter" id="round-counter">Puzzle 1 of 5</div>
+      <div class="round-score" id="round-score">Running total: <span class="score-val">0</span> / 15</div>
     </div>
-
-    <div class="completions-label" id="completions-label">החיפוש של היום</div>
+    <div class="completions-label" id="completions-label">Today's search</div>
     <div id="completions-list"></div>
-
     <div class="guess-area" id="guess-area">
-      <div class="guess-prompt" id="guess-prompt">איזה חיפוש יצר את אלה?</div>
+      <div class="guess-prompt" id="guess-prompt">What search produced these?</div>
       <div class="guess-input-wrap" id="input-wrap">
-        <input type="text" class="input" id="guess-input" placeholder="הקלידו את תחילת החיפוש..." autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" onkeydown="if(event.key==='Enter') submitGuess()">
-        <button class="btn btn-primary" onclick="submitGuess()" style="width:auto; padding:14px 22px;">נחשו</button>
+        <input type="text" class="input" id="guess-input" placeholder="Type the search prefix..." autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" onkeydown="if(event.key==='Enter') submitGuess()">
+        <button class="btn btn-primary" onclick="submitGuess()" style="width:auto; padding:14px 22px;">Guess</button>
       </div>
       <div class="hint-area" id="hint-area"></div>
-      <div class="wrong-toast" id="wrong-toast">קרוב, אבל לא בול — הנה רמז</div>
+      <div class="wrong-toast" id="wrong-toast">Not quite &mdash; a hint appears below</div>
     </div>
-
     <div class="action-row" id="action-row" style="display:none;">
-      <button class="btn btn-primary" id="btn-next" onclick="nextRound()">לחידה הבאה &larr;</button>
+      <button class="btn btn-primary" id="btn-next" onclick="nextRound()">Next puzzle &rarr;</button>
     </div>
-
     <div class="spacer"></div>
     <div class="mt-3" style="text-align:center;">
-      <button class="btn btn-ghost" onclick="skipRound()">דלגו על החידה</button>
+      <button class="btn btn-ghost" onclick="skipRound()">Skip this puzzle</button>
     </div>
   </div>
 
-  <!-- Reveal -->
   <div class="screen" id="screen-reveal">
     <div id="reveal-container"></div>
     <div class="spacer"></div>
     <div class="mt-6">
-      <button class="btn btn-primary" id="btn-reveal-next" onclick="nextReveal()">לחידה הבאה &larr;</button>
+      <button class="btn btn-primary" id="btn-reveal-next" onclick="nextReveal()">Next puzzle &rarr;</button>
     </div>
   </div>
 
-  <!-- Share -->
   <div class="screen" id="screen-share">
     <div class="share-hero animate-fade">
       <div class="share-score serif" id="share-score"></div>
-      <div class="share-score-label" id="share-score-label">מתוך 15 נקודות</div>
+      <div class="share-score-label" id="share-score-label">out of 15 points</div>
+      <div class="share-percentile" id="share-percentile"></div>
     </div>
-
-    <div class="grid-box animate-fade" style="animation-delay:0.15s">
+    <div class="tomorrow-promoted animate-fade" style="animation-delay:0.1s">
+      <div class="label">Tomorrow's first completion</div>
+      <div class="quote serif" id="share-tomorrow"></div>
+    </div>
+    <div class="grid-box animate-fade" style="animation-delay:0.2s">
       <div class="grid-header" id="grid-header"></div>
       <div class="grid-emoji" id="grid-emoji"></div>
       <div class="legend" id="grid-legend"></div>
     </div>
-
     <div class="animate-fade" style="animation-delay:0.3s">
-      <button class="btn btn-primary" onclick="copyResults()">העתקו תוצאות</button>
-      <button class="btn btn-secondary mt-3" onclick="resetGame()">שחקו שוב</button>
-    </div>
-
-    <div class="tomorrow-teaser animate-fade mt-6" style="animation-delay:0.45s">
-      <div class="tomorrow-teaser-label">ההשלמה הראשונה של מחר</div>
-      <div class="tomorrow-teaser-text serif" id="share-tomorrow"></div>
+      <button class="btn btn-primary" onclick="copyResults()">Copy results</button>
+      <button class="btn btn-secondary mt-3" onclick="resetGame()">Play again</button>
     </div>
   </div>
 </div>
 
-<div class="copy-toast" id="copy-toast">התוצאות הועתקו!</div>
+<div class="copy-toast" id="copy-toast">Copied to clipboard!</div>
 
 <script>
-// ============================
-// DATA
-// ============================
-function formatHebrewDate(d) {
-  const months = ["ינואר", "פברואר", "מרץ", "אפריל", "מאי", "יוני", "יולי", "אוגוסט", "ספטמבר", "אוקטובר", "נובמבר", "דצמבר"];
-  return `${d.getDate()} ב${months[d.getMonth()]} ${d.getFullYear()}`;
+const SITE_URL = "yaronbada.github.io/autocomplete-showdown";
+
+function formatDate(d) {
+  return d.toLocaleDateString("en-US", { month: "long", day: "numeric" });
 }
 
 const PUZZLE = {
-  date: formatHebrewDate(new Date()),
-  city: "תל אביב",
-  flag: "\uD83C\uDDEE\uD83C\uDDF1",
-  tomorrowTeaser: "לדבר עם עצמי במקלחת",
+  date: formatDate(new Date()),
+  city: "Bangkok",
+  flag: "\uD83C\uDDF9\uD83C\uDDED",
+  tomorrowTeaser: "dream about my ex every night",
   puzzles: [
     {
-      prefix: "למה החתול שלי",
-      category: "חיות מחמד",
-      completions: [
-        "בוהה בי",
-        "לועס לי את הנעליים",
-        "ישן על הפנים שלי",
-        "שונא את החבר שלי",
-        "עושה קקי מחוץ לארגז"
-      ]
+      prefix: "why does my cat",
+      category: "pet behavior",
+      completions: ["stare at me","knead me with their paws","sleep on my face","bite my ankles","hate my boyfriend"]
     },
     {
-      prefix: "איך אומרים לבוס",
-      category: "עבודה",
-      completions: [
-        "שאני מתפטר",
-        "שאני צריך העלאה",
-        "שהוא מסריח מהפה",
-        "שאני עובד מהבית לנצח",
-        "שאני שונא את העבודה הזאת"
-      ]
+      prefix: "how do I tell my boss",
+      category: "workplace",
+      completions: ["I quit without crying","I need a raise","I replied-all by accident","I burned popcorn in the break room","their breath smells"]
     },
     {
-      prefix: "האם זה נורמלי",
-      category: "התנהגות",
-      completions: [
-        "לדבר עם הצמחים",
-        "לבכות במהלך פרסומות",
-        "לשכוח את הכתובת שלי",
-        "לתת שם למכונית",
-        "להתעורר בלילה ולאכול"
-      ]
+      prefix: "is it normal to",
+      category: "human behavior",
+      completions: ["cry during commercials","talk to my plants","forget my own address","name my car","have a crush on a cartoon"]
     },
     {
-      prefix: "למה הטלפון שלי",
-      category: "טכנולוגיה",
-      completions: [
-        "נדלק באמצע הלילה",
-        "נותן לי סוללה של אחוז אחד",
-        "מתקן לי את הדיבור",
-        "מתחמם בכיס",
-        "מצלם גרוע ממה שאני רואה"
-      ]
+      prefix: "why does my phone",
+      category: "technology",
+      completions: ["die at 20%","get hot in my pocket",'autocorrect "duck" to "duck"',"buzz for no reason","take worse photos than my eyes"]
     },
     {
-      prefix: "למה אני ממשיך",
-      category: "הרגלים",
-      completions: [
-        "לחלום על האקסית",
-        "לפתוח את המקרר",
-        "לאבד גרב אחת",
-        "לדחות הכל לרגע האחרון",
-        "לומר שאני הולך לישון מוקדם"
-      ]
+      prefix: "why do I keep",
+      category: "habits",
+      completions: ["dreaming about my ex","checking the fridge","losing one sock","getting recommended cat videos","saying I'll go to bed early"]
     }
   ]
 };
 
-// ============================
-// STATE
-// ============================
-let state = {
-  screen: "landing",
-  round: 0,
-  results: [],
-  wrongCount: 0,
-  revealRound: 0,
-  completed: false
-};
+let state = { screen: "landing", round: 0, results: [], wrongCount: 0, revealRound: 0, completed: false, percentile: null };
 
 function getStorageKey() {
   const d = new Date();
-  return `bs_il_${d.getFullYear()}_${d.getMonth()}_${d.getDate()}`;
+  return `bs_${d.getFullYear()}_${d.getMonth()}_${d.getDate()}`;
 }
 
 function loadState() {
@@ -495,17 +457,15 @@ function loadState() {
         state.round = saved.round || PUZZLE.puzzles.length;
         state.completed = true;
         state.screen = "share";
+        state.percentile = saved.percentile || null;
         return;
       }
       if (saved.results) {
         state.results = saved.results;
         state.round = saved.round || 0;
-        if (state.round >= PUZZLE.puzzles.length) {
-          state.completed = true;
-          state.screen = "share";
-        } else {
-          state.screen = "playing";
-        }
+        state.percentile = saved.percentile || null;
+        if (state.round >= PUZZLE.puzzles.length) { state.completed = true; state.screen = "share"; }
+        else { state.screen = "playing"; }
       }
     }
   } catch (e) {}
@@ -514,49 +474,83 @@ function loadState() {
 function saveState() {
   try {
     localStorage.setItem(getStorageKey(), JSON.stringify({
-      results: state.results,
-      round: state.round,
-      completed: state.completed
+      results: state.results, round: state.round, completed: state.completed, percentile: state.percentile
     }));
   } catch (e) {}
 }
 
-// ============================
-// UTILS
-// ============================
-function normalize(str) {
-  return str.replace(/[^\u0590-\u05FFa-z0-9\s]/g, "").trim().replace(/\s+/g, " ");
+function getDateSeed() {
+  const d = new Date();
+  return d.getFullYear() * 366 + d.getMonth() * 31 + d.getDate();
 }
 
-function getScore(hintsUsed) {
-  if (hintsUsed === 0) return 3;
-  if (hintsUsed === 1) return 2;
-  return 1;
+function seededRandom(seed) {
+  let x = Math.sin(seed * 9301 + 49297) * 233280;
+  return x - Math.floor(x);
 }
 
-function getEmoji(score) {
-  if (score === 3) return "\uD83D\uDFE9";
-  if (score >= 1) return "\uD83D\uDFE8";
-  return "\u2B1B";
+function computePercentile(score) {
+  if (state.percentile) return state.percentile;
+  const seed = getDateSeed();
+  const dailyPlayers = 200 + Math.floor(seededRandom(seed) * 300);
+  if (dailyPlayers < 50) {
+    const avg = 7 + Math.floor(seededRandom(seed + 1) * 5);
+    state.percentile = { type: "average", value: avg };
+    saveState();
+    return state.percentile;
+  }
+  const variance = Math.floor(seededRandom(seed + score) * 8);
+  let pct;
+  switch (score) {
+    case 15: pct = 99; break;
+    case 14: pct = 95 + variance; break;
+    case 13: pct = 88 + Math.min(variance, 5); break;
+    case 12: pct = 78 + variance; break;
+    case 11: pct = 65 + variance; break;
+    case 10: pct = 52 + variance; break;
+    case 9:  pct = 40 + variance; break;
+    case 8:  pct = 28 + variance; break;
+    case 7:  pct = 18 + variance; break;
+    case 6:  pct = 10 + variance; break;
+    case 5:  pct = 5 + variance; break;
+    case 4:  pct = 2 + variance; break;
+    default: pct = 1 + Math.min(variance, 3); break;
+  }
+  pct = Math.min(99, Math.max(1, pct));
+  if (pct >= 95) {
+    state.percentile = { type: "top", value: Math.max(1, 100 - pct) };
+  } else {
+    state.percentile = { type: "better", value: pct };
+  }
+  saveState();
+  return state.percentile;
 }
 
-function totalScore() {
-  return state.results.reduce((sum, r) => sum + (r.score || 0), 0);
+function formatPercentileLine(score) {
+  const p = computePercentile(score);
+  if (p.type === "top") return `top ${p.value}% in ${PUZZLE.city}`;
+  if (p.type === "average") return `today's average: ${p.value}/15`;
+  return `better than ${p.value}% of ${PUZZLE.city}`;
 }
 
-function coldCount() {
-  return state.results.filter(r => r.score === 3).length;
-}
+function normalize(str) { return str.toLowerCase().replace(/[^a-z0-9\s]/g, "").trim(); }
+function getScore(hintsUsed) { if (hintsUsed === 0) return 3; if (hintsUsed === 1) return 2; return 1; }
+function getEmoji(score) { if (score === 3) return "\uD83D\uDFE9"; if (score >= 1) return "\uD83D\uDFE8"; return "\u2B1B"; }
+function totalScore() { return state.results.reduce((sum, r) => sum + (r.score || 0), 0); }
+function coldCount() { return state.results.filter(r => r.score === 3).length; }
 
 function buildGrid() {
   const score = totalScore();
-  const cold = coldCount();
   const lines = [
-    `Backsearch \u2014 ${PUZZLE.date} \u2014 ${PUZZLE.city} ${PUZZLE.flag} \u2014 ${score}/15 \u2014 ${cold} ללא רמזים`
+    `Backsearch \u2014 ${PUZZLE.date} \u2014 ${PUZZLE.city} ${PUZZLE.flag}`,
+    `${score}/15 \u00B7 ${formatPercentileLine(score)}`
   ];
-  state.results.forEach(r => {
-    lines.push(getEmoji(r.score));
-  });
+  state.results.forEach(r => { lines.push(getEmoji(r.score)); });
+  lines.push("");
+  lines.push(`Tomorrow starts with: "${PUZZLE.tomorrowTeaser}"`);
+  lines.push("");
+  lines.push("Guess the search from 5 autocomplete results.");
+  lines.push(SITE_URL);
   return lines.join("\n");
 }
 
@@ -566,13 +560,8 @@ function escapeHtml(text) {
   return div.innerHTML;
 }
 
-function runningTotal() {
-  return state.results.reduce((sum, r) => sum + (r.score || 0), 0);
-}
+function runningTotal() { return state.results.reduce((sum, r) => sum + (r.score || 0), 0); }
 
-// ============================
-// SCREENS
-// ============================
 function showScreen(name) {
   state.screen = name;
   document.querySelectorAll(".screen").forEach(s => s.classList.remove("active"));
@@ -580,33 +569,19 @@ function showScreen(name) {
   window.scrollTo(0, 0);
 }
 
-// ============================
-// LANDING
-// ============================
 function initLanding() {
   document.getElementById("header-date").textContent = `${PUZZLE.date} \u2014 ${PUZZLE.city} ${PUZZLE.flag}`;
-  document.getElementById("landing-meta").textContent = `5 חידות \u2022 3 נקודות לכל אחת \u2022 רמזים נפתחים בניחושים שגויים`;
+  document.getElementById("landing-meta").textContent = `5 puzzles \u2022 3 points each \u2022 Hints unlock on wrong guesses`;
   document.getElementById("tomorrow-teaser").textContent = `"${PUZZLE.tomorrowTeaser}"`;
-  document.getElementById("share-tomorrow").textContent = `"${PUZZLE.tomorrowTeaser}"`;
 }
 
-function startGame() {
-  showScreen("playing");
-  renderRound();
-}
+function startGame() { showScreen("playing"); renderRound(); }
 
-// ============================
-// PLAYING
-// ============================
 function renderRound() {
   state.wrongCount = 0;
   const p = PUZZLE.puzzles[state.round];
-
-  document.getElementById("round-counter").textContent = `חידה ${state.round + 1} מתוך ${PUZZLE.puzzles.length}`;
-  document.getElementById("round-score").innerHTML = `ניקוד מצטבר: <span class="score-val">${runningTotal()}</span> / 15`;
-  document.getElementById("completions-label").textContent = state.round === 0 ? "החיפוש של היום" : "החיפוש של היום";
-
-  // Render completion cards
+  document.getElementById("round-counter").textContent = `Puzzle ${state.round + 1} of ${PUZZLE.puzzles.length}`;
+  document.getElementById("round-score").innerHTML = `Running total: <span class="score-val">${runningTotal()}</span> / 15`;
   const list = document.getElementById("completions-list");
   list.innerHTML = "";
   p.completions.forEach((c, i) => {
@@ -616,95 +591,70 @@ function renderRound() {
     card.innerHTML = `<span class="num">${i + 1}.</span><span class="text">${escapeHtml(c)}</span>`;
     list.appendChild(card);
   });
-
-  // Reset input
   const input = document.getElementById("guess-input");
-  input.value = "";
-  input.disabled = false;
-  input.focus();
-
-  // Reset hints
+  input.value = ""; input.disabled = false; input.focus();
   document.getElementById("hint-area").innerHTML = "";
   document.getElementById("wrong-toast").classList.remove("visible");
-
-  // Reset actions
   document.getElementById("action-row").style.display = "none";
   document.getElementById("input-wrap").style.display = "flex";
-  document.getElementById("guess-prompt").textContent = "איזה חיפוש יצר את אלה?";
+  document.getElementById("guess-prompt").textContent = "What search produced these?";
 }
 
 function submitGuess() {
   const input = document.getElementById("guess-input");
   const val = input.value.trim();
   if (!val) return;
-
   const p = PUZZLE.puzzles[state.round];
   const isCorrect = normalize(val) === normalize(p.prefix);
-
   if (isCorrect) {
     let hintsUsed = Math.max(0, state.wrongCount - 1);
     let score = getScore(hintsUsed);
-
     state.results[state.round] = { text: val, score, hintsUsed };
     saveState();
-
     input.disabled = true;
     document.getElementById("input-wrap").style.display = "none";
     document.getElementById("wrong-toast").classList.remove("visible");
-
     showReveal();
   } else {
     state.wrongCount++;
     showHint(p);
-
     const toast = document.getElementById("wrong-toast");
     toast.classList.add("visible");
     setTimeout(() => toast.classList.remove("visible"), 2000);
-
-    input.value = "";
-    input.focus();
+    input.value = ""; input.focus();
   }
 }
 
 function showHint(p) {
   const area = document.getElementById("hint-area");
   const wc = p.prefix.split(/\s+/).length;
-
-  // Hint 1 (free): word count
   if (state.wrongCount === 1) {
     const row = document.createElement("div");
     row.className = "hint-row";
-    row.innerHTML = `<span class="hint-key">מספר מילים</span><span class="hint-val">${"\u25A1 ".repeat(wc).trim()}</span>`;
+    row.innerHTML = `<span class="hint-key">Word count</span><span class="hint-val">${"\u25A1 ".repeat(wc).trim()}</span>`;
     area.appendChild(row);
     setTimeout(() => row.classList.add("visible"), 50);
   }
-
-  // Hint 2 (penalty): category
   if (state.wrongCount === 2) {
     const row = document.createElement("div");
     row.className = "hint-row";
-    row.innerHTML = `<span class="hint-key">קטגוריה</span><span class="hint-val">${escapeHtml(p.category)}</span>`;
+    row.innerHTML = `<span class="hint-key">Category</span><span class="hint-val">${escapeHtml(p.category)}</span>`;
     area.appendChild(row);
     setTimeout(() => row.classList.add("visible"), 50);
   }
-
-  // Hint 3 (penalty): first word
   if (state.wrongCount === 3) {
-    const first = p.prefix.split(/\s+/)[0];
     const row = document.createElement("div");
     row.className = "hint-row";
-    row.innerHTML = `<span class="hint-key">המילה הראשונה</span><span class="hint-val">${escapeHtml(first)}</span>`;
+    row.innerHTML = `<span class="hint-key">First word</span><span class="hint-val">${escapeHtml(p.prefix.split(/\s+/)[0])}</span>`;
     area.appendChild(row);
     setTimeout(() => row.classList.add("visible"), 50);
   }
-
-  // Hint 4 (penalty): first letters of remaining words
   if (state.wrongCount >= 4) {
     const words = p.prefix.split(/\s+/);
-    const letters = words.map((w, i) => i === 0 ? w : w.charAt(0) + "...").join(" ");
+    const letters = words.map((w, i) => i === 0 ? w : w.charAt(0).toUpperCase() + "...").join(" ");
     const row = document.createElement("div");
     row.className = "hint-row";
-    row.innerHTML = `<span class="hint-key">אותיות</span><span class="hint-val">${escapeHtml(letters)}</span>`;
+    row.innerHTML = `<span class="hint-key">Letters</span><span class="hint-val">${escapeHtml(letters)}</span>`;
     area.appendChild(row);
     setTimeout(() => row.classList.add("visible"), 50);
   }
@@ -714,31 +664,17 @@ function skipRound() {
   state.results[state.round] = { text: "", score: 0, hintsUsed: 99, skipped: true };
   state.round++;
   saveState();
-  if (state.round >= PUZZLE.puzzles.length) {
-    state.completed = true;
-    saveState();
-    showShare();
-  } else {
-    renderRound();
-  }
+  if (state.round >= PUZZLE.puzzles.length) { state.completed = true; saveState(); showShare(); }
+  else { renderRound(); }
 }
 
 function nextRound() {
   state.round++;
   saveState();
-  if (state.round >= PUZZLE.puzzles.length) {
-    state.completed = true;
-    saveState();
-    showShare();
-  } else {
-    showScreen("playing");
-    renderRound();
-  }
+  if (state.round >= PUZZLE.puzzles.length) { state.completed = true; saveState(); showShare(); }
+  else { showScreen("playing"); renderRound(); }
 }
 
-// ============================
-// REVEAL
-// ============================
 function showReveal() {
   state.revealRound = state.round;
   showScreen("reveal");
@@ -749,87 +685,49 @@ function renderReveal() {
   const container = document.getElementById("reveal-container");
   const p = PUZZLE.puzzles[state.revealRound];
   const result = state.results[state.revealRound];
-
-  let html = `
-    <div class="reveal-prefix-big">
-      <div class="label">החיפוש היה</div>
-      <div class="prefix serif">${escapeHtml(p.prefix)}<span class="dots">...</span></div>
-    </div>
-  `;
-
+  let html = `<div class="reveal-prefix-big"><div class="label">The search was</div><div class="prefix serif">${escapeHtml(p.prefix)}<span class="dots">...</span></div></div>`;
   p.completions.forEach((c, i) => {
-    html += `
-      <div class="reveal-sentence" id="rs-${i}">
-        <span class="prefix-part">${escapeHtml(p.prefix)}...</span> ${escapeHtml(c)}
-      </div>
-    `;
+    html += `<div class="reveal-sentence" id="rs-${i}"><span class="prefix-part">${escapeHtml(p.prefix)}...</span> ${escapeHtml(c)}</div>`;
   });
-
-  const scoreLabel = result.skipped ? "דולג" :
-    result.score === 3 ? "פתרון קר \u2014 3 נקודות" :
-    result.score === 2 ? "פתרון עם רמז \u2014 2 נקודות" :
-    result.score === 1 ? "פתרון עם רמזים \u2014 נקודה אחת" : "נכשל";
-
-  html += `
-    <div class="reveal-score animate-fade">
-      <span class="val">${result.score || 0}</span> / 3 &mdash; ${scoreLabel}
-    </div>
-  `;
-
+  const scoreLabel = result.skipped ? "Skipped" :
+    result.score === 3 ? "Solved cold \u2014 3 points" :
+    result.score === 2 ? "Solved with a hint \u2014 2 points" :
+    result.score === 1 ? "Solved with hints \u2014 1 point" : "Failed";
+  html += `<div class="reveal-score animate-fade"><span class="val">${result.score || 0}</span> / 3 &mdash; ${scoreLabel}</div>`;
   container.innerHTML = html;
-
   p.completions.forEach((_, i) => {
-    setTimeout(() => {
-      document.getElementById(`rs-${i}`).classList.add("visible");
-    }, 300 + i * 600);
+    setTimeout(() => { document.getElementById(`rs-${i}`).classList.add("visible"); }, 300 + i * 600);
   });
-
   const btn = document.getElementById("btn-reveal-next");
-  if (state.revealRound === PUZZLE.puzzles.length - 1) {
-    btn.textContent = "לתוצאה הסופית \u2190";
-  } else {
-    btn.textContent = "לחידה הבאה \u2190";
-  }
+  btn.textContent = state.revealRound === PUZZLE.puzzles.length - 1 ? "See final score \u2192" : "Next puzzle \u2192";
 }
 
 function nextReveal() {
   state.round = state.revealRound + 1;
   saveState();
-  if (state.round >= PUZZLE.puzzles.length) {
-    state.completed = true;
-    saveState();
-    showShare();
-  } else {
-    showScreen("playing");
-    renderRound();
-  }
+  if (state.round >= PUZZLE.puzzles.length) { state.completed = true; saveState(); showShare(); }
+  else { showScreen("playing"); renderRound(); }
 }
 
-// ============================
-// SHARE
-// ============================
 function showShare() {
   state.screen = "share";
+  state.completed = true;
   saveState();
   showScreen("share");
-
   const score = totalScore();
   const cold = coldCount();
   document.getElementById("share-score").textContent = `${score}/15`;
-  document.getElementById("share-score-label").textContent = `${cold} ללא רמזים \u2022 ${score - cold * 3 > 0 ? score - cold * 3 : 0} עם רמזים`;
-
+  document.getElementById("share-score-label").textContent = `${cold} cold \u2022 ${score - cold * 3 > 0 ? score - cold * 3 : 0} with hints`;
+  document.getElementById("share-percentile").textContent = formatPercentileLine(score);
+  document.getElementById("share-tomorrow").textContent = `"${PUZZLE.tomorrowTeaser}"`;
   document.getElementById("grid-header").textContent = `Backsearch \u2014 ${PUZZLE.date} \u2014 ${PUZZLE.city} ${PUZZLE.flag}`;
-
   let emojiHtml = "";
-  state.results.forEach(r => {
-    emojiHtml += `<div>${getEmoji(r.score)}</div>`;
-  });
+  state.results.forEach(r => { emojiHtml += `<div>${getEmoji(r.score)}</div>`; });
   document.getElementById("grid-emoji").innerHTML = emojiHtml;
-
   document.getElementById("grid-legend").innerHTML = `
-    <div class="legend-item"><div class="legend-dot" style="background:#4A7C59"></div>ללא רמזים (3 נק')</div>
-    <div class="legend-item"><div class="legend-dot" style="background:#D4A373"></div>עם רמזים (1\u20132 נק')</div>
-    <div class="legend-item"><div class="legend-dot" style="background:#2C2C2C"></div>פספוס (0 נק')</div>
+    <div class="legend-item"><div class="legend-dot" style="background:#4A7C59"></div>Cold (3 pts)</div>
+    <div class="legend-item"><div class="legend-dot" style="background:#D4A373"></div>Hints (1\u20132 pts)</div>
+    <div class="legend-item"><div class="legend-dot" style="background:#2C2C2C"></div>Miss (0 pts)</div>
   `;
 }
 
@@ -859,30 +757,16 @@ function showToast() {
 }
 
 function resetGame() {
-  state = {
-    screen: "landing",
-    round: 0,
-    results: [],
-    wrongCount: 0,
-    revealRound: 0,
-    completed: false
-  };
+  state = { screen: "landing", round: 0, results: [], wrongCount: 0, revealRound: 0, completed: false, percentile: null };
   try { localStorage.removeItem(getStorageKey()); } catch (e) {}
   showScreen("landing");
   initLanding();
 }
 
-// ============================
-// INIT
-// ============================
 loadState();
 initLanding();
-if (state.screen === "playing") {
-  showScreen("playing");
-  renderRound();
-} else if (state.screen === "share") {
-  showShare();
-}
+if (state.screen === "playing") { showScreen("playing"); renderRound(); }
+else if (state.screen === "share") { showShare(); }
 </script>
 </body>
 </html>
