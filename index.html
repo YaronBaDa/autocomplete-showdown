@@ -64,18 +64,23 @@
   .btn-ghost { background: transparent; color: var(--ink-faint); font-size: 13px; padding: 10px 16px; width: auto; }
   .btn-ghost:hover { color: var(--ink-muted); }
 
-  .round-header { text-align: center; margin-bottom: 20px; }
-  .round-counter { font-size: 12px; font-weight: 600; letter-spacing: 0.05em; color: var(--ink-faint); text-transform: uppercase; margin-bottom: 4px; }
-  .round-score { font-size: 14px; color: var(--ink-muted); font-weight: 500; }
-  .round-score .score-val { color: var(--accent); font-weight: 700; }
+  .round-header { display:flex; align-items:center; justify-content:space-between; padding:16px 0 14px; border-bottom:1px solid var(--border); margin-bottom:20px; }
+  .round-header .header-brand { font-size:13px; font-weight:600; letter-spacing:0.06em; text-transform:uppercase; color:var(--ink-faint); }
+  .round-header .header-meta { font-size:13px; color:var(--ink-muted); font-weight:500; }
+  .round-header .header-meta .score-num { font-weight:700; color:var(--ink); }
 
-  .completions-label { font-size: 11px; font-weight: 600; letter-spacing: 0.06em; color: var(--ink-faint); text-transform: uppercase; margin-bottom: 10px; text-align: center; }
-  .completion-card { background: var(--card); border: 1px solid var(--border); border-radius: 14px; padding: 16px 18px; margin-bottom: 10px; box-shadow: var(--shadow); display: flex; align-items: baseline; animation: fadeInScale 0.35s ease-out forwards; opacity: 0; }
-  .completion-card .num { margin-right: 10px; color: var(--ink-faint); font-weight: 600; font-size: 13px; flex-shrink: 0; }
-  .completion-card .text { font-family: 'Fraunces', Georgia, serif; font-weight: 500; font-style: italic; font-size: 17px; line-height: 1.45; color: var(--ink); flex: 1; }
+  .prefix-blank { text-align:center; margin-bottom:6px; }
+  .prefix-blank .blank-line { display:inline-block; font-family:'Inter',system-ui,sans-serif; font-size:18px; font-weight:500; color:var(--ink-faint); letter-spacing:0.04em; border-bottom:2px solid var(--ink-faint); padding:0 8px 2px; min-width:80px; }
+  .prefix-blank .blank-cursor { display:inline-block; width:2px; height:18px; background:var(--accent); margin-left:2px; animation:cursorBlink 1s step-end infinite; vertical-align:middle; }
+  @keyframes cursorBlink { 0%,100%{opacity:1} 50%{opacity:0} }
 
-  .guess-prompt { font-size: 14px; font-weight: 600; color: var(--ink-muted); margin: 20px 0 10px; text-align: center; }
-  .guess-prompt .type-label { color: var(--accent); }
+  .completions-list { margin-bottom:18px; }
+  .completion-item { display:flex; align-items:baseline; padding:10px 0; animation:fadeIn 0.4s ease-out forwards; opacity:0; }
+  .completion-item .num { margin-right:14px; color:var(--ink-faint); font-weight:600; font-size:12px; flex-shrink:0; min-width:18px; text-align:right; font-family:'Inter',system-ui,sans-serif; }
+  .completion-item .text { font-family:'Fraunces',Georgia,serif; font-weight:500; font-style:italic; font-size:19px; line-height:1.55; color:var(--ink); flex:1; }
+
+  .guess-prompt { font-size:13px; font-weight:500; color:var(--ink-faint); margin:4px 0 12px; text-align:center; letter-spacing:0.01em; }
+  .guess-prompt .type-label { color:var(--accent); font-weight:600; }
 
   .card-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; }
   .card-option {
@@ -122,7 +127,7 @@
   .reveal-score .val { color: var(--accent); font-size: 18px; }
 
   .share-hero { text-align: center; margin-bottom: 24px; }
-  .share-score { font-size: 48px; line-height: 1; margin-bottom: 6px; }
+  .share-score { font-size: 48px; line-height: 1; margin-bottom: 6px; color: var(--accent); }
   .share-score-label { font-size: 15px; color: var(--ink-muted); font-weight: 500; }
   .share-percentile { font-size: 14px; color: var(--accent); font-weight: 600; margin-top: 4px; }
 
@@ -196,13 +201,15 @@
 
   <!-- Playing -->
   <div class="screen" id="screen-playing">
-    <div class="round-header animate-fade">
-      <div class="round-counter" id="round-counter">Puzzle 1 of 5</div>
-      <div class="round-score" id="round-score">Running total: <span class="score-val">0</span> / 15</div>
+    <div class="round-header">
+      <div class="header-brand">Backsearch</div>
+      <div class="header-meta" id="round-meta">4/5 · <span class="score-num">5</span>pts</div>
     </div>
-    <div class="completions-label" id="completions-label">Today's search</div>
-    <div id="completions-list"></div>
-    <div class="guess-prompt" id="guess-prompt">Which trending entity produced these?</div>
+    <div class="prefix-blank animate-fade">
+      <span class="blank-line">___</span><span class="blank-cursor"></span>
+    </div>
+    <div class="completions-list" id="completions-list"></div>
+    <div class="guess-prompt" id="guess-prompt">Which <span class="type-label">show</span>?</div>
     <div class="card-grid" id="card-grid"></div>
     <div id="hint-container"></div>
     <div class="wrong-toast" id="wrong-toast">Not quite — try another</div>
@@ -258,6 +265,18 @@ function formatDate(d) {
 // ============================
 // DATA
 // ============================
+// PUZZLE QUALITY GATE (manual checklist until automated):
+// 1. All 8 candidates are real trending entities from this locale this week
+// 2. No candidate is eliminable from completions on basic factual grounds
+//    (every candidate must be plausibly compatible with EVERY completion)
+// 3. At least one completion is a "smoking gun" — a fact that uniquely
+//    identifies the answer among the 8 candidates, producing an "oh, of course"
+//    moment on reveal. Four completions should feel broadly applicable.
+// 4. No completion explicitly names the answer or its category
+// 5. Moderation pass: no medical emergencies, no self-harm, no slurs,
+//    no real-person controversies. When in doubt, drop and pick another.
+// Puzzles that fail ANY check go back to the curation queue, not into rotation.
+
 const PUZZLES_LOCAL = {
   date: formatDate(new Date()), city: "Bangkok", flag: "\uD83C\uDDF9\uD83C\uDDED",
   tomorrowTeaser: { entity: "BLACKPINK", typeLabel: "musician" },
@@ -285,7 +304,7 @@ const PUZZLES_LOCAL = {
     {
       answer: "Squid Game", prefixVerb: "is", category: "show",
       completions: ["getting a season 3","filming in Thailand","trending again on Netflix","better than the first","being remade in Bollywood"],
-      distractors: ["The White Lotus","Stranger Things","Wednesday","Bridgerton","The Last of Us","House of the Dragon","The Bear"]
+      distractors: ["The White Lotus","Stranger Things","Wednesday","Bridgerton","The Last of Us","House of the Dragon","Beef"]
     }
   ]
 };
@@ -310,9 +329,15 @@ const PUZZLES_GLOBAL = {
       distractors: ["Claude","Gemini","Copilot","Midjourney","Perplexity","DALL-E","Stable Diffusion"]
     },
     {
-      answer: "Breaking Bad", prefixVerb: "is", category: "show",
-      completions: ["getting a movie sequel","still the best show ever","trending on TikTok","being remade in Korea","coming to Netflix again"],
-      distractors: ["The Sopranos","Better Call Saul","The Wire","Mad Men","Succession","Ozark","Narcos"]
+      answer: "The Bear", prefixVerb: "is", category: "show",
+      completions: [
+        "trending on social media again",
+        "being called the best on TV",
+        "inspired a wave of memes",
+        "getting another season soon",
+        "set in a Chicago sandwich shop"
+      ],
+      distractors: ["Severance","The White Lotus","Yellowjackets","Euphoria","Slow Horses","Abbott Elementary","Only Murders in the Building"]
     },
     {
       answer: "Lionel Messi", prefixVerb: "is", category: "athlete",
@@ -544,19 +569,18 @@ function renderRound() {
   const p = getCurrentPuzzle();
   const P = getPuzzles(state.mode);
 
-  document.getElementById("round-counter").textContent = `Puzzle ${state.round + 1} of ${P.puzzles.length}`;
-  document.getElementById("round-score").innerHTML = `Running total: <span class="score-val">${runningTotal()}</span> / 15`;
-  document.getElementById("guess-prompt").innerHTML = `Which <span class="type-label">${p.category}</span> produced these?`;
+  document.getElementById("round-meta").innerHTML = `${state.round + 1}/${P.puzzles.length} · <span class="score-num">${runningTotal()}</span>pts`;
+  document.getElementById("guess-prompt").innerHTML = `Which <span class="type-label">${p.category}</span>?`;
 
   // Completions
   const list = document.getElementById("completions-list");
   list.innerHTML = "";
   p.completions.forEach((c, i) => {
-    const card = document.createElement("div");
-    card.className = "completion-card";
-    card.style.animationDelay = `${i * 0.08}s`;
-    card.innerHTML = `<span class="num">${i + 1}.</span><span class="text">${escapeHtml(c)}</span>`;
-    list.appendChild(card);
+    const item = document.createElement("div");
+    item.className = "completion-item";
+    item.style.animationDelay = `${i * 0.08}s`;
+    item.innerHTML = `<span class="num">${i + 1}</span><span class="text">${escapeHtml(c)}</span>`;
+    list.appendChild(item);
   });
 
   // Build shuffled options
