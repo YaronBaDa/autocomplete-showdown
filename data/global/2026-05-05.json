@@ -50,19 +50,15 @@
           "specificity": "smoking_gun"
         }
       ],
-      "distractors": {
-        "in_category": [
-          "Oscars 2026",
-          "Grammy Awards 2026",
-          "Cannes Film Festival 2026",
-          "Coachella 2026",
-          "Golden Globes 2026"
-        ],
-        "cross_category": [
-          "iPhone Fold",
-          "ChatGPT"
-        ]
-      }
+      "distractors": [
+        "Oscars 2026",
+        "Grammy Awards 2026",
+        "Cannes Film Festival 2026",
+        "Coachella 2026",
+        "Golden Globes 2026",
+        "Emmys 2026",
+        "White House Correspondents Dinner 2026"
+      ]
     },
     {
       "answer": "Apple Inc.",
@@ -107,19 +103,15 @@
           "specificity": "smoking_gun"
         }
       ],
-      "distractors": {
-        "in_category": [
-          "Microsoft",
-          "Google (Alphabet)",
-          "Amazon",
-          "Meta",
-          "Nvidia"
-        ],
-        "cross_category": [
-          "Disney Live-Action Remakes",
-          "White Lotus"
-        ]
-      }
+      "distractors": [
+        "Microsoft",
+        "Google (Alphabet)",
+        "Amazon",
+        "Meta",
+        "Nvidia",
+        "Tesla",
+        "Samsung"
+      ]
     },
     {
       "answer": "Elon Musk",
@@ -164,19 +156,15 @@
           "specificity": "smoking_gun"
         }
       ],
-      "distractors": {
-        "in_category": [
-          "Jeff Bezos",
-          "Mark Zuckerberg",
-          "Sam Altman",
-          "Tim Cook",
-          "Satya Nadella"
-        ],
-        "cross_category": [
-          "ChatGPT",
-          "Kentucky Derby 2026"
-        ]
-      }
+      "distractors": [
+        "Jeff Bezos",
+        "Mark Zuckerberg",
+        "Sam Altman",
+        "Tim Cook",
+        "Satya Nadella",
+        "Sundar Pichai",
+        "Jensen Huang"
+      ]
     },
     {
       "answer": "Timberwolves vs Spurs Game 1",
@@ -221,19 +209,15 @@
           "specificity": "smoking_gun"
         }
       ],
-      "distractors": {
-        "in_category": [
-          "Knicks vs 76ers Game 1",
-          "Lakers vs Nuggets Game 1",
-          "Celtics vs Heat Game 1",
-          "Bucks vs Pacers Game 1",
-          "Thunder vs Mavericks Game 1"
-        ],
-        "cross_category": [
-          "7-Eleven",
-          "Disney Live-Action Remakes"
-        ]
-      }
+      "distractors": [
+        "Knicks vs 76ers Game 1",
+        "Lakers vs Nuggets Game 1",
+        "Celtics vs Heat Game 1",
+        "Bucks vs Pacers Game 1",
+        "Thunder vs Mavericks Game 1",
+        "Cavaliers vs Magic Game 1",
+        "Clippers vs Suns Game 1"
+      ]
     },
     {
       "answer": "OpenAI",
@@ -278,20 +262,17 @@
           "specificity": "smoking_gun"
         }
       ],
-      "distractors": {
-        "in_category": [
-          "Anthropic",
-          "Google DeepMind",
-          "Meta AI",
-          "Microsoft AI",
-          "xAI (Elon Musk's AI)"
-        ],
-        "cross_category": [
-          "Airbnb",
-          "Pad Thai"
-        ]
-      }
+      "distractors": [
+        "Anthropic",
+        "Google DeepMind",
+        "Meta AI",
+        "Microsoft AI",
+        "xAI (Elon Musk's AI)",
+        "Stability AI",
+        "Mistral AI"
+      ]
     }
   ],
-  "_source": "news_anchored_v2_crosscat"
+  "_generatedAt": "2026-05-05T12:00:00+00:00",
+  "_source": "news_anchored_pipeline_v2"
 }

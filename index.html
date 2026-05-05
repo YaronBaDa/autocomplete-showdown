@@ -79,7 +79,8 @@
   .completion-item .num { margin-right:14px; color:var(--ink-faint); font-weight:600; font-size:12px; flex-shrink:0; min-width:18px; text-align:right; font-family:'Inter',system-ui,sans-serif; }
   .completion-item .text { font-family:'Fraunces',Georgia,serif; font-weight:500; font-style:italic; font-size:19px; line-height:1.55; color:var(--ink); flex:1; }
 
-  .guess-prompt { font-family: 'Fraunces', Georgia, serif; font-weight: 500; font-style: italic; font-size: 15px; color: var(--ink-muted); margin: 20px 0 16px; text-align: center; }
+  .guess-prompt { font-size:13px; font-weight:500; color:var(--ink-faint); margin:20px 0 16px; text-align:center; letter-spacing:0.01em; }
+  .guess-prompt .type-label { font-weight: 600; }
 
   .card-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; }
   .card-option {
@@ -238,7 +239,7 @@
   <div class="screen" id="screen-playing">
     <div class="completions-list" id="completions-list"></div>
     <div id="reveal-btn-container"></div>
-    <div class="guess-prompt serif-med" id="guess-prompt">What's the search?</div>
+    <div class="guess-prompt" id="guess-prompt">Which <span class="type-label">show</span>?</div>
     <div class="card-grid" id="card-grid"></div>
     <div class="wrong-toast" id="wrong-toast">Not quite — try another</div>
     <div class="spacer"></div>
@@ -398,18 +399,6 @@ function updateCompactBar() {
 }
 
 // ============================================================
-// ANALYTICS — lightweight event logging for playtest metrics
-// ============================================================
-function logEvent(name, data = {}) {
-  const entry = { event: name, timestamp: Date.now(), mode: state.mode, round: state.round, ...data };
-  try {
-    const log = JSON.parse(localStorage.getItem('bs_analytics') || '[]');
-    log.push(entry);
-    localStorage.setItem('bs_analytics', JSON.stringify(log.slice(-200)));
-  } catch (e) { /* silently fail */ }
-}
-
-// ============================================================
 // DATA — loaded from JSON with fallback to hardcoded
 // ============================================================
 let PUZZLE_POOL_LOCAL = null;   // full pool of 10 puzzles
@@ -426,7 +415,7 @@ const FALLBACK_PUZZLES = {
   global: {
     date: formatDate(new Date()), city: "Global", flag: "\uD83C\uDF10",
     tomorrowTeaser: { entity: "Met Gala 2026", typeLabel: "annual cultural event" },
-    puzzles: [{"answer": "Met Gala 2026", "prefixVerb": "is", "entityType": "annual cultural event", "whyTrending": "Held May 4; theme 'Fashion Is Art' with dress code 'Costume Art'; backlash over some looks; NYT publ", "difficulty": "medium", "completions": [{"text": "happened last night in new york", "position": 1, "specificity": "ambiguous"}, {"text": "the theme that everyone is debating", "position": 2, "specificity": "ambiguous"}, {"text": "celebrity looks flooding social media right now", "position": 3, "specificity": "ambiguous"}, {"text": "some outfits causing a split online", "position": 4, "specificity": "ambiguous"}, {"text": "fashion is art was the dress code", "position": 5, "specificity": "narrowing"}, {"text": "held at the museum on fifth avenue", "position": 6, "specificity": "narrowing"}, {"text": "fashion is art on the steps of the met this may", "position": 7, "specificity": "smoking_gun"}], "distractors": {"in_category": ["Oscars 2026", "Grammy Awards 2026", "Cannes Film Festival 2026", "Coachella 2026", "Golden Globes 2026"], "cross_category": ["iPhone Fold", "ChatGPT"]}}, {"answer": "Apple Inc.", "prefixVerb": "is", "entityType": "tech company", "whyTrending": "Reported 17% sales jump in Q2 2026 earnings; iPhone sales surprised analysts; stock moved on the new", "difficulty": "medium", "completions": [{"text": "earnings report just dropped", "position": 1, "specificity": "ambiguous"}, {"text": "beat wall street expectations again", "position": 2, "specificity": "ambiguous"}, {"text": "stock moving after the announcement", "position": 3, "specificity": "ambiguous"}, {"text": "better than expected this quarter", "position": 4, "specificity": "ambiguous"}, {"text": "seventeen percent jump in sales", "position": 5, "specificity": "narrowing"}, {"text": "iphones driving most of the growth", "position": 6, "specificity": "narrowing"}, {"text": "seventeen percent growth powered by the iphone this quarter", "position": 7, "specificity": "smoking_gun"}], "distractors": {"in_category": ["Microsoft", "Google (Alphabet)", "Amazon", "Meta", "Nvidia"], "cross_category": ["Disney Live-Action Remakes", "White Lotus"]}}, {"answer": "Elon Musk", "prefixVerb": "is", "entityType": "business figure", "whyTrending": "SEC settled lawsuit over his Twitter stock disclosures; also in news for SpaceX shares, OpenAI trial", "difficulty": "medium", "completions": [{"text": "in the news again this morning", "position": 1, "specificity": "ambiguous"}, {"text": "legal battle finally resolved", "position": 2, "specificity": "ambiguous"}, {"text": "shares of his companies moving today", "position": 3, "specificity": "ambiguous"}, {"text": "another courtroom appearance this week", "position": 4, "specificity": "ambiguous"}, {"text": "sec settlement over old stock purchases", "position": 5, "specificity": "narrowing"}, {"text": "the twitter acquisition still causing legal trouble", "position": 6, "specificity": "narrowing"}, {"text": "sec just settled the twitter stock disclosure case", "position": 7, "specificity": "smoking_gun"}], "distractors": {"in_category": ["Jeff Bezos", "Mark Zuckerberg", "Sam Altman", "Tim Cook", "Satya Nadella"], "cross_category": ["ChatGPT", "Kentucky Derby 2026"]}}, {"answer": "Timberwolves vs Spurs Game 1", "prefixVerb": "is", "entityType": "NBA playoff game", "whyTrending": "Game 1 of first-round series played May 4; Timberwolves won 104-102 in a thriller; MIN leads series ", "difficulty": "medium", "completions": [{"text": "game one just wrapped up", "position": 1, "specificity": "ambiguous"}, {"text": "decided in the final seconds", "position": 2, "specificity": "ambiguous"}, {"text": "one oh lead after the first game", "position": 3, "specificity": "ambiguous"}, {"text": "fans arguing about the last play", "position": 4, "specificity": "ambiguous"}, {"text": "one hundred four to one hundred two final score", "position": 5, "specificity": "narrowing"}, {"text": "wolves take the early advantage in the series", "position": 6, "specificity": "narrowing"}, {"text": "the rookie sensation facing the rising superstar in game one", "position": 7, "specificity": "smoking_gun"}], "distractors": {"in_category": ["Knicks vs 76ers Game 1", "Lakers vs Nuggets Game 1", "Celtics vs Heat Game 1", "Bucks vs Pacers Game 1", "Thunder vs Mavericks Game 1"], "cross_category": ["7-Eleven", "Disney Live-Action Remakes"]}}, {"answer": "OpenAI", "prefixVerb": "is", "entityType": "AI company", "whyTrending": "'Big Reset' coverage in NYT; Musk lawyers questioned president about $30B valuation in trial; White ", "difficulty": "hard", "completions": [{"text": "in the headlines again this week", "position": 1, "specificity": "ambiguous"}, {"text": "facing questions about its future direction", "position": 2, "specificity": "ambiguous"}, {"text": "a courtroom battle making news right now", "position": 3, "specificity": "ambiguous"}, {"text": "valuation getting questioned in court", "position": 4, "specificity": "ambiguous"}, {"text": "the big reset coverage in the times", "position": 5, "specificity": "narrowing"}, {"text": "being sued by their own cofounder over the original mission", "position": 6, "specificity": "narrowing"}, {"text": "the big reset and the thirty billion dollar question in court", "position": 7, "specificity": "smoking_gun"}], "distractors": {"in_category": ["Anthropic", "Google DeepMind", "Meta AI", "Microsoft AI", "xAI (Elon Musk's AI)"], "cross_category": ["Airbnb", "Pad Thai"]}}]
+    puzzles: [{"answer": "Met Gala 2026", "prefixVerb": "is", "entityType": "annual cultural event", "whyTrending": "Held May 4; theme 'Fashion Is Art' with dress code 'Costume Art'; backlash over some looks; NYT publ", "difficulty": "medium", "completions": [{"text": "happened last night in new york", "position": 1, "specificity": "ambiguous"}, {"text": "the theme that everyone is debating", "position": 2, "specificity": "ambiguous"}, {"text": "celebrity looks flooding social media right now", "position": 3, "specificity": "ambiguous"}, {"text": "some outfits causing a split online", "position": 4, "specificity": "ambiguous"}, {"text": "fashion is art was the dress code", "position": 5, "specificity": "narrowing"}, {"text": "held at the museum on fifth avenue", "position": 6, "specificity": "narrowing"}, {"text": "fashion is art on the steps of the met this may", "position": 7, "specificity": "smoking_gun"}], "distractors": ["Oscars 2026", "Grammy Awards 2026", "Cannes Film Festival 2026", "Coachella 2026", "Golden Globes 2026", "Emmys 2026", "White House Correspondents Dinner 2026"]}, {"answer": "Apple Inc.", "prefixVerb": "is", "entityType": "tech company", "whyTrending": "Reported 17% sales jump in Q2 2026 earnings; iPhone sales surprised analysts; stock moved on the new", "difficulty": "medium", "completions": [{"text": "earnings report just dropped", "position": 1, "specificity": "ambiguous"}, {"text": "beat wall street expectations again", "position": 2, "specificity": "ambiguous"}, {"text": "stock moving after the announcement", "position": 3, "specificity": "ambiguous"}, {"text": "better than expected this quarter", "position": 4, "specificity": "ambiguous"}, {"text": "seventeen percent jump in sales", "position": 5, "specificity": "narrowing"}, {"text": "iphones driving most of the growth", "position": 6, "specificity": "narrowing"}, {"text": "seventeen percent growth powered by the iphone this quarter", "position": 7, "specificity": "smoking_gun"}], "distractors": ["Microsoft", "Google (Alphabet)", "Amazon", "Meta", "Nvidia", "Tesla", "Samsung"]}, {"answer": "Elon Musk", "prefixVerb": "is", "entityType": "business figure", "whyTrending": "SEC settled lawsuit over his Twitter stock disclosures; also in news for SpaceX shares, OpenAI trial", "difficulty": "medium", "completions": [{"text": "in the news again this morning", "position": 1, "specificity": "ambiguous"}, {"text": "legal battle finally resolved", "position": 2, "specificity": "ambiguous"}, {"text": "shares of his companies moving today", "position": 3, "specificity": "ambiguous"}, {"text": "another courtroom appearance this week", "position": 4, "specificity": "ambiguous"}, {"text": "sec settlement over old stock purchases", "position": 5, "specificity": "narrowing"}, {"text": "the twitter acquisition still causing legal trouble", "position": 6, "specificity": "narrowing"}, {"text": "sec just settled the twitter stock disclosure case", "position": 7, "specificity": "smoking_gun"}], "distractors": ["Jeff Bezos", "Mark Zuckerberg", "Sam Altman", "Tim Cook", "Satya Nadella", "Sundar Pichai", "Jensen Huang"]}, {"answer": "Timberwolves vs Spurs Game 1", "prefixVerb": "is", "entityType": "NBA playoff game", "whyTrending": "Game 1 of first-round series played May 4; Timberwolves won 104-102 in a thriller; MIN leads series ", "difficulty": "medium", "completions": [{"text": "game one just wrapped up", "position": 1, "specificity": "ambiguous"}, {"text": "decided in the final seconds", "position": 2, "specificity": "ambiguous"}, {"text": "one oh lead after the first game", "position": 3, "specificity": "ambiguous"}, {"text": "fans arguing about the last play", "position": 4, "specificity": "ambiguous"}, {"text": "one hundred four to one hundred two final score", "position": 5, "specificity": "narrowing"}, {"text": "wolves take the early advantage in the series", "position": 6, "specificity": "narrowing"}, {"text": "the rookie sensation facing the rising superstar in game one", "position": 7, "specificity": "smoking_gun"}], "distractors": ["Knicks vs 76ers Game 1", "Lakers vs Nuggets Game 1", "Celtics vs Heat Game 1", "Bucks vs Pacers Game 1", "Thunder vs Mavericks Game 1", "Cavaliers vs Magic Game 1", "Clippers vs Suns Game 1"]}, {"answer": "OpenAI", "prefixVerb": "is", "entityType": "AI company", "whyTrending": "'Big Reset' coverage in NYT; Musk lawyers questioned president about $30B valuation in trial; White ", "difficulty": "hard", "completions": [{"text": "in the headlines again this week", "position": 1, "specificity": "ambiguous"}, {"text": "facing questions about its future direction", "position": 2, "specificity": "ambiguous"}, {"text": "a courtroom battle making news right now", "position": 3, "specificity": "ambiguous"}, {"text": "valuation getting questioned in court", "position": 4, "specificity": "ambiguous"}, {"text": "the big reset coverage in the times", "position": 5, "specificity": "narrowing"}, {"text": "being sued by their own cofounder over the original mission", "position": 6, "specificity": "narrowing"}, {"text": "the big reset and the thirty billion dollar question in court", "position": 7, "specificity": "smoking_gun"}], "distractors": ["Anthropic", "Google DeepMind", "Meta AI", "Microsoft AI", "xAI (Elon Musk's AI)", "Stability AI", "Mistral AI"]}]
   }
 };
 
@@ -753,20 +742,13 @@ function renderRound() {
 
   updateCompactBar();
 
-  // Build shuffled options — support both old flat array and new {in_category, cross_category} format
+  // Build shuffled options
   roundOptions = [{ name: p.answer, isAnswer: true, index: 0 }];
-  const dists = p.distractors;
-  if (Array.isArray(dists)) {
-    // Old flat array format (7 items) — all in-category
-    dists.forEach((d, i) => roundOptions.push({ name: d, isAnswer: false, index: i + 1 }));
-  } else if (dists && dists.in_category) {
-    // New structured format: 5 in-category + 2 cross-category
-    dists.in_category.forEach((d, i) => roundOptions.push({ name: d, isAnswer: false, index: i + 1, category: 'in' }));
-    (dists.cross_category || []).forEach((d, i) => roundOptions.push({ name: d, isAnswer: false, index: dists.in_category.length + i + 1, category: 'cross' }));
-  }
+  p.distractors.forEach((d, i) => roundOptions.push({ name: d, isAnswer: false, index: i + 1 }));
   roundOptions = shuffleArray(roundOptions, getDailySeed() + state.round * 7);
 
-  // Static label — no longer dynamically set per entity type
+  document.getElementById("guess-prompt").innerHTML = `Which <span class="type-label">${p.entityType}</span>?`;
+
   renderCompletions();
   renderRevealButton();
   renderCardGrid();
@@ -842,7 +824,6 @@ function renderCardGrid() {
 function revealNext() {
   const p = getCurrentPuzzle();
   state.revealedCount++;
-  logEvent('reveal', { puzzle: state.round, count: state.revealedCount });
   renderCompletions();
   renderRevealButton();
 
@@ -865,7 +846,6 @@ function revealAnswer() {
     wrongGuesses: state.wrongCards.length,
     failed: true
   };
-  logEvent('puzzle_failed', { puzzle: state.round, reveals: state.revealedCount, wrongGuesses: state.wrongCards.length });
   saveState();
   showReveal(findAnswerIndex());
 }
@@ -885,15 +865,10 @@ function submitGuess(optionIndex) {
       wrongGuesses: state.wrongCards.length,
       failed: false
     };
-    logEvent('puzzle_solved', { puzzle: state.round, reveals: state.revealedCount, wrongGuesses: state.wrongCards.length, score });
     saveState();
     showReveal(optionIndex);
   } else {
     // WRONG — free, just dim the card
-    // Track: first-click accuracy on cross-category cards
-    if (state.wrongCards.length === 0 && opt.category === 'cross') {
-      logEvent('first_click_crosscat', { puzzle: state.round, entity: opt.name });
-    }
     state.wrongCards.push(optionIndex);
 
     const cards = document.querySelectorAll(".card-option");
