@@ -31,7 +31,6 @@
   @keyframes popIn { 0% { opacity: 0; transform: scale(0.7); } 60% { transform: scale(1.05); } 100% { opacity: 1; transform: scale(1); } }
   @keyframes shake { 0%,100% { transform: translateX(0); } 20% { transform: translateX(-6px); } 40% { transform: translateX(6px); } 60% { transform: translateX(-4px); } 80% { transform: translateX(4px); } }
   @keyframes slideUp { from { opacity: 0; transform: translateY(16px); } to { opacity: 1; transform: translateY(0); } }
-  @keyframes cursorBlink { 0%,100%{opacity:1} 50%{opacity:0} }
   .animate-fade { animation: fadeIn 0.5s ease-out forwards; }
   .animate-pop { animation: popIn 0.35s ease-out forwards; }
   .animate-slide { animation: slideUp 0.4s ease-out forwards; }
@@ -70,10 +69,6 @@
   .btn-ghost:hover { color: var(--ink-muted); }
   .btn-copy { background: var(--ink); color: white; box-shadow: 0 4px 12px rgba(26,26,26,0.15); }
   .btn-copy:hover { background: #333; }
-
-  .prefix-blank { text-align:center; margin-bottom:6px; }
-  .prefix-blank .blank-line { display:inline-block; font-family:'Inter',system-ui,sans-serif; font-size:18px; font-weight:500; color:var(--ink-faint); letter-spacing:0.04em; border-bottom:2px solid var(--ink-faint); padding:0 8px 2px; min-width:80px; }
-  .prefix-blank .blank-cursor { display:inline-block; width:2px; height:18px; background:var(--accent); margin-left:2px; animation:cursorBlink 1s step-end infinite; vertical-align:middle; }
 
   .completions-list { margin-bottom:18px; }
   .completion-item { display:flex; align-items:baseline; padding:10px 0; opacity:0; }
@@ -201,9 +196,6 @@
 
   <!-- Playing -->
   <div class="screen" id="screen-playing">
-    <div class="prefix-blank animate-fade">
-      <span class="blank-line">___</span><span class="blank-cursor"></span>
-    </div>
     <div class="completions-list" id="completions-list"></div>
     <div id="reveal-btn-container"></div>
     <div class="guess-prompt" id="guess-prompt">Which <span class="type-label">show</span>?</div>
