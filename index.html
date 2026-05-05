@@ -423,15 +423,21 @@ async function loadPuzzles() {
   const today = new Date().toISOString().split('T')[0];
   const cacheBust = Date.now();
 
-  // Try to load full pool from evergreen JSON
+  // Try daily JSON first, then evergreen, then inline fallback
   async function fetchPool(locale) {
-    try {
-      const res = await fetch(`data/evergreen/${locale}.json?v=${cacheBust}`);
-      if (res.ok) {
-        const data = await res.json();
-        if (data.puzzles && data.puzzles.length >= 5) return data;
-      }
-    } catch (e) { /* fall through */ }
+    const urls = [
+      `data/${locale}/${today}.json?v=${cacheBust}`,
+      `data/evergreen/${locale}.json?v=${cacheBust}`
+    ];
+    for (const url of urls) {
+      try {
+        const res = await fetch(url);
+        if (res.ok) {
+          const data = await res.json();
+          if (data.puzzles && data.puzzles.length >= 5) return data;
+        }
+      } catch (e) { /* continue */ }
+    }
     return null;
   }
 
