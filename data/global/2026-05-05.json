@@ -3,116 +3,276 @@
   "city": "Global",
   "flag": "\ud83c\udf10",
   "tomorrowTeaser": {
-    "entity": "Taylor Swift",
-    "typeLabel": "musician"
+    "entity": "Lionel Messi",
+    "typeLabel": "athlete"
   },
   "puzzles": [
     {
-      "answer": "Squid Game",
-      "prefixVerb": "is a",
-      "category": "show",
+      "answer": "Met Gala 2026",
+      "prefixVerb": "is",
+      "entityType": "annual cultural event",
+      "whyTrending": "Held May 4 2026 at the Met; theme 'Costume Art' with dress code 'Fashion Is Art'",
+      "difficulty": "medium",
       "completions": [
-        "real game",
-        "real story",
-        "available on",
-        "adult or not",
-        "movie or series"
+        {
+          "text": "highlights from this year",
+          "position": 1,
+          "specificity": "ambiguous"
+        },
+        {
+          "text": "celebrity arrivals on the carpet",
+          "position": 2,
+          "specificity": "ambiguous"
+        },
+        {
+          "text": "biggest surprises of the night",
+          "position": 3,
+          "specificity": "ambiguous"
+        },
+        {
+          "text": "viral moments everyone is talking about",
+          "position": 4,
+          "specificity": "ambiguous"
+        },
+        {
+          "text": "what happened on the steps",
+          "position": 5,
+          "specificity": "narrowing"
+        },
+        {
+          "text": "an invite only fundraiser for the costume institute",
+          "position": 6,
+          "specificity": "narrowing"
+        },
+        {
+          "text": "first monday in may",
+          "position": 7,
+          "specificity": "smoking_gun"
+        }
       ],
       "distractors": [
-        "Severance",
-        "The White Lotus",
-        "Taylor Swift",
-        "Bali",
-        "ChatGPT",
-        "Elon Musk",
-        "iPhone 16"
+        "Oscars 2026",
+        "Grammy Awards 2026",
+        "Cannes Film Festival 2026",
+        "Coachella 2026",
+        "Kentucky Derby 2026",
+        "Golden Globes 2026",
+        "Emmys 2026"
       ]
     },
     {
-      "answer": "Bitcoin",
-      "prefixVerb": "is a",
-      "category": "crypto",
+      "answer": "Taylor Swift",
+      "prefixVerb": "is",
+      "entityType": "musician",
+      "whyTrending": "New album 'Opalite' and companion film 'The Fate of Ophelia' generating massive searches; Met Gala a",
+      "difficulty": "easy",
       "completions": [
-        "isin nummer",
-        "limited supply",
-        "all been mined",
-        "been around for how long",
-        "already been mined"
+        {
+          "text": "new album just dropped",
+          "position": 1,
+          "specificity": "ambiguous"
+        },
+        {
+          "text": "tour rumors for next year",
+          "position": 2,
+          "specificity": "ambiguous"
+        },
+        {
+          "text": "surprise appearance at the met gala",
+          "position": 3,
+          "specificity": "ambiguous"
+        },
+        {
+          "text": "fans decoding hidden messages again",
+          "position": 4,
+          "specificity": "ambiguous"
+        },
+        {
+          "text": "rerecording old albums one by one",
+          "position": 5,
+          "specificity": "narrowing"
+        },
+        {
+          "text": "sold out stadiums on every continent",
+          "position": 6,
+          "specificity": "narrowing"
+        },
+        {
+          "text": "the eras tour film broke box office records",
+          "position": 7,
+          "specificity": "smoking_gun"
+        }
       ],
       "distractors": [
-        "The White Lotus",
-        "Elon Musk",
-        "Severance",
-        "ChatGPT",
-        "iPhone 16",
-        "Bali",
-        "Lionel Messi"
+        "Billie Eilish",
+        "Olivia Rodrigo",
+        "Sabrina Carpenter",
+        "Beyonc\u00e9",
+        "Ariana Grande",
+        "Lady Gaga",
+        "Dua Lipa"
       ]
     },
     {
-      "answer": "ChatGPT",
-      "prefixVerb": "is a",
-      "category": "AI tool",
+      "answer": "Cannes Film Festival 2026",
+      "prefixVerb": "is",
+      "entityType": "film festival",
+      "whyTrending": "Lineup announcement imminent; jury president speculation; opening night film rumors",
+      "difficulty": "hard",
       "completions": [
-        "israel star",
-        "checking in",
-        "agrees with you",
-        "tells you what you want to hear",
-        "say the word"
+        {
+          "text": "lineup announcement expected soon",
+          "position": 1,
+          "specificity": "ambiguous"
+        },
+        {
+          "text": "most anticipated premieres this year",
+          "position": 2,
+          "specificity": "ambiguous"
+        },
+        {
+          "text": "jury president just revealed",
+          "position": 3,
+          "specificity": "ambiguous"
+        },
+        {
+          "text": "films in competition for the top prize",
+          "position": 4,
+          "specificity": "ambiguous"
+        },
+        {
+          "text": "walking up those red carpeted stairs",
+          "position": 5,
+          "specificity": "narrowing"
+        },
+        {
+          "text": "dress code controversy over flat shoes on the carpet",
+          "position": 6,
+          "specificity": "narrowing"
+        },
+        {
+          "text": "on the french riviera every may",
+          "position": 7,
+          "specificity": "smoking_gun"
+        }
       ],
       "distractors": [
-        "Lionel Messi",
-        "The White Lotus",
-        "iPhone 16",
-        "Bitcoin",
-        "Taylor Swift",
-        "Severance",
-        "Elon Musk"
+        "Sundance Film Festival 2026",
+        "Venice Film Festival 2026",
+        "Toronto International Film Festival 2026",
+        "Tribeca Film Festival 2026",
+        "Berlin International Film Festival 2026",
+        "SXSW Film Festival 2026",
+        "Telluride Film Festival 2026"
       ]
     },
     {
-      "answer": "iPhone 16",
-      "prefixVerb": "is a",
-      "category": "product",
+      "answer": "NBA Playoffs 2026",
+      "prefixVerb": "is",
+      "entityType": "sports postseason",
+      "whyTrending": "Multiple first-round series active: Timberwolves-Spurs and 76ers-Knicks both trending at 500K+ searc",
+      "difficulty": "medium",
       "completions": [
-        "aluminium or titanium",
-        "good phone",
-        "available in apple store",
-        "dual sim",
-        "waterproof or not"
+        {
+          "text": "bracket predictions this round",
+          "position": 1,
+          "specificity": "ambiguous"
+        },
+        {
+          "text": "biggest upset so far",
+          "position": 2,
+          "specificity": "ambiguous"
+        },
+        {
+          "text": "game schedule for this week",
+          "position": 3,
+          "specificity": "ambiguous"
+        },
+        {
+          "text": "injury report for game five",
+          "position": 4,
+          "specificity": "ambiguous"
+        },
+        {
+          "text": "best of seven first round format",
+          "position": 5,
+          "specificity": "narrowing"
+        },
+        {
+          "text": "eastern conference finals predictions",
+          "position": 6,
+          "specificity": "narrowing"
+        },
+        {
+          "text": "larry o'brien championship trophy",
+          "position": 7,
+          "specificity": "smoking_gun"
+        }
       ],
       "distractors": [
-        "The White Lotus",
-        "Bali",
-        "Squid Game",
-        "ChatGPT",
-        "Taylor Swift",
-        "Severance",
-        "Elon Musk"
+        "NHL Stanley Cup Playoffs 2026",
+        "MLB Postseason 2026",
+        "NFL Playoffs 2026",
+        "UEFA Champions League 2026",
+        "March Madness 2026",
+        "Wimbledon 2026",
+        "FIFA World Cup 2026"
       ]
     },
     {
-      "answer": "Severance",
-      "prefixVerb": "is a",
-      "category": "show",
+      "answer": "Tesla Cybertruck",
+      "prefixVerb": "is",
+      "entityType": "vehicle",
+      "whyTrending": "International deliveries expanding; first right-hand-drive models for UK and Australia; recalls and ",
+      "difficulty": "medium",
       "completions": [
-        "available in hindi",
-        "weird show",
-        "bad show",
-        "available in hindi or not",
-        "too slow"
+        {
+          "text": "delivery dates finally announced",
+          "position": 1,
+          "specificity": "ambiguous"
+        },
+        {
+          "text": "real world range tested",
+          "position": 2,
+          "specificity": "ambiguous"
+        },
+        {
+          "text": "can it actually go off road",
+          "position": 3,
+          "specificity": "ambiguous"
+        },
+        {
+          "text": "towing capacity vs gas trucks",
+          "position": 4,
+          "specificity": "ambiguous"
+        },
+        {
+          "text": "stainless steel body that doesn't need paint",
+          "position": 5,
+          "specificity": "narrowing"
+        },
+        {
+          "text": "bulletproof windows that cracked on stage",
+          "position": 6,
+          "specificity": "narrowing"
+        },
+        {
+          "text": "looks like it came from a blade runner set",
+          "position": 7,
+          "specificity": "smoking_gun"
+        }
       ],
       "distractors": [
-        "Squid Game",
-        "The White Lotus",
-        "Lionel Messi",
-        "Taylor Swift",
-        "Bali",
-        "ChatGPT",
-        "iPhone 16"
+        "Rivian R1T",
+        "Ford F-150 Lightning",
+        "GMC Hummer EV",
+        "Chevrolet Silverado EV",
+        "Ram 1500 REV",
+        "Lordstown Endurance",
+        "Canoo Pickup"
       ]
     }
   ],
-  "_generatedAt": "2026-05-05T01:17:42.996037+00:00",
-  "_source": "autocomplete_pipeline_v1"
+  "_generatedAt": "2026-05-05T12:00:00+00:00",
+  "_source": "curated_pipeline_v2"
 }

@@ -3,116 +3,276 @@
   "city": "Bangkok",
   "flag": "\ud83c\uddf9\ud83c\udded",
   "tomorrowTeaser": {
-    "entity": "ChatGPT",
-    "typeLabel": "AI tool"
+    "entity": "Pad Thai",
+    "typeLabel": "food"
   },
   "puzzles": [
     {
-      "answer": "Songkran",
-      "prefixVerb": "is a",
-      "category": "event",
+      "answer": "Songkran 2026",
+      "prefixVerb": "is",
+      "entityType": "Thai festival",
+      "whyTrending": "Just passed (April 13-15); extended to 5 days nationwide; water fight videos still circulating on so",
+      "difficulty": "easy",
       "completions": [
-        "water festival to mark the beginning",
-        "water festival",
-        "festival celebrated in what country",
-        "festival in thailand",
-        "new year"
+        {
+          "text": "dates for this year",
+          "position": 1,
+          "specificity": "ambiguous"
+        },
+        {
+          "text": "best places to celebrate in bangkok",
+          "position": 2,
+          "specificity": "ambiguous"
+        },
+        {
+          "text": "what to wear and bring",
+          "position": 3,
+          "specificity": "ambiguous"
+        },
+        {
+          "text": "is it family friendly or just for partying",
+          "position": 4,
+          "specificity": "ambiguous"
+        },
+        {
+          "text": "impossible to stay dry during it",
+          "position": 5,
+          "specificity": "narrowing"
+        },
+        {
+          "text": "the world's biggest water fight",
+          "position": 6,
+          "specificity": "narrowing"
+        },
+        {
+          "text": "thai new year celebrated in april",
+          "position": 7,
+          "specificity": "smoking_gun"
+        }
+      ],
+      "distractors": [
+        "Loy Krathong 2026",
+        "Wonderfruit Festival 2026",
+        "Full Moon Party 2026",
+        "Chinese New Year Bangkok 2026",
+        "Vegetarian Festival 2026",
+        "Phi Ta Khon Festival 2026",
+        "Yi Peng Lantern Festival 2026"
+      ]
+    },
+    {
+      "answer": "Pad Kra Pao",
+      "prefixVerb": "is",
+      "entityType": "Thai food dish",
+      "whyTrending": "Perennially the most-searched Thai dish by tourists and expats; recent viral TikTok ranking it #1 st",
+      "difficulty": "hard",
+      "completions": [
+        {
+          "text": "most popular thing to order on the street",
+          "position": 1,
+          "specificity": "ambiguous"
+        },
+        {
+          "text": "how spicy should i order it",
+          "position": 2,
+          "specificity": "ambiguous"
+        },
+        {
+          "text": "what does it taste like",
+          "position": 3,
+          "specificity": "ambiguous"
+        },
+        {
+          "text": "best place to eat it in bangkok",
+          "position": 4,
+          "specificity": "ambiguous"
+        },
+        {
+          "text": "served with a crispy fried egg on top",
+          "position": 5,
+          "specificity": "narrowing"
+        },
+        {
+          "text": "made with holy basil not sweet basil",
+          "position": 6,
+          "specificity": "narrowing"
+        },
+        {
+          "text": "what locals eat when they cannot decide",
+          "position": 7,
+          "specificity": "smoking_gun"
+        }
       ],
       "distractors": [
         "Pad Thai",
-        "ChatGPT",
-        "Jay Fai",
-        "Bangkok",
-        "Taylor Swift",
-        "Squid Game",
-        "Bitcoin"
+        "Tom Yum Goong",
+        "Green Curry",
+        "Massaman Curry",
+        "Som Tam",
+        "Khao Soi",
+        "Pad See Ew"
       ]
     },
     {
-      "answer": "Jay Fai",
-      "prefixVerb": "is a",
-      "category": "restaurant",
+      "answer": "BTS Skytrain",
+      "prefixVerb": "is",
+      "entityType": "Bangkok transit system",
+      "whyTrending": "New extension to western suburbs opened; fare integration with MRT finally implemented",
+      "difficulty": "medium",
       "completions": [
-        "fire and soul",
-        "bangkok alternative",
-        "bangkok adresse",
-        "bangkok alter",
-        "bangkok chinatown"
+        {
+          "text": "always crowded at rush hour",
+          "position": 1,
+          "specificity": "ambiguous"
+        },
+        {
+          "text": "stations near all the big malls",
+          "position": 2,
+          "specificity": "ambiguous"
+        },
+        {
+          "text": "announcements in thai then english",
+          "position": 3,
+          "specificity": "ambiguous"
+        },
+        {
+          "text": "fare went up again this year",
+          "position": 4,
+          "specificity": "ambiguous"
+        },
+        {
+          "text": "elevated tracks running above the traffic",
+          "position": 5,
+          "specificity": "narrowing"
+        },
+        {
+          "text": "uses rabbit card for payment",
+          "position": 6,
+          "specificity": "narrowing"
+        },
+        {
+          "text": "the green line from mo chit to bearing",
+          "position": 7,
+          "specificity": "smoking_gun"
+        }
       ],
       "distractors": [
-        "ChatGPT",
-        "BLACKPINK",
-        "Bangkok",
-        "Taylor Swift",
-        "Pad Thai",
-        "Squid Game",
-        "Songkran"
+        "MRT Blue Line",
+        "MRT Purple Line",
+        "Airport Rail Link",
+        "SRT Red Line",
+        "BTS Silom Line",
+        "BTS Sukhumvit Line",
+        "Chao Phraya Express Boat"
       ]
     },
     {
-      "answer": "iPhone 16",
-      "prefixVerb": "is a",
-      "category": "product",
+      "answer": "Chatuchak Weekend Market",
+      "prefixVerb": "is",
+      "entityType": "Bangkok place",
+      "whyTrending": "Consistently one of the most-searched Bangkok destinations; recent heatwave making indoor sections m",
+      "difficulty": "medium",
       "completions": [
-        "aluminium or titanium",
-        "good phone",
-        "available in apple store",
-        "dual sim",
-        "waterproof or not"
+        {
+          "text": "is it open today",
+          "position": 1,
+          "specificity": "ambiguous"
+        },
+        {
+          "text": "best section for vintage clothes",
+          "position": 2,
+          "specificity": "ambiguous"
+        },
+        {
+          "text": "how to get there by bts",
+          "position": 3,
+          "specificity": "ambiguous"
+        },
+        {
+          "text": "air conditioned areas to escape the heat",
+          "position": 4,
+          "specificity": "ambiguous"
+        },
+        {
+          "text": "only open on saturdays and sundays",
+          "position": 5,
+          "specificity": "narrowing"
+        },
+        {
+          "text": "over fifteen thousand stalls to explore",
+          "position": 6,
+          "specificity": "narrowing"
+        },
+        {
+          "text": "near mo chit bts and the big park",
+          "position": 7,
+          "specificity": "smoking_gun"
+        }
       ],
       "distractors": [
-        "BLACKPINK",
-        "Taylor Swift",
-        "Bangkok",
-        "ChatGPT",
-        "Songkran",
-        "Pad Thai",
-        "Bitcoin"
+        "Siam Paragon",
+        "ICONSIAM",
+        "MBK Center",
+        "Asiatique The Riverfront",
+        "Terminal 21",
+        "Platinum Fashion Mall",
+        "Patpong Night Market"
       ]
     },
     {
-      "answer": "Squid Game",
-      "prefixVerb": "is a",
-      "category": "show",
+      "answer": "Khao San Road",
+      "prefixVerb": "is",
+      "entityType": "Bangkok place",
+      "whyTrending": "Post-renovation reopening complete; new pedestrian-only policy generating debate among travelers",
+      "difficulty": "medium",
       "completions": [
-        "real game",
-        "real story",
-        "available on",
-        "adult or not",
-        "movie or series"
+        {
+          "text": "best bars and nightlife spots",
+          "position": 1,
+          "specificity": "ambiguous"
+        },
+        {
+          "text": "is it worth visiting this year",
+          "position": 2,
+          "specificity": "ambiguous"
+        },
+        {
+          "text": "cheap hostels and guesthouses nearby",
+          "position": 3,
+          "specificity": "ambiguous"
+        },
+        {
+          "text": "street food stalls open late",
+          "position": 4,
+          "specificity": "ambiguous"
+        },
+        {
+          "text": "backpacker central since the eighties",
+          "position": 5,
+          "specificity": "narrowing"
+        },
+        {
+          "text": "now pedestrian only no cars allowed",
+          "position": 6,
+          "specificity": "narrowing"
+        },
+        {
+          "text": "the backpacker strip from the beach book",
+          "position": 7,
+          "specificity": "smoking_gun"
+        }
       ],
       "distractors": [
-        "Bitcoin",
-        "Jay Fai",
-        "iPhone 16",
-        "Bangkok",
-        "ChatGPT",
-        "BLACKPINK",
-        "Songkran"
-      ]
-    },
-    {
-      "answer": "Pad Thai",
-      "prefixVerb": "is a",
-      "category": "food",
-      "completions": [
-        "and chicken",
-        "and curry",
-        "chiang mai",
-        "thai dish",
-        "gluten free"
-      ],
-      "distractors": [
-        "Songkran",
-        "BLACKPINK",
-        "Squid Game",
-        "iPhone 16",
-        "Bitcoin",
-        "ChatGPT",
-        "Taylor Swift"
+        "Sukhumvit Soi 11",
+        "Yaowarat Road",
+        "Silom Road",
+        "RCA Nightlife",
+        "Nana Plaza",
+        "Thonglor",
+        "Ratchada Night Market"
       ]
     }
   ],
-  "_generatedAt": "2026-05-05T01:18:00.314672+00:00",
-  "_source": "autocomplete_pipeline_v1"
+  "_generatedAt": "2026-05-05T12:00:00+00:00",
+  "_source": "curated_pipeline_v2"
 }

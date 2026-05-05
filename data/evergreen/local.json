@@ -1,335 +1,118 @@
 {
-  "date": "evergreen",
   "city": "Bangkok",
-  "flag": "🇹🇭",
-  "tomorrowTeaser": {
-    "entity": "Chatuchak Market",
-    "typeLabel": "place"
-  },
+  "flag": "\ud83c\uddf9\ud83c\udded",
   "puzzles": [
     {
-      "answer": "Jay Fai",
+      "answer": "Chatuchak Weekend Market",
       "prefixVerb": "is",
-      "entityType": "restaurant",
-      "whyTrending": "still impossible to book",
-      "difficulty": "easy",
-      "completions": [
-        {
-          "text": "always packed with tourists",
-          "position": 1,
-          "specificity": "ambiguous"
-        },
-        {
-          "text": "impossible to get a table",
-          "position": 2,
-          "specificity": "ambiguous"
-        },
-        {
-          "text": "better than the other famous spots",
-          "position": 3,
-          "specificity": "triangulating"
-        },
-        {
-          "text": "appearing in every travel guide",
-          "position": 4,
-          "specificity": "triangulating"
-        },
-        {
-          "text": "charging double what it used to",
-          "position": 5,
-          "specificity": "narrowing"
-        },
-        {
-          "text": "run by a woman in goggles",
-          "position": 6,
-          "specificity": "narrowing"
-        },
-        {
-          "text": "has a michelin star crab omelette",
-          "position": 7,
-          "specificity": "smoking_gun"
-        }
-      ],
-      "distractors": [
-        "Jeh O Chula",
-        "Thip Samai",
-        "Som Tam Nua",
-        "Gaggan Anand",
-        "Sorn",
-        "Le Du",
-        "Nusara"
-      ]
-    },
-    {
-      "answer": "Songkran",
-      "prefixVerb": "is",
-      "entityType": "event",
-      "whyTrending": "annual water festival wrapped",
+      "entityType": "Bangkok place",
+      "whyTrending": "Consistently one of the most-searched Bangkok destinations; recent heatwave making indoor sections m",
       "difficulty": "medium",
       "completions": [
         {
-          "text": "getting bigger every year",
+          "text": "is it open today",
           "position": 1,
           "specificity": "ambiguous"
         },
         {
-          "text": "attracting millions of visitors",
+          "text": "best section for vintage clothes",
           "position": 2,
           "specificity": "ambiguous"
         },
         {
-          "text": "closing down major streets",
+          "text": "how to get there by bts",
           "position": 3,
-          "specificity": "triangulating"
+          "specificity": "ambiguous"
         },
         {
-          "text": "celebrated across the whole country",
+          "text": "air conditioned areas to escape the heat",
           "position": 4,
-          "specificity": "triangulating"
+          "specificity": "ambiguous"
         },
         {
-          "text": "banning alcohol in certain zones",
+          "text": "only open on saturdays and sundays",
           "position": 5,
           "specificity": "narrowing"
         },
         {
-          "text": "impossible to stay dry during",
+          "text": "over fifteen thousand stalls to explore",
           "position": 6,
           "specificity": "narrowing"
         },
         {
-          "text": "the thai new year water festival",
+          "text": "near mo chit bts and the big park",
           "position": 7,
           "specificity": "smoking_gun"
         }
       ],
       "distractors": [
-        "Loy Krathong",
-        "Wonderfruit",
-        "Phi Ta Khon",
-        "Bun Bang Fai",
-        "Yi Peng",
-        "Ubon Ratchathani Candle Festival",
-        "Chiang Mai Flower Festival"
+        "Siam Paragon",
+        "ICONSIAM",
+        "MBK Center",
+        "Asiatique The Riverfront",
+        "Terminal 21",
+        "Platinum Fashion Mall",
+        "Patpong Night Market"
       ]
     },
     {
-      "answer": "Moo Deng",
+      "answer": "Pad Kra Pao",
       "prefixVerb": "is",
-      "entityType": "viral animal",
-      "whyTrending": "baby pygmy hippo meme",
-      "difficulty": "easy",
-      "completions": [
-        {
-          "text": "going viral on tiktok",
-          "position": 1,
-          "specificity": "ambiguous"
-        },
-        {
-          "text": "getting visitors from everywhere",
-          "position": 2,
-          "specificity": "ambiguous"
-        },
-        {
-          "text": "spawning endless merchandise",
-          "position": 3,
-          "specificity": "triangulating"
-        },
-        {
-          "text": "appearing on every news channel",
-          "position": 4,
-          "specificity": "triangulating"
-        },
-        {
-          "text": "living at a zoo in southeast asia",
-          "position": 5,
-          "specificity": "narrowing"
-        },
-        {
-          "text": "named after a local food dish",
-          "position": 6,
-          "specificity": "narrowing"
-        },
-        {
-          "text": "baby pygmy hippo born in thailand",
-          "position": 7,
-          "specificity": "smoking_gun"
-        }
-      ],
-      "distractors": [
-        "Pesto the Penguin",
-        "Fiona the Hippo",
-        "Lin Bing the Panda",
-        "Ava the Capybara",
-        "Noodle the Pug",
-        "Juniper the Fox",
-        "Loki the Wolfdog"
-      ]
-    },
-    {
-      "answer": "Lisa",
-      "prefixVerb": "is",
-      "entityType": "musician",
-      "whyTrending": "BLACKPINK solo star",
-      "difficulty": "medium",
-      "completions": [
-        {
-          "text": "selling out arenas worldwide",
-          "position": 1,
-          "specificity": "ambiguous"
-        },
-        {
-          "text": "the most followed on instagram",
-          "position": 2,
-          "specificity": "ambiguous"
-        },
-        {
-          "text": "branching into acting roles",
-          "position": 3,
-          "specificity": "triangulating"
-        },
-        {
-          "text": "a luxury brand ambassador",
-          "position": 4,
-          "specificity": "triangulating"
-        },
-        {
-          "text": "from a small town in thailand",
-          "position": 5,
-          "specificity": "narrowing"
-        },
-        {
-          "text": "the only non-korean in the group",
-          "position": 6,
-          "specificity": "narrowing"
-        },
-        {
-          "text": "thai rapper and dancer in blackpink",
-          "position": 7,
-          "specificity": "smoking_gun"
-        }
-      ],
-      "distractors": [
-        "BamBam",
-        "Nichkhun",
-        "Minnie",
-        "Sorn",
-        "Ten",
-        "Jackson Wang",
-        "Rose"
-      ]
-    },
-    {
-      "answer": "Khao San Road",
-      "prefixVerb": "is",
-      "entityType": "place",
-      "whyTrending": "backpacker hub evolving",
+      "entityType": "Thai food dish",
+      "whyTrending": "Perennially the most-searched Thai dish by tourists and expats; recent viral TikTok ranking it #1 st",
       "difficulty": "hard",
       "completions": [
         {
-          "text": "where everyone ends up at midnight",
+          "text": "most popular thing to order on the street",
           "position": 1,
           "specificity": "ambiguous"
         },
         {
-          "text": "a rite of passage for travelers",
+          "text": "how spicy should i order it",
           "position": 2,
           "specificity": "ambiguous"
         },
         {
-          "text": "full of bars and cheap hostels",
+          "text": "what does it taste like",
           "position": 3,
-          "specificity": "triangulating"
+          "specificity": "ambiguous"
         },
         {
-          "text": "not the same since the pandemic",
+          "text": "best place to eat it in bangkok",
           "position": 4,
-          "specificity": "triangulating"
+          "specificity": "ambiguous"
         },
         {
-          "text": "the backpacker strip in the old city",
+          "text": "served with a crispy fried egg on top",
           "position": 5,
           "specificity": "narrowing"
         },
         {
-          "text": "getting a major facelift this year",
+          "text": "made with holy basil not sweet basil",
           "position": 6,
           "specificity": "narrowing"
         },
         {
-          "text": "most famous street in bangkok",
+          "text": "what locals eat when they cannot decide",
           "position": 7,
           "specificity": "smoking_gun"
         }
       ],
       "distractors": [
-        "Sukhumvit Soi 11",
-        "Silom Soi 4",
-        "Yaowarat Road",
-        "Ratchada Soi 4",
-        "Thonglor Soi 10",
-        "Rambuttri Road",
-        "Soi Cowboy"
-      ]
-    },
-    {
-      "answer": "7-Eleven",
-      "prefixVerb": "is",
-      "entityType": "brand",
-      "whyTrending": "viral tiktok snacks",
-      "difficulty": "easy",
-      "completions": [
-        {
-          "text": "on every single corner",
-          "position": 1,
-          "specificity": "ambiguous"
-        },
-        {
-          "text": "open twenty-four hours a day",
-          "position": 2,
-          "specificity": "ambiguous"
-        },
-        {
-          "text": "selling things you never expected",
-          "position": 3,
-          "specificity": "triangulating"
-        },
-        {
-          "text": "the best late-night snack run",
-          "position": 4,
-          "specificity": "triangulating"
-        },
-        {
-          "text": "a cultural institution in disguise",
-          "position": 5,
-          "specificity": "narrowing"
-        },
-        {
-          "text": "better than the ones back home",
-          "position": 6,
-          "specificity": "narrowing"
-        },
-        {
-          "text": "thirteen thousand locations in thailand",
-          "position": 7,
-          "specificity": "smoking_gun"
-        }
-      ],
-      "distractors": [
-        "FamilyMart",
-        "Lawson 108",
-        "Mini Big C",
-        "Tops Daily",
-        "Jiffy",
-        "Lotus's Express",
-        "MaxValu"
+        "Pad Thai",
+        "Tom Yum Goong",
+        "Green Curry",
+        "Massaman Curry",
+        "Som Tam",
+        "Khao Soi",
+        "Pad See Ew"
       ]
     },
     {
       "answer": "BTS Skytrain",
       "prefixVerb": "is",
-      "entityType": "transit",
-      "whyTrending": "new extensions opening",
+      "entityType": "Bangkok transit system",
+      "whyTrending": "New extension to western suburbs opened; fare integration with MRT finally implemented",
       "difficulty": "medium",
       "completions": [
         {
@@ -345,197 +128,145 @@
         {
           "text": "announcements in thai then english",
           "position": 3,
-          "specificity": "triangulating"
+          "specificity": "ambiguous"
         },
         {
-          "text": "expanding with new extensions",
+          "text": "fare went up again this year",
           "position": 4,
-          "specificity": "triangulating"
+          "specificity": "ambiguous"
         },
         {
-          "text": "freezing cold inside the cars",
+          "text": "elevated tracks running above the traffic",
           "position": 5,
           "specificity": "narrowing"
         },
         {
-          "text": "running above the traffic jams",
+          "text": "uses rabbit card for payment",
           "position": 6,
           "specificity": "narrowing"
         },
         {
-          "text": "elevated rail with rabbit cards",
+          "text": "the green line from mo chit to bearing",
           "position": 7,
           "specificity": "smoking_gun"
         }
       ],
       "distractors": [
         "MRT Blue Line",
-        "Airport Rail Link",
-        "BTS Silom Line",
-        "SRT Red Line",
         "MRT Purple Line",
-        "BTS Gold Line",
-        "MRT Yellow Line"
+        "Airport Rail Link",
+        "SRT Red Line",
+        "BTS Silom Line",
+        "BTS Sukhumvit Line",
+        "Chao Phraya Express Boat"
       ]
     },
     {
-      "answer": "Wonderfruit",
+      "answer": "Songkran 2026",
       "prefixVerb": "is",
-      "entityType": "festival",
-      "whyTrending": "lineup announced",
-      "difficulty": "hard",
-      "completions": [
-        {
-          "text": "the most talked-about music event",
-          "position": 1,
-          "specificity": "ambiguous"
-        },
-        {
-          "text": "worth planning a trip around",
-          "position": 2,
-          "specificity": "ambiguous"
-        },
-        {
-          "text": "more than just a festival",
-          "position": 3,
-          "specificity": "triangulating"
-        },
-        {
-          "text": "held outdoors over several days",
-          "position": 4,
-          "specificity": "triangulating"
-        },
-        {
-          "text": "built around sustainability themes",
-          "position": 5,
-          "specificity": "narrowing"
-        },
-        {
-          "text": "combining art music and wellness",
-          "position": 6,
-          "specificity": "narrowing"
-        },
-        {
-          "text": "thailand arts fest at siam country club",
-          "position": 7,
-          "specificity": "smoking_gun"
-        }
-      ],
-      "distractors": [
-        "Big Mountain",
-        "Neon Countdown",
-        "Maya Music Festival",
-        "S2O",
-        "808 Festival",
-        "Together Festival",
-        "Warp Music Festival"
-      ]
-    },
-    {
-      "answer": "mango sticky rice",
-      "prefixVerb": "is",
-      "entityType": "food",
-      "whyTrending": "viral food trend",
+      "entityType": "Thai festival",
+      "whyTrending": "Just passed (April 13-15); extended to 5 days nationwide; water fight videos still circulating on so",
       "difficulty": "easy",
       "completions": [
         {
-          "text": "the most photographed dish",
+          "text": "dates for this year",
           "position": 1,
           "specificity": "ambiguous"
         },
         {
-          "text": "better than it sounds",
+          "text": "best places to celebrate in bangkok",
           "position": 2,
           "specificity": "ambiguous"
         },
         {
-          "text": "drenched in sweet coconut cream",
+          "text": "what to wear and bring",
           "position": 3,
-          "specificity": "triangulating"
+          "specificity": "ambiguous"
         },
         {
-          "text": "only good during certain months",
+          "text": "is it family friendly or just for partying",
           "position": 4,
-          "specificity": "triangulating"
+          "specificity": "ambiguous"
         },
         {
-          "text": "sold at every street market",
+          "text": "impossible to stay dry during it",
           "position": 5,
           "specificity": "narrowing"
         },
         {
-          "text": "the yellow fruit must be perfectly ripe",
+          "text": "the world's biggest water fight",
           "position": 6,
           "specificity": "narrowing"
         },
         {
-          "text": "thailand iconic glutinous rice dessert",
+          "text": "thai new year celebrated in april",
           "position": 7,
           "specificity": "smoking_gun"
         }
       ],
       "distractors": [
-        "Khanom Krok",
-        "Bua Loy",
-        "Tub Tim Krob",
-        "Khao Niao Sangkhaya",
-        "Khanom Chan",
-        "Foi Thong",
-        "Khao Tom Mat"
+        "Loy Krathong 2026",
+        "Wonderfruit Festival 2026",
+        "Full Moon Party 2026",
+        "Chinese New Year Bangkok 2026",
+        "Vegetarian Festival 2026",
+        "Phi Ta Khon Festival 2026",
+        "Yi Peng Lantern Festival 2026"
       ]
     },
     {
-      "answer": "Grand Palace",
+      "answer": "Khao San Road",
       "prefixVerb": "is",
-      "entityType": "place",
-      "whyTrending": "new visitor rules",
+      "entityType": "Bangkok place",
+      "whyTrending": "Post-renovation reopening complete; new pedestrian-only policy generating debate among travelers",
       "difficulty": "medium",
       "completions": [
         {
-          "text": "the top attraction in the city",
+          "text": "best bars and nightlife spots",
           "position": 1,
           "specificity": "ambiguous"
         },
         {
-          "text": "stricter than it used to be",
+          "text": "is it worth visiting this year",
           "position": 2,
           "specificity": "ambiguous"
         },
         {
-          "text": "requiring covered shoulders and knees",
+          "text": "cheap hostels and guesthouses nearby",
           "position": 3,
-          "specificity": "triangulating"
+          "specificity": "ambiguous"
         },
         {
-          "text": "home to a deeply revered statue",
+          "text": "street food stalls open late",
           "position": 4,
-          "specificity": "triangulating"
+          "specificity": "ambiguous"
         },
         {
-          "text": "built in the late eighteenth century",
+          "text": "backpacker central since the eighties",
           "position": 5,
           "specificity": "narrowing"
         },
         {
-          "text": "guarded by stone giants at the gates",
+          "text": "now pedestrian only no cars allowed",
           "position": 6,
           "specificity": "narrowing"
         },
         {
-          "text": "bangkok royal complex with emerald buddha",
+          "text": "the backpacker strip from the beach book",
           "position": 7,
           "specificity": "smoking_gun"
         }
       ],
       "distractors": [
-        "Wat Pho",
-        "Wat Arun",
-        "Wat Benchamabophit",
-        "Wat Saket",
-        "Wat Ratchanatdaram",
-        "Wat Traimit",
-        "Wat Mahathat"
+        "Sukhumvit Soi 11",
+        "Yaowarat Road",
+        "Silom Road",
+        "RCA Nightlife",
+        "Nana Plaza",
+        "Thonglor",
+        "Ratchada Night Market"
       ]
     }
-  ]
+  ],
+  "_source": "curated_evergreen_v1"
 }
