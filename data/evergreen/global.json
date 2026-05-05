@@ -1,64 +1,160 @@
 {
   "date": "evergreen",
   "city": "Global",
-  "flag": "\ud83c\udf10",
+  "flag": "🌐",
   "tomorrowTeaser": {
     "entity": "Jeff Bezos",
     "typeLabel": "tech figure"
   },
   "puzzles": [
     {
-      "answer": "Elon Musk",
-      "prefixVerb": "just",
-      "category": "tech figure",
+      "answer": "Squid Game",
+      "prefixVerb": "is",
+      "entityType": "show",
+      "whyTrending": "season 3 release date announced, filming wrapped",
+      "difficulty": "easy",
       "completions": [
-        "bought another company",
-        "tweeted something weird",
-        "changed Twitter again",
-        "promised a robot",
-        "fired someone"
+        {
+          "text": "the most watched on the platform",
+          "position": 1,
+          "specificity": "ambiguous"
+        },
+        {
+          "text": "spawning endless halloween costumes",
+          "position": 2,
+          "specificity": "ambiguous"
+        },
+        {
+          "text": "getting another season this year",
+          "position": 3,
+          "specificity": "triangulating"
+        },
+        {
+          "text": "turning actors into global stars",
+          "position": 4,
+          "specificity": "triangulating"
+        },
+        {
+          "text": "featuring a giant robot doll",
+          "position": 5,
+          "specificity": "narrowing"
+        },
+        {
+          "text": "korean death game with childhood games",
+          "position": 6,
+          "specificity": "narrowing"
+        },
+        {
+          "text": "netflix hit where players compete for cash",
+          "position": 7,
+          "specificity": "smoking_gun"
+        }
       ],
       "distractors": [
-        "Jeff Bezos",
-        "Mark Zuckerberg",
-        "Bill Gates",
-        "Tim Cook",
-        "Sundar Pichai",
-        "Satya Nadella",
-        "Sam Altman"
+        "Stranger Things",
+        "Wednesday",
+        "Bridgerton",
+        "The Last of Us",
+        "House of the Dragon",
+        "Beef",
+        "The Bear"
       ]
     },
     {
-      "answer": "Bali",
+      "answer": "Taylor Swift",
       "prefixVerb": "is",
-      "category": "destination",
+      "entityType": "musician",
+      "whyTrending": "Eras Tour continues breaking records globally",
+      "difficulty": "medium",
       "completions": [
-        "overrun by tourists",
-        "banning scooters",
-        "the cheapest destination",
-        "having a water crisis",
-        "better than Phuket"
+        {
+          "text": "the biggest tour of the decade",
+          "position": 1,
+          "specificity": "ambiguous"
+        },
+        {
+          "text": "breaking every attendance record",
+          "position": 2,
+          "specificity": "ambiguous"
+        },
+        {
+          "text": "rerecording her entire back catalog",
+          "position": 3,
+          "specificity": "triangulating"
+        },
+        {
+          "text": "causing literal earthquakes at shows",
+          "position": 4,
+          "specificity": "triangulating"
+        },
+        {
+          "text": "dating a football player",
+          "position": 5,
+          "specificity": "narrowing"
+        },
+        {
+          "text": "sold more albums than any woman",
+          "position": 6,
+          "specificity": "narrowing"
+        },
+        {
+          "text": "american singer behind the eras tour",
+          "position": 7,
+          "specificity": "smoking_gun"
+        }
       ],
       "distractors": [
-        "Phuket",
-        "Tokyo",
-        "Paris",
-        "Barcelona",
-        "Tulum",
-        "Lisbon",
-        "Seoul"
+        "BLACKPINK",
+        "Billie Eilish",
+        "Bruno Mars",
+        "Ed Sheeran",
+        "Olivia Rodrigo",
+        "Sabrina Carpenter",
+        "The Weeknd"
       ]
     },
     {
       "answer": "ChatGPT",
       "prefixVerb": "is",
-      "category": "AI tool",
+      "entityType": "AI tool",
+      "whyTrending": "new model release, image generation went viral",
+      "difficulty": "hard",
       "completions": [
-        "getting worse",
-        "writing everyone's essays",
-        "being banned in schools",
-        "making programmers obsolete",
-        "hallucinating again"
+        {
+          "text": "getting smarter every update",
+          "position": 1,
+          "specificity": "ambiguous"
+        },
+        {
+          "text": "replacing entry-level jobs",
+          "position": 2,
+          "specificity": "ambiguous"
+        },
+        {
+          "text": "banned in some school districts",
+          "position": 3,
+          "specificity": "triangulating"
+        },
+        {
+          "text": "able to write code and essays",
+          "position": 4,
+          "specificity": "triangulating"
+        },
+        {
+          "text": "launched november twenty twenty-two",
+          "position": 5,
+          "specificity": "narrowing"
+        },
+        {
+          "text": "powered by a large language model",
+          "position": 6,
+          "specificity": "narrowing"
+        },
+        {
+          "text": "openai chatbot that started the ai boom",
+          "position": 7,
+          "specificity": "smoking_gun"
+        }
       ],
       "distractors": [
         "Claude",
@@ -71,46 +167,376 @@
       ]
     },
     {
-      "answer": "The Bear",
-      "prefixVerb": "is",
-      "category": "show",
-      "completions": [
-        "trending on social media again",
-        "being called the best on TV",
-        "inspired a wave of memes",
-        "getting another season soon",
-        "set in a Chicago sandwich shop"
-      ],
-      "distractors": [
-        "Severance",
-        "The White Lotus",
-        "Yellowjackets",
-        "Euphoria",
-        "Slow Horses",
-        "Abbott Elementary",
-        "Only Murders in the Building"
-      ]
-    },
-    {
       "answer": "Lionel Messi",
       "prefixVerb": "is",
-      "category": "athlete",
+      "entityType": "athlete",
+      "whyTrending": "dominating in MLS, World Cup win still reverberating",
+      "difficulty": "medium",
       "completions": [
-        "retiring next year",
-        "moving to Saudi Arabia",
-        "better than Ronaldo",
-        "injured again",
-        "winning another trophy"
+        {
+          "text": "still dominating at his age",
+          "position": 1,
+          "specificity": "ambiguous"
+        },
+        {
+          "text": "the highest paid in the league",
+          "position": 2,
+          "specificity": "ambiguous"
+        },
+        {
+          "text": "moved to america for the paycheck",
+          "position": 3,
+          "specificity": "triangulating"
+        },
+        {
+          "text": "won the trophy that defined his career",
+          "position": 4,
+          "specificity": "triangulating"
+        },
+        {
+          "text": "wearing number ten since forever",
+          "position": 5,
+          "specificity": "narrowing"
+        },
+        {
+          "text": "playing for inter miami now",
+          "position": 6,
+          "specificity": "narrowing"
+        },
+        {
+          "text": "argentine legend with eight ballon dors",
+          "position": 7,
+          "specificity": "smoking_gun"
+        }
       ],
       "distractors": [
         "Cristiano Ronaldo",
-        "Kylian Mbapp\u00e9",
+        "Kylian Mbappe",
         "Erling Haaland",
         "Neymar",
         "Kevin De Bruyne",
         "Mohamed Salah",
         "Jude Bellingham"
       ]
+    },
+    {
+      "answer": "Barbie",
+      "prefixVerb": "is",
+      "entityType": "film",
+      "whyTrending": "Oscar-winning film still in cultural conversation",
+      "difficulty": "easy",
+      "completions": [
+        {
+          "text": "the biggest movie of last summer",
+          "position": 1,
+          "specificity": "ambiguous"
+        },
+        {
+          "text": "turning everything pink for months",
+          "position": 2,
+          "specificity": "ambiguous"
+        },
+        {
+          "text": "people dressed up to see it",
+          "position": 3,
+          "specificity": "triangulating"
+        },
+        {
+          "text": "a billion-dollar hit nobody expected",
+          "position": 4,
+          "specificity": "triangulating"
+        },
+        {
+          "text": "starring margot and ryan gosling",
+          "position": 5,
+          "specificity": "narrowing"
+        },
+        {
+          "text": "directed by greta gerwig",
+          "position": 6,
+          "specificity": "narrowing"
+        },
+        {
+          "text": "blockbuster about the iconic mattel doll",
+          "position": 7,
+          "specificity": "smoking_gun"
+        }
+      ],
+      "distractors": [
+        "Oppenheimer",
+        "Dune Part Two",
+        "Wicked",
+        "Inside Out 2",
+        "Deadpool & Wolverine",
+        "The Super Mario Bros. Movie",
+        "Avatar: The Way of Water"
+      ]
+    },
+    {
+      "answer": "The White Lotus",
+      "prefixVerb": "is",
+      "entityType": "show",
+      "whyTrending": "season 3 filmed in Thailand, massive cast buzz",
+      "difficulty": "hard",
+      "completions": [
+        {
+          "text": "the best thing on tv currently",
+          "position": 1,
+          "specificity": "ambiguous"
+        },
+        {
+          "text": "making you want to book a resort",
+          "position": 2,
+          "specificity": "ambiguous"
+        },
+        {
+          "text": "each season in a different country",
+          "position": 3,
+          "specificity": "triangulating"
+        },
+        {
+          "text": "opening with a dead body every time",
+          "position": 4,
+          "specificity": "triangulating"
+        },
+        {
+          "text": "season three shot in thailand",
+          "position": 5,
+          "specificity": "narrowing"
+        },
+        {
+          "text": "satirizing the ultra-wealthy on holiday",
+          "position": 6,
+          "specificity": "narrowing"
+        },
+        {
+          "text": "hbo anthology set at luxury hotels",
+          "position": 7,
+          "specificity": "smoking_gun"
+        }
+      ],
+      "distractors": [
+        "Severance",
+        "Yellowjackets",
+        "Euphoria",
+        "Slow Horses",
+        "Abbott Elementary",
+        "Only Murders in the Building",
+        "Succession"
+      ]
+    },
+    {
+      "answer": "Bitcoin",
+      "prefixVerb": "is",
+      "entityType": "crypto",
+      "whyTrending": "new all-time high, ETF inflows surging",
+      "difficulty": "medium",
+      "completions": [
+        {
+          "text": "surging past all-time highs",
+          "position": 1,
+          "specificity": "ambiguous"
+        },
+        {
+          "text": "too volatile to be real money",
+          "position": 2,
+          "specificity": "ambiguous"
+        },
+        {
+          "text": "making early believers rich",
+          "position": 3,
+          "specificity": "triangulating"
+        },
+        {
+          "text": "using more electricity than countries",
+          "position": 4,
+          "specificity": "triangulating"
+        },
+        {
+          "text": "created by someone nobody can find",
+          "position": 5,
+          "specificity": "narrowing"
+        },
+        {
+          "text": "limited to twenty-one million coins",
+          "position": 6,
+          "specificity": "narrowing"
+        },
+        {
+          "text": "the original cryptocurrency launched 2009",
+          "position": 7,
+          "specificity": "smoking_gun"
+        }
+      ],
+      "distractors": [
+        "Ethereum",
+        "Solana",
+        "Dogecoin",
+        "Cardano",
+        "Ripple",
+        "Polkadot",
+        "Avalanche"
+      ]
+    },
+    {
+      "answer": "Duolingo",
+      "prefixVerb": "is",
+      "entityType": "app",
+      "whyTrending": "aggressive notification owl becomes meme, Thai course expanding",
+      "difficulty": "medium",
+      "completions": [
+        {
+          "text": "guilting you into daily practice",
+          "position": 1,
+          "specificity": "ambiguous"
+        },
+        {
+          "text": "sending notifications at weird hours",
+          "position": 2,
+          "specificity": "ambiguous"
+        },
+        {
+          "text": "the owl mascot is unhinged",
+          "position": 3,
+          "specificity": "triangulating"
+        },
+        {
+          "text": "free unless you want no ads",
+          "position": 4,
+          "specificity": "triangulating"
+        },
+        {
+          "text": "gamifying something that was boring",
+          "position": 5,
+          "specificity": "narrowing"
+        },
+        {
+          "text": "teaching thai with questionable audio",
+          "position": 6,
+          "specificity": "narrowing"
+        },
+        {
+          "text": "language learning app with green bird",
+          "position": 7,
+          "specificity": "smoking_gun"
+        }
+      ],
+      "distractors": [
+        "Spotify",
+        "TikTok",
+        "Instagram",
+        "Notion",
+        "Canva",
+        "Strava",
+        "Uber"
+      ]
+    },
+    {
+      "answer": "Costco",
+      "prefixVerb": "is",
+      "entityType": "brand",
+      "whyTrending": "membership price increase, viral food court hacks",
+      "difficulty": "easy",
+      "completions": [
+        {
+          "text": "where you leave with a full cart",
+          "position": 1,
+          "specificity": "ambiguous"
+        },
+        {
+          "text": "raising membership fees again",
+          "position": 2,
+          "specificity": "ambiguous"
+        },
+        {
+          "text": "the food court is the main draw",
+          "position": 3,
+          "specificity": "triangulating"
+        },
+        {
+          "text": "selling everything in bulk",
+          "position": 4,
+          "specificity": "triangulating"
+        },
+        {
+          "text": "the hot dog never changes price",
+          "position": 5,
+          "specificity": "narrowing"
+        },
+        {
+          "text": "requiring a card just to enter",
+          "position": 6,
+          "specificity": "narrowing"
+        },
+        {
+          "text": "warehouse chain with dollar-fifty dogs",
+          "position": 7,
+          "specificity": "smoking_gun"
+        }
+      ],
+      "distractors": [
+        "Walmart",
+        "Target",
+        "Ikea",
+        "Trader Joe's",
+        "Whole Foods",
+        "Sam's Club",
+        "Aldi"
+      ]
+    },
+    {
+      "answer": "Formula 1",
+      "prefixVerb": "is",
+      "entityType": "sport",
+      "whyTrending": "Drive to Survive effect, new season with fresh drama",
+      "difficulty": "hard",
+      "completions": [
+        {
+          "text": "suddenly popular in america",
+          "position": 1,
+          "specificity": "ambiguous"
+        },
+        {
+          "text": "more drama off the track than on",
+          "position": 2,
+          "specificity": "ambiguous"
+        },
+        {
+          "text": "the netflix show changed everything",
+          "position": 3,
+          "specificity": "triangulating"
+        },
+        {
+          "text": "people now care about tire strategy",
+          "position": 4,
+          "specificity": "triangulating"
+        },
+        {
+          "text": "races held on six continents",
+          "position": 5,
+          "specificity": "narrowing"
+        },
+        {
+          "text": "cars costing millions to build",
+          "position": 6,
+          "specificity": "narrowing"
+        },
+        {
+          "text": "open-wheel racing with twenty drivers",
+          "position": 7,
+          "specificity": "smoking_gun"
+        }
+      ],
+      "distractors": [
+        "NASCAR",
+        "MotoGP",
+        "IndyCar",
+        "WRC",
+        "Formula E",
+        "Le Mans",
+        "Supercars"
+      ]
     }
-  ]
+  ],
+  "_note": "Pool of 10 puzzles. 5 selected per day by deterministic shuffle."
 }
