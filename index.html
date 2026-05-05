@@ -69,8 +69,8 @@
   .btn-secondary:hover { background: var(--bg-warm); }
   .btn-ghost { background: transparent; color: var(--ink-faint); font-size: 13px; padding: 10px 16px; width: auto; }
   .btn-ghost:hover { color: var(--ink-muted); }
-  .btn-copy { background: var(--ink); color: white; box-shadow: 0 4px 12px rgba(26,26,26,0.15); }
-  .btn-copy:hover { background: #333; }
+  .btn-copy { background: var(--accent); color: white; box-shadow: 0 4px 12px rgba(199,91,57,0.25); }
+  .btn-copy:hover { background: var(--accent-hover); }
 
   .completions-list { margin-bottom:18px; }
   .completion-item { display:flex; align-items:baseline; padding:10px 0; opacity:0; }
@@ -988,9 +988,9 @@ function showShare() {
   });
   document.getElementById("grid-emoji").innerHTML = emojiHtml;
   document.getElementById("grid-legend").innerHTML = `
-    <div class="legend-item"><span style="font-size:16px;">\uD83D\uDFE9</span> revealed</div>
-    <div class="legend-item"><span style="font-size:16px;">\u2B1C</span> unused</div>
-    <div class="legend-item"><span style="font-size:16px;">\u2B1B</span> failed</div>
+    <div class="legend-item"><span style="font-size:16px;">\uD83D\uDFE9</span> Revealed</div>
+    <div class="legend-item"><span style="font-size:16px;">\u2B1C</span> Unused</div>
+    <div class="legend-item"><span style="font-size:16px;">\u2B1B</span> Failed</div>
   `;
 }
 
