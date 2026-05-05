@@ -617,8 +617,8 @@ function escapeHtml(text) {
 
 function buildShareGrid() {
   const pool = getPool(state.mode);
-  const city = pool.city || "Bangkok";
-  const flag = pool.flag || "\uD83C\uDDF9\uD83C\uDDED";
+  const city = (pool && pool.city) || "Bangkok";
+  const flag = (pool && pool.flag) || "\uD83C\uDDF9\uD83C\uDDED";
   const dateStr = formatDate(new Date());
   const score = totalScore();
   const avg = getAvgReveals();
@@ -643,7 +643,7 @@ function buildShareGrid() {
   lines.push("");
 
   // Tomorrow's teaser
-  const teaser = pool.tomorrowTeaser;
+  const teaser = pool && pool.tomorrowTeaser;
   if (teaser) {
     lines.push(`Tomorrow's puzzle includes: ${teaser.entity}`);
     lines.push("");
@@ -681,15 +681,15 @@ function setMode(mode) {
 // ============================================================
 function initLanding() {
   const pool = getPool(state.mode);
-  const city = pool.city || "Bangkok";
-  const flag = pool.flag || "\uD83C\uDDF9\uD83C\uDDED";
+  const city = (pool && pool.city) || "Bangkok";
+  const flag = (pool && pool.flag) || "\uD83C\uDDF9\uD83C\uDDED";
   const dateStr = formatDate(new Date());
   document.getElementById("header-date").textContent = `${dateStr} \u2014 ${city} ${flag}`;
   document.getElementById("landing-meta").textContent = `5 puzzles \u2022 up to 5 pts each \u2022 Pick from 8 trending entities`;
   document.getElementById("mode-local").classList.toggle("active", state.mode === "local");
   document.getElementById("mode-global").classList.toggle("active", state.mode === "global");
 
-  const teaser = pool.tomorrowTeaser;
+  const teaser = pool && pool.tomorrowTeaser;
   if (teaser) {
     document.getElementById("tomorrow-teaser").innerHTML = `<span class="entity">${escapeHtml(teaser.entity)}</span> <span style="color:var(--ink-faint)">(${teaser.typeLabel})</span>`;
   }
@@ -950,8 +950,8 @@ function showShare() {
   showScreen("share");
 
   const pool = getPool(state.mode);
-  const city = pool.city || "Bangkok";
-  const flag = pool.flag || "\uD83C\uDDF9\uD83C\uDDED";
+  const city = (pool && pool.city) || "Bangkok";
+  const flag = (pool && pool.flag) || "\uD83C\uDDF9\uD83C\uDDED";
   const dateStr = formatDate(new Date());
   const score = totalScore();
   const avg = getAvgReveals();
@@ -962,7 +962,7 @@ function showShare() {
   document.getElementById("share-percentile").textContent = formatPercentileLine(score, city);
 
   // Tomorrow teaser
-  const teaser = pool.tomorrowTeaser;
+  const teaser = pool && pool.tomorrowTeaser;
   if (teaser) {
     document.getElementById("share-tomorrow").textContent = teaser.entity;
   }
