@@ -469,7 +469,8 @@ function getScoreEmoji(count) {
   return "\uD83D\uDFE9"; // green
 }
 
-function getFailEmoji() { return "\u2B1B"; }
+function getFailEmoji() { return "\u2B1B"; } // black
+function getGreyEmoji() { return "\u2B1C"; }  // grey = unused
 
 function totalScore() {
   return state.results.reduce((sum, r) => sum + (r.score || 0), 0);
@@ -561,7 +562,7 @@ function buildShareGrid() {
     if (r.failed) {
       lines.push(getFailEmoji().repeat(MAX_COMPLETIONS));
     } else {
-      lines.push(getScoreEmoji().repeat(r.revealedCount));
+      lines.push(getScoreEmoji().repeat(r.revealedCount) + getGreyEmoji().repeat(MAX_COMPLETIONS - r.revealedCount));
     }
   });
 
@@ -897,14 +898,14 @@ function showShare() {
     if (r.failed) {
       emojiHtml += `<div>${getFailEmoji().repeat(MAX_COMPLETIONS)}</div>`;
     } else {
-      emojiHtml += `<div>${getScoreEmoji().repeat(r.revealedCount)}</div>`;
+      emojiHtml += `<div>${getScoreEmoji().repeat(r.revealedCount)}${getGreyEmoji().repeat(MAX_COMPLETIONS - r.revealedCount)}</div>`;
     }
   });
   document.getElementById("grid-emoji").innerHTML = emojiHtml;
   document.getElementById("grid-legend").innerHTML = `
-    <div class="legend-item"><div class="legend-dot" style="background:#4A7C59"></div>Solved (\uD83D\uDFE9 = completions used)</div>
-    <div class="legend-item"><div class="legend-dot" style="background:#2C2C2C"></div>Failed (\u2B1B = 7)</div>
-    <div class="legend-item" style="font-size:11px;color:var(--ink-faint);">Each row = one puzzle</div>
+    <div class="legend-item"><div class="legend-dot" style="background:#4A7C59"></div>Used (\uD83D\uDFE9 = revealed)</div>
+    <div class="legend-item"><div class="legend-dot" style="background:#D3D3D3"></div>Unused (\u2B1C = didn't need)</div>
+    <div class="legend-item"><div class="legend-dot" style="background:#2C2C2C"></div>Failed (\u2B1B)</div>
   `;
 }
 
