@@ -76,6 +76,7 @@
   .completion-item.new-reveal { animation:slideUp 0.4s ease-out forwards; }
   .completion-item .num { margin-right:14px; color:var(--ink-faint); font-weight:600; font-size:12px; flex-shrink:0; min-width:18px; text-align:right; font-family:'Inter',system-ui,sans-serif; }
   .completion-item .text { font-family:'Fraunces',Georgia,serif; font-weight:500; font-style:italic; font-size:19px; line-height:1.55; color:var(--ink); flex:1; }
+  .completion-item .blank-prefix { color:var(--ink-faint); font-style:italic; font-family:'Fraunces',Georgia,serif; font-weight:500; margin-right:6px; letter-spacing:0.06em; }
 
   .guess-prompt { font-size:13px; font-weight:500; color:var(--ink-faint); margin:4px 0 12px; text-align:center; letter-spacing:0.01em; }
   .guess-prompt .type-label { color:var(--accent); font-weight:600; }
@@ -660,7 +661,7 @@ function renderCompletions() {
     const item = document.createElement("div");
     item.className = "completion-item visible";
     item.style.animationDelay = "0s";
-    item.innerHTML = `<span class="num">${c.position}</span><span class="text">${escapeHtml(c.text)}</span>`;
+    item.innerHTML = `<span class="num">${c.position}</span><span class="text"><span class="blank-prefix">___</span>${escapeHtml(c.text)}</span>`;
     list.appendChild(item);
   }
 
