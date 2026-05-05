@@ -713,7 +713,7 @@ function initLanding() {
   document.getElementById("mode-local").classList.toggle("active", state.mode === "local");
   document.getElementById("mode-global").classList.toggle("active", state.mode === "global");
 
-  const teaser = pool && pool.tomorrowTeaser;
+  const teaser = (pool && pool.tomorrowTeaser) || FALLBACK_PUZZLES[state.mode].tomorrowTeaser;
   if (teaser) {
     document.getElementById("tomorrow-teaser").innerHTML = `<span class="entity">${escapeHtml(teaser.entity)}</span> <span style="color:var(--ink-faint)">(${teaser.typeLabel})</span>`;
   }
@@ -986,7 +986,7 @@ function showShare() {
   document.getElementById("share-percentile").textContent = formatPercentileLine(score, city);
 
   // Tomorrow teaser
-  const teaser = pool && pool.tomorrowTeaser;
+  const teaser = (pool && pool.tomorrowTeaser) || FALLBACK_PUZZLES[state.mode].tomorrowTeaser;
   if (teaser) {
     document.getElementById("share-tomorrow").textContent = teaser.entity;
   }

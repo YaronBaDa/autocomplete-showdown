@@ -798,5 +798,9 @@
       ]
     }
   ],
-  "_source": "curated_evergreen_v1"
+  "_source": "curated_evergreen_v1",
+  "tomorrowTeaser": {
+    "entity": "Lionel Messi",
+    "typeLabel": "athlete"
+  }
 }
