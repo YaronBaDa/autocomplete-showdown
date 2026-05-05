@@ -903,9 +903,9 @@ function showShare() {
   });
   document.getElementById("grid-emoji").innerHTML = emojiHtml;
   document.getElementById("grid-legend").innerHTML = `
-    <div class="legend-item"><div class="legend-dot" style="background:#4A7C59"></div>Used (\uD83D\uDFE9 = revealed)</div>
-    <div class="legend-item"><div class="legend-dot" style="background:#D3D3D3"></div>Unused (\u2B1C = didn't need)</div>
-    <div class="legend-item"><div class="legend-dot" style="background:#2C2C2C"></div>Failed (\u2B1B)</div>
+    <div class="legend-item"><span style="font-size:16px;">\uD83D\uDFE9</span> revealed</div>
+    <div class="legend-item"><span style="font-size:16px;">\u2B1C</span> unused</div>
+    <div class="legend-item"><span style="font-size:16px;">\u2B1B</span> failed</div>
   `;
 }
 
