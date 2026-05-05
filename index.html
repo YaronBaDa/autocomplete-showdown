@@ -263,21 +263,20 @@ function formatDate(d) {
 }
 
 // ============================
-// DATA
+// DATA — loaded from JSON with fallback to hardcoded
 // ============================
 // PUZZLE QUALITY GATE (manual checklist until automated):
 // 1. All 8 candidates are real trending entities from this locale this week
 // 2. No candidate is eliminable from completions on basic factual grounds
-//    (every candidate must be plausibly compatible with EVERY completion)
-// 3. At least one completion is a "smoking gun" — a fact that uniquely
-//    identifies the answer among the 8 candidates, producing an "oh, of course"
-//    moment on reveal. Four completions should feel broadly applicable.
+// 3. At least one completion is a "smoking gun"
 // 4. No completion explicitly names the answer or its category
-// 5. Moderation pass: no medical emergencies, no self-harm, no slurs,
-//    no real-person controversies. When in doubt, drop and pick another.
-// Puzzles that fail ANY check go back to the curation queue, not into rotation.
+// 5. Moderation pass: no medical emergencies, no self-harm, no slurs, etc.
 
-const PUZZLES_LOCAL = {
+let PUZZLES_LOCAL = null;
+let PUZZLES_GLOBAL = null;
+let puzzlesLoaded = false;
+
+const FALLBACK_PUZZLES_LOCAL = {
   date: formatDate(new Date()), city: "Bangkok", flag: "\uD83C\uDDF9\uD83C\uDDED",
   tomorrowTeaser: { entity: "BLACKPINK", typeLabel: "musician" },
   puzzles: [
@@ -309,7 +308,7 @@ const PUZZLES_LOCAL = {
   ]
 };
 
-const PUZZLES_GLOBAL = {
+const FALLBACK_PUZZLES_GLOBAL = {
   date: formatDate(new Date()), city: "Global", flag: "\uD83C\uDF10",
   tomorrowTeaser: { entity: "Jeff Bezos", typeLabel: "tech figure" },
   puzzles: [
@@ -349,6 +348,45 @@ const PUZZLES_GLOBAL = {
 
 function getPuzzles(mode) {
   return mode === "global" ? PUZZLES_GLOBAL : PUZZLES_LOCAL;
+}
+
+async function loadPuzzles() {
+  const today = new Date().toISOString().split('T')[0];
+  const cacheBust = Date.now();
+
+  // Try to load today's generated puzzles, fallback to evergreen
+  try {
+    const res = await fetch(`data/local/${today}.json?v=${cacheBust}`);
+    if (res.ok) {
+      PUZZLES_LOCAL = await res.json();
+    } else {
+      throw new Error('local daily not found');
+    }
+  } catch (e) {
+    try {
+      const res = await fetch(`data/evergreen/local.json?v=${cacheBust}`);
+      if (res.ok) PUZZLES_LOCAL = await res.json();
+    } catch (e2) {}
+  }
+  if (!PUZZLES_LOCAL) PUZZLES_LOCAL = FALLBACK_PUZZLES_LOCAL;
+
+  try {
+    const res = await fetch(`data/global/${today}.json?v=${cacheBust}`);
+    if (res.ok) {
+      PUZZLES_GLOBAL = await res.json();
+    } else {
+      throw new Error('global daily not found');
+    }
+  } catch (e) {
+    try {
+      const res = await fetch(`data/evergreen/global.json?v=${cacheBust}`);
+      if (res.ok) PUZZLES_GLOBAL = await res.json();
+    } catch (e2) {}
+  }
+  if (!PUZZLES_GLOBAL) PUZZLES_GLOBAL = FALLBACK_PUZZLES_GLOBAL;
+
+  puzzlesLoaded = true;
+  initLanding();
 }
 
 function getCurrentPuzzle() {
@@ -830,6 +868,7 @@ function resetGame() {
 // ============================
 loadState();
 initLanding();
+loadPuzzles();
 if (state.screen === "playing") { showScreen("playing"); renderRound(); }
 else if (state.screen === "share") { showShare(); }
 </script>

@@ -1,0 +1,118 @@
+{
+  "date": "2026-05-05",
+  "city": "Global",
+  "flag": "\ud83c\udf10",
+  "tomorrowTeaser": {
+    "entity": "Taylor Swift",
+    "typeLabel": "musician"
+  },
+  "puzzles": [
+    {
+      "answer": "Squid Game",
+      "prefixVerb": "is a",
+      "category": "show",
+      "completions": [
+        "real game",
+        "real story",
+        "available on",
+        "adult or not",
+        "movie or series"
+      ],
+      "distractors": [
+        "Severance",
+        "The White Lotus",
+        "Taylor Swift",
+        "Bali",
+        "ChatGPT",
+        "Elon Musk",
+        "iPhone 16"
+      ]
+    },
+    {
+      "answer": "Bitcoin",
+      "prefixVerb": "is a",
+      "category": "crypto",
+      "completions": [
+        "isin nummer",
+        "limited supply",
+        "all been mined",
+        "been around for how long",
+        "already been mined"
+      ],
+      "distractors": [
+        "The White Lotus",
+        "Elon Musk",
+        "Severance",
+        "ChatGPT",
+        "iPhone 16",
+        "Bali",
+        "Lionel Messi"
+      ]
+    },
+    {
+      "answer": "ChatGPT",
+      "prefixVerb": "is a",
+      "category": "AI tool",
+      "completions": [
+        "israel star",
+        "checking in",
+        "agrees with you",
+        "tells you what you want to hear",
+        "say the word"
+      ],
+      "distractors": [
+        "Lionel Messi",
+        "The White Lotus",
+        "iPhone 16",
+        "Bitcoin",
+        "Taylor Swift",
+        "Severance",
+        "Elon Musk"
+      ]
+    },
+    {
+      "answer": "iPhone 16",
+      "prefixVerb": "is a",
+      "category": "product",
+      "completions": [
+        "aluminium or titanium",
+        "good phone",
+        "available in apple store",
+        "dual sim",
+        "waterproof or not"
+      ],
+      "distractors": [
+        "The White Lotus",
+        "Bali",
+        "Squid Game",
+        "ChatGPT",
+        "Taylor Swift",
+        "Severance",
+        "Elon Musk"
+      ]
+    },
+    {
+      "answer": "Severance",
+      "prefixVerb": "is a",
+      "category": "show",
+      "completions": [
+        "available in hindi",
+        "weird show",
+        "bad show",
+        "available in hindi or not",
+        "too slow"
+      ],
+      "distractors": [
+        "Squid Game",
+        "The White Lotus",
+        "Lionel Messi",
+        "Taylor Swift",
+        "Bali",
+        "ChatGPT",
+        "iPhone 16"
+      ]
+    }
+  ],
+  "_generatedAt": "2026-05-05T01:17:42.996037+00:00",
+  "_source": "autocomplete_pipeline_v1"
+}

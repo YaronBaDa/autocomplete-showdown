@@ -1,0 +1,118 @@
+{
+  "date": "2026-05-05",
+  "city": "Bangkok",
+  "flag": "\ud83c\uddf9\ud83c\udded",
+  "tomorrowTeaser": {
+    "entity": "ChatGPT",
+    "typeLabel": "AI tool"
+  },
+  "puzzles": [
+    {
+      "answer": "Songkran",
+      "prefixVerb": "is a",
+      "category": "event",
+      "completions": [
+        "water festival to mark the beginning",
+        "water festival",
+        "festival celebrated in what country",
+        "festival in thailand",
+        "new year"
+      ],
+      "distractors": [
+        "Pad Thai",
+        "ChatGPT",
+        "Jay Fai",
+        "Bangkok",
+        "Taylor Swift",
+        "Squid Game",
+        "Bitcoin"
+      ]
+    },
+    {
+      "answer": "Jay Fai",
+      "prefixVerb": "is a",
+      "category": "restaurant",
+      "completions": [
+        "fire and soul",
+        "bangkok alternative",
+        "bangkok adresse",
+        "bangkok alter",
+        "bangkok chinatown"
+      ],
+      "distractors": [
+        "ChatGPT",
+        "BLACKPINK",
+        "Bangkok",
+        "Taylor Swift",
+        "Pad Thai",
+        "Squid Game",
+        "Songkran"
+      ]
+    },
+    {
+      "answer": "iPhone 16",
+      "prefixVerb": "is a",
+      "category": "product",
+      "completions": [
+        "aluminium or titanium",
+        "good phone",
+        "available in apple store",
+        "dual sim",
+        "waterproof or not"
+      ],
+      "distractors": [
+        "BLACKPINK",
+        "Taylor Swift",
+        "Bangkok",
+        "ChatGPT",
+        "Songkran",
+        "Pad Thai",
+        "Bitcoin"
+      ]
+    },
+    {
+      "answer": "Squid Game",
+      "prefixVerb": "is a",
+      "category": "show",
+      "completions": [
+        "real game",
+        "real story",
+        "available on",
+        "adult or not",
+        "movie or series"
+      ],
+      "distractors": [
+        "Bitcoin",
+        "Jay Fai",
+        "iPhone 16",
+        "Bangkok",
+        "ChatGPT",
+        "BLACKPINK",
+        "Songkran"
+      ]
+    },
+    {
+      "answer": "Pad Thai",
+      "prefixVerb": "is a",
+      "category": "food",
+      "completions": [
+        "and chicken",
+        "and curry",
+        "chiang mai",
+        "thai dish",
+        "gluten free"
+      ],
+      "distractors": [
+        "Songkran",
+        "BLACKPINK",
+        "Squid Game",
+        "iPhone 16",
+        "Bitcoin",
+        "ChatGPT",
+        "Taylor Swift"
+      ]
+    }
+  ],
+  "_generatedAt": "2026-05-05T01:18:00.314672+00:00",
+  "_source": "autocomplete_pipeline_v1"
+}

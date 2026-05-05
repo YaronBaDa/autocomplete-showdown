@@ -1,0 +1,116 @@
+{
+  "date": "evergreen",
+  "city": "Bangkok",
+  "flag": "\ud83c\uddf9\ud83c\udded",
+  "tomorrowTeaser": {
+    "entity": "BLACKPINK",
+    "typeLabel": "musician"
+  },
+  "puzzles": [
+    {
+      "answer": "Taylor Swift",
+      "prefixVerb": "just",
+      "category": "musician",
+      "completions": [
+        "announced a Bangkok show",
+        "dropped a surprise album",
+        "broke another Spotify record",
+        "changed her Instagram bio",
+        "posted something cryptic"
+      ],
+      "distractors": [
+        "BLACKPINK",
+        "Billie Eilish",
+        "Bruno Mars",
+        "Ed Sheeran",
+        "Olivia Rodrigo",
+        "Sabrina Carpenter",
+        "The Weeknd"
+      ]
+    },
+    {
+      "answer": "Jay Fai",
+      "prefixVerb": "has",
+      "category": "restaurant",
+      "completions": [
+        "a 6-month waitlist",
+        "the best crab omelette",
+        "a Michelin star",
+        "become impossible to book",
+        "raised prices again"
+      ],
+      "distractors": [
+        "Jeh O Chula",
+        "Thip Samai",
+        "Som Tam Nua",
+        "Gaggan Anand",
+        "Sorn",
+        "Le Du",
+        "Nusara"
+      ]
+    },
+    {
+      "answer": "iPhone 16",
+      "prefixVerb": "is",
+      "category": "product",
+      "completions": [
+        "overheating in Bangkok",
+        "sold out at every store",
+        "cheaper in Thailand",
+        "missing a charger again",
+        "exactly like the leaks"
+      ],
+      "distractors": [
+        "Samsung Galaxy S25",
+        "Google Pixel 9",
+        "OnePlus 13",
+        "Xiaomi 15",
+        "Nothing Phone 3",
+        "Oppo Find X8",
+        "Vivo X200"
+      ]
+    },
+    {
+      "answer": "Songkran",
+      "prefixVerb": "is",
+      "category": "event",
+      "completions": [
+        "starting earlier than ever",
+        "banned on Khaosan Road",
+        "causing airport chaos",
+        "more expensive this year",
+        "the best time to visit"
+      ],
+      "distractors": [
+        "Loy Krathong",
+        "Wonderfruit",
+        "Chiang Mai Flower Festival",
+        "Vijit Chao Phraya",
+        "Bangkok Design Week",
+        "Thai Fight",
+        "MotoGP Thailand"
+      ]
+    },
+    {
+      "answer": "Squid Game",
+      "prefixVerb": "is",
+      "category": "show",
+      "completions": [
+        "getting a season 3",
+        "filming in Thailand",
+        "trending again on Netflix",
+        "better than the first",
+        "being remade in Bollywood"
+      ],
+      "distractors": [
+        "The White Lotus",
+        "Stranger Things",
+        "Wednesday",
+        "Bridgerton",
+        "The Last of Us",
+        "House of the Dragon",
+        "Beef"
+      ]
+    }
+  ]
+}

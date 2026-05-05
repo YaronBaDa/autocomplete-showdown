@@ -1,0 +1,26 @@
+{
+  "global": [
+    {"name": "Squid Game", "category": "show", "prefixes": ["is a", "is", "just", "has a", "will"]},
+    {"name": "Bitcoin", "category": "crypto", "prefixes": ["is a", "is", "has a", "will", "just"]},
+    {"name": "ChatGPT", "category": "AI tool", "prefixes": ["is a", "is", "just", "has a", "will"]},
+    {"name": "iPhone 16", "category": "product", "prefixes": ["is a", "is", "has a", "will", "just"]},
+    {"name": "Severance", "category": "show", "prefixes": ["is a", "is", "just", "has a", "will"]},
+    {"name": "The White Lotus", "category": "show", "prefixes": ["is a", "is", "just", "has a", "will"]},
+    {"name": "Bali", "category": "destination", "prefixes": ["is a", "is", "just", "has a", "will"]},
+    {"name": "Lionel Messi", "category": "athlete", "prefixes": ["is a", "is", "just", "has a", "will"]},
+    {"name": "Elon Musk", "category": "tech figure", "prefixes": ["is a", "is", "just", "has a", "will"]},
+    {"name": "Taylor Swift", "category": "musician", "prefixes": ["is a", "is", "just", "has a", "will"]}
+  ],
+  "local": [
+    {"name": "Songkran", "category": "event", "prefixes": ["is a", "is", "just", "has a", "will"]},
+    {"name": "Jay Fai", "category": "restaurant", "prefixes": ["is a", "is", "has a", "just", "will"]},
+    {"name": "iPhone 16", "category": "product", "prefixes": ["is a", "is", "has a", "will", "just"]},
+    {"name": "Squid Game", "category": "show", "prefixes": ["is a", "is", "just", "has a", "will"]},
+    {"name": "Pad Thai", "category": "food", "prefixes": ["is a", "is", "has a", "just", "will"]},
+    {"name": "Bangkok", "category": "city", "prefixes": ["is a", "is", "just", "has a", "will"]},
+    {"name": "BLACKPINK", "category": "musician", "prefixes": ["is a", "is", "just", "has a", "will"]},
+    {"name": "Taylor Swift", "category": "musician", "prefixes": ["is a", "is", "just", "has a", "will"]},
+    {"name": "ChatGPT", "category": "AI tool", "prefixes": ["is a", "is", "just", "has a", "will"]},
+    {"name": "Bitcoin", "category": "crypto", "prefixes": ["is a", "is", "has a", "will", "just"]}
+  ]
+}

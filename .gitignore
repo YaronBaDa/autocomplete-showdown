@@ -1,0 +1,3 @@
+# Workflow files need 'workflow' PAT scope to push via git
+# Add them via GitHub web UI instead
+.github/workflows/

@@ -1,0 +1,116 @@
+{
+  "date": "evergreen",
+  "city": "Global",
+  "flag": "\ud83c\udf10",
+  "tomorrowTeaser": {
+    "entity": "Jeff Bezos",
+    "typeLabel": "tech figure"
+  },
+  "puzzles": [
+    {
+      "answer": "Elon Musk",
+      "prefixVerb": "just",
+      "category": "tech figure",
+      "completions": [
+        "bought another company",
+        "tweeted something weird",
+        "changed Twitter again",
+        "promised a robot",
+        "fired someone"
+      ],
+      "distractors": [
+        "Jeff Bezos",
+        "Mark Zuckerberg",
+        "Bill Gates",
+        "Tim Cook",
+        "Sundar Pichai",
+        "Satya Nadella",
+        "Sam Altman"
+      ]
+    },
+    {
+      "answer": "Bali",
+      "prefixVerb": "is",
+      "category": "destination",
+      "completions": [
+        "overrun by tourists",
+        "banning scooters",
+        "the cheapest destination",
+        "having a water crisis",
+        "better than Phuket"
+      ],
+      "distractors": [
+        "Phuket",
+        "Tokyo",
+        "Paris",
+        "Barcelona",
+        "Tulum",
+        "Lisbon",
+        "Seoul"
+      ]
+    },
+    {
+      "answer": "ChatGPT",
+      "prefixVerb": "is",
+      "category": "AI tool",
+      "completions": [
+        "getting worse",
+        "writing everyone's essays",
+        "being banned in schools",
+        "making programmers obsolete",
+        "hallucinating again"
+      ],
+      "distractors": [
+        "Claude",
+        "Gemini",
+        "Copilot",
+        "Midjourney",
+        "Perplexity",
+        "DALL-E",
+        "Stable Diffusion"
+      ]
+    },
+    {
+      "answer": "The Bear",
+      "prefixVerb": "is",
+      "category": "show",
+      "completions": [
+        "trending on social media again",
+        "being called the best on TV",
+        "inspired a wave of memes",
+        "getting another season soon",
+        "set in a Chicago sandwich shop"
+      ],
+      "distractors": [
+        "Severance",
+        "The White Lotus",
+        "Yellowjackets",
+        "Euphoria",
+        "Slow Horses",
+        "Abbott Elementary",
+        "Only Murders in the Building"
+      ]
+    },
+    {
+      "answer": "Lionel Messi",
+      "prefixVerb": "is",
+      "category": "athlete",
+      "completions": [
+        "retiring next year",
+        "moving to Saudi Arabia",
+        "better than Ronaldo",
+        "injured again",
+        "winning another trophy"
+      ],
+      "distractors": [
+        "Cristiano Ronaldo",
+        "Kylian Mbapp\u00e9",
+        "Erling Haaland",
+        "Neymar",
+        "Kevin De Bruyne",
+        "Mohamed Salah",
+        "Jude Bellingham"
+      ]
+    }
+  ]
+}
