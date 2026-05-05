@@ -40,9 +40,11 @@
   .screen { display: none; flex-direction: column; flex: 1; padding-bottom: 32px; }
   .screen.active { display: flex; }
 
-  .header { padding: 20px 0 12px; text-align: center; border-bottom: 1px solid var(--border); margin-bottom: 24px; }
-  .header-logo { font-size: 13px; font-weight: 600; letter-spacing: 0.08em; text-transform: uppercase; color: var(--ink-faint); margin-bottom: 4px; }
-  .header-date { font-size: 14px; color: var(--ink-muted); font-weight: 500; }
+  .compact-bar { display: flex; align-items: center; padding: 10px 0; border-bottom: 1px solid var(--border); margin-bottom: 14px; font-size: 12px; font-weight: 500; color: var(--ink-muted); gap: 4px; white-space: nowrap; }
+  .compact-bar .brand { font-weight: 600; letter-spacing: 0.04em; text-transform: uppercase; color: var(--ink-faint); font-size: 11px; }
+  .compact-bar .dot { color: var(--ink-faint); margin: 0 2px; }
+  .compact-bar .meta-right { margin-left: auto; display: flex; align-items: center; gap: 4px; }
+  .compact-bar .score-num { font-weight: 700; color: var(--ink); }
 
   .landing-hero { flex: 1; display: flex; flex-direction: column; align-items: center; justify-content: center; text-align: center; padding: 40px 0; }
   .landing-title { font-size: 52px; line-height: 1.1; color: var(--ink); margin-bottom: 16px; letter-spacing: -0.02em; }
@@ -68,11 +70,6 @@
   .btn-ghost:hover { color: var(--ink-muted); }
   .btn-copy { background: var(--ink); color: white; box-shadow: 0 4px 12px rgba(26,26,26,0.15); }
   .btn-copy:hover { background: #333; }
-
-  .round-header { display:flex; align-items:center; justify-content:space-between; padding:16px 0 14px; border-bottom:1px solid var(--border); margin-bottom:20px; }
-  .round-header .header-brand { font-size:13px; font-weight:600; letter-spacing:0.06em; text-transform:uppercase; color:var(--ink-faint); }
-  .round-header .header-meta { font-size:13px; color:var(--ink-muted); font-weight:500; }
-  .round-header .header-meta .score-num { font-weight:700; color:var(--ink); }
 
   .prefix-blank { text-align:center; margin-bottom:6px; }
   .prefix-blank .blank-line { display:inline-block; font-family:'Inter',system-ui,sans-serif; font-size:18px; font-weight:500; color:var(--ink-faint); letter-spacing:0.04em; border-bottom:2px solid var(--ink-faint); padding:0 8px 2px; min-width:80px; }
@@ -174,10 +171,7 @@
 </head>
 <body>
 <div id="app">
-  <div class="header">
-    <div class="header-logo">Backsearch</div>
-    <div class="header-date" id="header-date"></div>
-  </div>
+  <div class="compact-bar" id="compact-bar"></div>
 
   <!-- Landing -->
   <div class="screen active" id="screen-landing">
@@ -207,10 +201,6 @@
 
   <!-- Playing -->
   <div class="screen" id="screen-playing">
-    <div class="round-header">
-      <div class="header-brand">Backsearch</div>
-      <div class="header-meta" id="round-meta">1/5 · <span class="score-num">0</span>pts</div>
-    </div>
     <div class="prefix-blank animate-fade">
       <span class="blank-line">___</span><span class="blank-cursor"></span>
     </div>
@@ -271,6 +261,51 @@ const INITIAL_REVEALED = 2;
 
 function formatDate(d) {
   return d.toLocaleDateString("en-US", { month: "long", day: "numeric" });
+}
+
+function formatShortDate(d) {
+  return d.toLocaleDateString("en-US", { month: "short", day: "numeric" });
+}
+
+function updateCompactBar() {
+  const bar = document.getElementById("compact-bar");
+  if (!bar) return;
+  const pool = getPool(state.mode);
+  const city = (pool && pool.city) || "Bangkok";
+  const flag = (pool && pool.flag) || "\uD83C\uDDF9\uD83C\uDDED";
+  const dateStr = formatDate(new Date());
+  const shortDate = formatShortDate(new Date());
+
+  let html = `<span class="brand">Backsearch</span>`;
+  html += `<span class="dot">\u00B7</span>`;
+  html += `<span>${shortDate}</span>`;
+  html += `<span class="dot">\u00B7</span>`;
+  html += `<span>${city} ${flag}</span>`;
+
+  // Add step counter + score for playing/reveal screens
+  if (state.screen === "playing" || state.screen === "reveal") {
+    const daily = getDailyPuzzles(state.mode);
+    const pts = runningTotal();
+    html += `<span class="meta-right">`;
+    html += `<span>${state.round + 1}/${daily.length}</span>`;
+    html += `<span class="dot">\u00B7</span>`;
+    if (pts > 0) {
+      html += `<span class="score-num">${pts}pts</span>`;
+    } else {
+      html += `<span>0pts</span>`;
+    }
+    html += `</span>`;
+  }
+
+  // For share screen, show just score
+  if (state.screen === "share") {
+    const pts = totalScore();
+    html += `<span class="meta-right">`;
+    html += `<span class="score-num">${pts}/25</span>`;
+    html += `</span>`;
+  }
+
+  bar.innerHTML = html;
 }
 
 // ============================================================
@@ -662,6 +697,7 @@ function showScreen(name) {
   state.screen = name;
   document.querySelectorAll(".screen").forEach(s => s.classList.remove("active"));
   document.getElementById("screen-" + name).classList.add("active");
+  updateCompactBar();
   window.scrollTo(0, 0);
 }
 
@@ -681,10 +717,7 @@ function setMode(mode) {
 // ============================================================
 function initLanding() {
   const pool = getPool(state.mode);
-  const city = (pool && pool.city) || "Bangkok";
-  const flag = (pool && pool.flag) || "\uD83C\uDDF9\uD83C\uDDED";
   const dateStr = formatDate(new Date());
-  document.getElementById("header-date").textContent = `${dateStr} \u2014 ${city} ${flag}`;
   document.getElementById("landing-meta").textContent = `5 puzzles \u2022 up to 5 pts each \u2022 Pick from 8 trending entities`;
   document.getElementById("mode-local").classList.toggle("active", state.mode === "local");
   document.getElementById("mode-global").classList.toggle("active", state.mode === "global");
@@ -693,8 +726,8 @@ function initLanding() {
   if (teaser) {
     document.getElementById("tomorrow-teaser").innerHTML = `<span class="entity">${escapeHtml(teaser.entity)}</span> <span style="color:var(--ink-faint)">(${teaser.typeLabel})</span>`;
   }
+  updateCompactBar();
 }
-
 function startGame() {
   showScreen("playing");
   renderRound();
@@ -709,15 +742,15 @@ function renderRound() {
   state.revealedCount = INITIAL_REVEALED;
   state.wrongCards = [];
   const p = getCurrentPuzzle();
-  const daily = getDailyPuzzles(state.mode);
 
-  document.getElementById("round-meta").innerHTML = `${state.round + 1}/${daily.length} \u00B7 <span class="score-num">${runningTotal()}</span>pts`;
-  document.getElementById("guess-prompt").innerHTML = `Which <span class="type-label">${p.entityType}</span>?`;
+  updateCompactBar();
 
   // Build shuffled options
   roundOptions = [{ name: p.answer, isAnswer: true, index: 0 }];
   p.distractors.forEach((d, i) => roundOptions.push({ name: d, isAnswer: false, index: i + 1 }));
   roundOptions = shuffleArray(roundOptions, getDailySeed() + state.round * 7);
+
+  document.getElementById("guess-prompt").innerHTML = `Which <span class="type-label">${p.entityType}</span>?`;
 
   renderCompletions();
   renderRevealButton();
