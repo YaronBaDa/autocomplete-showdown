@@ -1,46 +1,50 @@
 {
   "city": "Global",
   "flag": "\ud83c\udf10",
+  "tomorrowTeaser": {
+    "entity": "Met Gala 2026",
+    "typeLabel": "annual cultural event"
+  },
   "puzzles": [
     {
       "answer": "Met Gala 2026",
       "prefixVerb": "is",
       "entityType": "annual cultural event",
-      "whyTrending": "Held May 4 2026 at the Met; theme 'Costume Art' with dress code 'Fashion Is Art'",
+      "whyTrending": "Held May 4; theme 'Fashion Is Art' with dress code 'Costume Art'; backlash over some looks; NYT publ",
       "difficulty": "medium",
       "completions": [
         {
-          "text": "highlights from this year",
+          "text": "happened last night in new york",
           "position": 1,
           "specificity": "ambiguous"
         },
         {
-          "text": "celebrity arrivals on the carpet",
+          "text": "the theme that everyone is debating",
           "position": 2,
           "specificity": "ambiguous"
         },
         {
-          "text": "biggest surprises of the night",
+          "text": "celebrity looks flooding social media right now",
           "position": 3,
           "specificity": "ambiguous"
         },
         {
-          "text": "viral moments everyone is talking about",
+          "text": "some outfits causing a split online",
           "position": 4,
           "specificity": "ambiguous"
         },
         {
-          "text": "what happened on the steps",
+          "text": "fashion is art was the dress code",
           "position": 5,
           "specificity": "narrowing"
         },
         {
-          "text": "an invite only fundraiser for the costume institute",
+          "text": "held at the museum on fifth avenue",
           "position": 6,
           "specificity": "narrowing"
         },
         {
-          "text": "first monday in may",
+          "text": "fashion is art on the steps of the met this may",
           "position": 7,
           "specificity": "smoking_gun"
         }
@@ -50,757 +54,223 @@
         "Grammy Awards 2026",
         "Cannes Film Festival 2026",
         "Coachella 2026",
-        "Kentucky Derby 2026",
         "Golden Globes 2026",
-        "Emmys 2026"
+        "Emmys 2026",
+        "White House Correspondents Dinner 2026"
       ]
     },
     {
-      "answer": "Kentucky Derby 2026",
+      "answer": "Apple Inc.",
       "prefixVerb": "is",
-      "entityType": "annual sporting event",
-      "whyTrending": "Ran May 2 2026; surprise long-shot winner at 45-1 odds, celebrity turnout high",
-      "difficulty": "easy",
-      "completions": [
-        {
-          "text": "highlights from this weekend",
-          "position": 1,
-          "specificity": "ambiguous"
-        },
-        {
-          "text": "biggest long shot in years",
-          "position": 2,
-          "specificity": "ambiguous"
-        },
-        {
-          "text": "what everyone wore to the races",
-          "position": 3,
-          "specificity": "ambiguous"
-        },
-        {
-          "text": "celebrity sightings at the track",
-          "position": 4,
-          "specificity": "ambiguous"
-        },
-        {
-          "text": "mint juleps and big hats everywhere",
-          "position": 5,
-          "specificity": "narrowing"
-        },
-        {
-          "text": "the fastest two minutes in sports",
-          "position": 6,
-          "specificity": "narrowing"
-        },
-        {
-          "text": "the run for the roses",
-          "position": 7,
-          "specificity": "smoking_gun"
-        }
-      ],
-      "distractors": [
-        "Preakness Stakes 2026",
-        "Belmont Stakes 2026",
-        "Breeders Cup 2026",
-        "Travers Stakes 2026",
-        "Arkansas Derby 2026",
-        "Santa Anita Derby 2026",
-        "Florida Derby 2026"
-      ]
-    },
-    {
-      "answer": "The White Lotus",
-      "prefixVerb": "is",
-      "entityType": "TV series",
-      "whyTrending": "Season 4 Thailand location announced; casting rumors for new ensemble; remains in cultural conversat",
-      "difficulty": "hard",
-      "completions": [
-        {
-          "text": "new season casting rumors",
-          "position": 1,
-          "specificity": "ambiguous"
-        },
-        {
-          "text": "everyone says you have to watch it",
-          "position": 2,
-          "specificity": "ambiguous"
-        },
-        {
-          "text": "season finale theories and predictions",
-          "position": 3,
-          "specificity": "ambiguous"
-        },
-        {
-          "text": "the wealthiest characters on screen",
-          "position": 4,
-          "specificity": "ambiguous"
-        },
-        {
-          "text": "filmed at actual luxury hotels",
-          "position": 5,
-          "specificity": "narrowing"
-        },
-        {
-          "text": "each season at a new resort in a different country",
-          "position": 6,
-          "specificity": "narrowing"
-        },
-        {
-          "text": "filmed at four seasons hotels around the world",
-          "position": 7,
-          "specificity": "smoking_gun"
-        }
-      ],
-      "distractors": [
-        "Succession",
-        "Big Little Lies",
-        "The Morning Show",
-        "Yellowstone",
-        "The Crown",
-        "Billions",
-        "Only Murders in the Building"
-      ]
-    },
-    {
-      "answer": "Cannes Film Festival 2026",
-      "prefixVerb": "is",
-      "entityType": "film festival",
-      "whyTrending": "Lineup announcement imminent; jury president speculation; opening night film rumors",
-      "difficulty": "hard",
-      "completions": [
-        {
-          "text": "lineup announcement expected soon",
-          "position": 1,
-          "specificity": "ambiguous"
-        },
-        {
-          "text": "most anticipated premieres this year",
-          "position": 2,
-          "specificity": "ambiguous"
-        },
-        {
-          "text": "jury president just revealed",
-          "position": 3,
-          "specificity": "ambiguous"
-        },
-        {
-          "text": "films in competition for the top prize",
-          "position": 4,
-          "specificity": "ambiguous"
-        },
-        {
-          "text": "walking up those red carpeted stairs",
-          "position": 5,
-          "specificity": "narrowing"
-        },
-        {
-          "text": "dress code controversy over flat shoes on the carpet",
-          "position": 6,
-          "specificity": "narrowing"
-        },
-        {
-          "text": "on the french riviera every may",
-          "position": 7,
-          "specificity": "smoking_gun"
-        }
-      ],
-      "distractors": [
-        "Sundance Film Festival 2026",
-        "Venice Film Festival 2026",
-        "Toronto International Film Festival 2026",
-        "Tribeca Film Festival 2026",
-        "Berlin International Film Festival 2026",
-        "SXSW Film Festival 2026",
-        "Telluride Film Festival 2026"
-      ]
-    },
-    {
-      "answer": "NBA Playoffs 2026",
-      "prefixVerb": "is",
-      "entityType": "sports postseason",
-      "whyTrending": "Multiple first-round series active: Timberwolves-Spurs and 76ers-Knicks both trending at 500K+ searc",
+      "entityType": "tech company",
+      "whyTrending": "Reported 17% sales jump in Q2 2026 earnings; iPhone sales surprised analysts; stock moved on the new",
       "difficulty": "medium",
       "completions": [
         {
-          "text": "bracket predictions this round",
+          "text": "earnings report just dropped",
           "position": 1,
           "specificity": "ambiguous"
         },
         {
-          "text": "biggest upset so far",
+          "text": "beat wall street expectations again",
           "position": 2,
           "specificity": "ambiguous"
         },
         {
-          "text": "game schedule for this week",
+          "text": "stock moving after the announcement",
           "position": 3,
           "specificity": "ambiguous"
         },
         {
-          "text": "injury report for game five",
+          "text": "better than expected this quarter",
           "position": 4,
           "specificity": "ambiguous"
         },
         {
-          "text": "best of seven first round format",
+          "text": "seventeen percent jump in sales",
           "position": 5,
           "specificity": "narrowing"
         },
         {
-          "text": "eastern conference finals predictions",
+          "text": "iphones driving most of the growth",
           "position": 6,
           "specificity": "narrowing"
         },
         {
-          "text": "larry o'brien championship trophy",
+          "text": "seventeen percent growth powered by the iphone this quarter",
           "position": 7,
           "specificity": "smoking_gun"
         }
       ],
       "distractors": [
-        "NHL Stanley Cup Playoffs 2026",
-        "MLB Postseason 2026",
-        "NFL Playoffs 2026",
-        "UEFA Champions League 2026",
-        "March Madness 2026",
-        "Wimbledon 2026",
-        "FIFA World Cup 2026"
+        "Microsoft",
+        "Google (Alphabet)",
+        "Amazon",
+        "Meta",
+        "Nvidia",
+        "Tesla",
+        "Samsung"
       ]
     },
     {
-      "answer": "Taylor Swift",
+      "answer": "Elon Musk",
       "prefixVerb": "is",
-      "entityType": "musician",
-      "whyTrending": "New album 'Opalite' and companion film 'The Fate of Ophelia' generating massive searches; Met Gala a",
-      "difficulty": "easy",
-      "completions": [
-        {
-          "text": "new album just dropped",
-          "position": 1,
-          "specificity": "ambiguous"
-        },
-        {
-          "text": "tour rumors for next year",
-          "position": 2,
-          "specificity": "ambiguous"
-        },
-        {
-          "text": "surprise appearance at the met gala",
-          "position": 3,
-          "specificity": "ambiguous"
-        },
-        {
-          "text": "fans decoding hidden messages again",
-          "position": 4,
-          "specificity": "ambiguous"
-        },
-        {
-          "text": "rerecording old albums one by one",
-          "position": 5,
-          "specificity": "narrowing"
-        },
-        {
-          "text": "sold out stadiums on every continent",
-          "position": 6,
-          "specificity": "narrowing"
-        },
-        {
-          "text": "the eras tour film broke box office records",
-          "position": 7,
-          "specificity": "smoking_gun"
-        }
-      ],
-      "distractors": [
-        "Billie Eilish",
-        "Olivia Rodrigo",
-        "Sabrina Carpenter",
-        "Beyonc\u00e9",
-        "Ariana Grande",
-        "Lady Gaga",
-        "Dua Lipa"
-      ]
-    },
-    {
-      "answer": "iPhone Fold",
-      "prefixVerb": "is",
-      "entityType": "tech product",
-      "whyTrending": "Apple's first foldable iPhone rumored for late 2026 release; leaks and price speculation surging",
+      "entityType": "business figure",
+      "whyTrending": "SEC settled lawsuit over his Twitter stock disclosures; also in news for SpaceX shares, OpenAI trial",
       "difficulty": "medium",
       "completions": [
         {
-          "text": "release date rumors and leaks",
+          "text": "in the news again this morning",
           "position": 1,
           "specificity": "ambiguous"
         },
         {
-          "text": "how much will it cost",
+          "text": "legal battle finally resolved",
           "position": 2,
           "specificity": "ambiguous"
         },
         {
-          "text": "battery life compared to regular phones",
+          "text": "shares of his companies moving today",
           "position": 3,
           "specificity": "ambiguous"
         },
         {
-          "text": "crease still visible on the screen",
+          "text": "another courtroom appearance this week",
           "position": 4,
           "specificity": "ambiguous"
         },
         {
-          "text": "runs ios not android",
+          "text": "sec settlement over old stock purchases",
           "position": 5,
           "specificity": "narrowing"
         },
         {
-          "text": "lightning port finally replaced",
+          "text": "the twitter acquisition still causing legal trouble",
           "position": 6,
           "specificity": "narrowing"
         },
         {
-          "text": "made in cupertino by the company with a fruit logo",
+          "text": "sec just settled the twitter stock disclosure case",
           "position": 7,
           "specificity": "smoking_gun"
         }
       ],
       "distractors": [
-        "Samsung Galaxy Z Fold",
-        "Google Pixel Fold",
-        "OnePlus Open",
-        "Motorola Razr",
-        "Huawei Mate X",
-        "Oppo Find N",
-        "Xiaomi Mix Fold"
+        "Jeff Bezos",
+        "Mark Zuckerberg",
+        "Sam Altman",
+        "Tim Cook",
+        "Satya Nadella",
+        "Sundar Pichai",
+        "Jensen Huang"
       ]
     },
     {
-      "answer": "Billie Eilish",
+      "answer": "Timberwolves vs Spurs Game 1",
       "prefixVerb": "is",
-      "entityType": "musician",
-      "whyTrending": "Met Gala 2026 appearance in archive McQueen; signature look generated massive search interest",
+      "entityType": "NBA playoff game",
+      "whyTrending": "Game 1 of first-round series played May 4; Timberwolves won 104-102 in a thriller; MIN leads series ",
+      "difficulty": "medium",
+      "completions": [
+        {
+          "text": "game one just wrapped up",
+          "position": 1,
+          "specificity": "ambiguous"
+        },
+        {
+          "text": "decided in the final seconds",
+          "position": 2,
+          "specificity": "ambiguous"
+        },
+        {
+          "text": "one oh lead after the first game",
+          "position": 3,
+          "specificity": "ambiguous"
+        },
+        {
+          "text": "fans arguing about the last play",
+          "position": 4,
+          "specificity": "ambiguous"
+        },
+        {
+          "text": "one hundred four to one hundred two final score",
+          "position": 5,
+          "specificity": "narrowing"
+        },
+        {
+          "text": "wolves take the early advantage in the series",
+          "position": 6,
+          "specificity": "narrowing"
+        },
+        {
+          "text": "the rookie sensation facing the rising superstar in game one",
+          "position": 7,
+          "specificity": "smoking_gun"
+        }
+      ],
+      "distractors": [
+        "Knicks vs 76ers Game 1",
+        "Lakers vs Nuggets Game 1",
+        "Celtics vs Heat Game 1",
+        "Bucks vs Pacers Game 1",
+        "Thunder vs Mavericks Game 1",
+        "Cavaliers vs Magic Game 1",
+        "Clippers vs Suns Game 1"
+      ]
+    },
+    {
+      "answer": "OpenAI",
+      "prefixVerb": "is",
+      "entityType": "AI company",
+      "whyTrending": "'Big Reset' coverage in NYT; Musk lawyers questioned president about $30B valuation in trial; White ",
       "difficulty": "hard",
       "completions": [
         {
-          "text": "met gala look broke the internet",
+          "text": "in the headlines again this week",
           "position": 1,
           "specificity": "ambiguous"
         },
         {
-          "text": "outfit details and designer name",
+          "text": "facing questions about its future direction",
           "position": 2,
           "specificity": "ambiguous"
         },
         {
-          "text": "best dressed lists this morning",
+          "text": "a courtroom battle making news right now",
           "position": 3,
           "specificity": "ambiguous"
         },
         {
-          "text": "photos from every angle on the carpet",
+          "text": "valuation getting questioned in court",
           "position": 4,
           "specificity": "ambiguous"
         },
         {
-          "text": "wore archive alexander mcqueen",
+          "text": "the big reset coverage in the times",
           "position": 5,
           "specificity": "narrowing"
         },
         {
-          "text": "baggy silhouette not a gown",
+          "text": "being sued by their own cofounder over the original mission",
           "position": 6,
           "specificity": "narrowing"
         },
         {
-          "text": "signature neon green roots showing",
+          "text": "the big reset and the thirty billion dollar question in court",
           "position": 7,
           "specificity": "smoking_gun"
         }
       ],
       "distractors": [
-        "Lady Gaga",
-        "Zendaya",
-        "Rihanna",
-        "Doja Cat",
-        "Florence Pugh",
-        "Cardi B",
-        "Kendall Jenner"
-      ]
-    },
-    {
-      "answer": "Nintendo Switch 2",
-      "prefixVerb": "is",
-      "entityType": "gaming console",
-      "whyTrending": "Just released; Mario Kart World bundle selling out globally; reviews and comparisons flooding search",
-      "difficulty": "medium",
-      "completions": [
-        {
-          "text": "worth upgrading from the old one",
-          "position": 1,
-          "specificity": "ambiguous"
-        },
-        {
-          "text": "battery life tested and reviewed",
-          "position": 2,
-          "specificity": "ambiguous"
-        },
-        {
-          "text": "backwards compatibility with old games",
-          "position": 3,
-          "specificity": "ambiguous"
-        },
-        {
-          "text": "best games available at launch",
-          "position": 4,
-          "specificity": "ambiguous"
-        },
-        {
-          "text": "magnetic joy cons that snap on",
-          "position": 5,
-          "specificity": "narrowing"
-        },
-        {
-          "text": "bundled with mario kart world",
-          "position": 6,
-          "specificity": "narrowing"
-        },
-        {
-          "text": "the console with detachable controllers and a kickstand",
-          "position": 7,
-          "specificity": "smoking_gun"
-        }
-      ],
-      "distractors": [
-        "PlayStation 5 Pro",
-        "Xbox Series X",
-        "Steam Deck OLED",
-        "ASUS ROG Ally",
-        "Lenovo Legion Go",
-        "PlayStation Portal",
-        "Meta Quest 3"
-      ]
-    },
-    {
-      "answer": "Olivia Rodrigo",
-      "prefixVerb": "is",
-      "entityType": "musician",
-      "whyTrending": "2027 world tour announced; presale codes and dates flooding search; Munich date generating German-la",
-      "difficulty": "hard",
-      "completions": [
-        {
-          "text": "tour dates just announced",
-          "position": 1,
-          "specificity": "ambiguous"
-        },
-        {
-          "text": "presale code not working for me",
-          "position": 2,
-          "specificity": "ambiguous"
-        },
-        {
-          "text": "europe dates including munich",
-          "position": 3,
-          "specificity": "ambiguous"
-        },
-        {
-          "text": "opening act for the new tour",
-          "position": 4,
-          "specificity": "ambiguous"
-        },
-        {
-          "text": "second arena tour in three years",
-          "position": 5,
-          "specificity": "narrowing"
-        },
-        {
-          "text": "sour then guts then the next era",
-          "position": 6,
-          "specificity": "narrowing"
-        },
-        {
-          "text": "drivers license was her first single",
-          "position": 7,
-          "specificity": "smoking_gun"
-        }
-      ],
-      "distractors": [
-        "Sabrina Carpenter",
-        "Chappell Roan",
-        "Gracie Abrams",
-        "Tate McRae",
-        "Maisie Peters",
-        "Conan Gray",
-        "Rene\u00e9 Rapp"
-      ]
-    },
-    {
-      "answer": "ChatGPT",
-      "prefixVerb": "is",
-      "entityType": "AI product",
-      "whyTrending": "Version 5.3 update with vision and voice improvements; macOS app redesigned; enterprise pricing chan",
-      "difficulty": "medium",
-      "completions": [
-        {
-          "text": "new update just dropped",
-          "position": 1,
-          "specificity": "ambiguous"
-        },
-        {
-          "text": "is the paid version worth it",
-          "position": 2,
-          "specificity": "ambiguous"
-        },
-        {
-          "text": "can it generate images now",
-          "position": 3,
-          "specificity": "ambiguous"
-        },
-        {
-          "text": "better than the free alternatives",
-          "position": 4,
-          "specificity": "ambiguous"
-        },
-        {
-          "text": "the one that started the ai boom in late 2022",
-          "position": 5,
-          "specificity": "narrowing"
-        },
-        {
-          "text": "made by the company that also built dall e",
-          "position": 6,
-          "specificity": "narrowing"
-        },
-        {
-          "text": "the chatbot that passed the bar exam and went viral",
-          "position": 7,
-          "specificity": "smoking_gun"
-        }
-      ],
-      "distractors": [
-        "Google Gemini",
-        "Claude AI",
-        "Microsoft Copilot",
-        "Perplexity AI",
+        "Anthropic",
+        "Google DeepMind",
         "Meta AI",
-        "Grok AI",
-        "DeepSeek"
-      ]
-    },
-    {
-      "answer": "Tesla Cybertruck",
-      "prefixVerb": "is",
-      "entityType": "vehicle",
-      "whyTrending": "International deliveries expanding; first right-hand-drive models for UK and Australia; recalls and ",
-      "difficulty": "medium",
-      "completions": [
-        {
-          "text": "delivery dates finally announced",
-          "position": 1,
-          "specificity": "ambiguous"
-        },
-        {
-          "text": "real world range tested",
-          "position": 2,
-          "specificity": "ambiguous"
-        },
-        {
-          "text": "can it actually go off road",
-          "position": 3,
-          "specificity": "ambiguous"
-        },
-        {
-          "text": "towing capacity vs gas trucks",
-          "position": 4,
-          "specificity": "ambiguous"
-        },
-        {
-          "text": "stainless steel body that doesn't need paint",
-          "position": 5,
-          "specificity": "narrowing"
-        },
-        {
-          "text": "bulletproof windows that cracked on stage",
-          "position": 6,
-          "specificity": "narrowing"
-        },
-        {
-          "text": "looks like it came from a blade runner set",
-          "position": 7,
-          "specificity": "smoking_gun"
-        }
-      ],
-      "distractors": [
-        "Rivian R1T",
-        "Ford F-150 Lightning",
-        "GMC Hummer EV",
-        "Chevrolet Silverado EV",
-        "Ram 1500 REV",
-        "Lordstown Endurance",
-        "Canoo Pickup"
-      ]
-    },
-    {
-      "answer": "Disney Live-Action Remakes",
-      "prefixVerb": "is",
-      "entityType": "film franchise",
-      "whyTrending": "Multiple 2026 releases planned; Moana live-action casting controversy; fan fatigue vs box office deb",
-      "difficulty": "easy",
-      "completions": [
-        {
-          "text": "next one coming out this summer",
-          "position": 1,
-          "specificity": "ambiguous"
-        },
-        {
-          "text": "is the new one any good",
-          "position": 2,
-          "specificity": "ambiguous"
-        },
-        {
-          "text": "cast announcement backlash again",
-          "position": 3,
-          "specificity": "ambiguous"
-        },
-        {
-          "text": "box office numbers vs the original",
-          "position": 4,
-          "specificity": "ambiguous"
-        },
-        {
-          "text": "turning animated classics into live action",
-          "position": 5,
-          "specificity": "narrowing"
-        },
-        {
-          "text": "animated originals turned into real casts",
-          "position": 6,
-          "specificity": "narrowing"
-        },
-        {
-          "text": "the studio with the castle logo and the mouse",
-          "position": 7,
-          "specificity": "smoking_gun"
-        }
-      ],
-      "distractors": [
-        "Marvel Cinematic Universe",
-        "Fast and Furious Franchise",
-        "Jurassic World Franchise",
-        "DC Universe Films",
-        "Avatar Franchise",
-        "John Wick Franchise",
-        "Mission Impossible Franchise"
-      ]
-    },
-    {
-      "answer": "Airbnb",
-      "prefixVerb": "is",
-      "entityType": "tech platform",
-      "whyTrending": "New 'Guest Favorite' filter launched; cleaning fee transparency rules taking effect; summer booking ",
-      "difficulty": "hard",
-      "completions": [
-        {
-          "text": "is it better than hotels right now",
-          "position": 1,
-          "specificity": "ambiguous"
-        },
-        {
-          "text": "hidden fees after booking",
-          "position": 2,
-          "specificity": "ambiguous"
-        },
-        {
-          "text": "best places to book for summer",
-          "position": 3,
-          "specificity": "ambiguous"
-        },
-        {
-          "text": "cancellation policy changes this year",
-          "position": 4,
-          "specificity": "ambiguous"
-        },
-        {
-          "text": "staying in someone's actual home not a hotel",
-          "position": 5,
-          "specificity": "narrowing"
-        },
-        {
-          "text": "cleaning fee still showing up at checkout",
-          "position": 6,
-          "specificity": "narrowing"
-        },
-        {
-          "text": "started with an air mattress in a san francisco apartment",
-          "position": 7,
-          "specificity": "smoking_gun"
-        }
-      ],
-      "distractors": [
-        "Booking.com",
-        "Expedia",
-        "VRBO",
-        "Hotels.com",
-        "Agoda",
-        "Tripadvisor",
-        "Kayak"
-      ]
-    },
-    {
-      "answer": "Lionel Messi",
-      "prefixVerb": "is",
-      "entityType": "athlete",
-      "whyTrending": "Inter Miami playoff run; MLS attendance records broken; retirement speculation at 38",
-      "difficulty": "easy",
-      "completions": [
-        {
-          "text": "still playing at the highest level",
-          "position": 1,
-          "specificity": "ambiguous"
-        },
-        {
-          "text": "retirement rumors this year",
-          "position": 2,
-          "specificity": "ambiguous"
-        },
-        {
-          "text": "world cup winner still competing",
-          "position": 3,
-          "specificity": "ambiguous"
-        },
-        {
-          "text": "how many goals this season",
-          "position": 4,
-          "specificity": "ambiguous"
-        },
-        {
-          "text": "moved to america for the final chapter",
-          "position": 5,
-          "specificity": "narrowing"
-        },
-        {
-          "text": "plays in pink for inter miami",
-          "position": 6,
-          "specificity": "narrowing"
-        },
-        {
-          "text": "won the world cup then moved to mls",
-          "position": 7,
-          "specificity": "smoking_gun"
-        }
-      ],
-      "distractors": [
-        "Cristiano Ronaldo",
-        "Kylian Mbapp\u00e9",
-        "Erling Haaland",
-        "Neymar Jr",
-        "Mohamed Salah",
-        "Kevin De Bruyne",
-        "Vinicius Junior"
+        "Microsoft AI",
+        "xAI (Elon Musk's AI)",
+        "Stability AI",
+        "Mistral AI"
       ]
     }
   ],
-  "_source": "curated_evergreen_v1",
-  "tomorrowTeaser": {
-    "entity": "Lionel Messi",
-    "typeLabel": "athlete"
-  }
+  "_source": "news_anchored_v2"
 }
