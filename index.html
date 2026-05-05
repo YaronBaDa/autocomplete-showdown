@@ -320,114 +320,12 @@ const FALLBACK_PUZZLES = {
   local: {
     date: formatDate(new Date()), city: "Bangkok", flag: "\uD83C\uDDF9\uD83C\uDDED",
     tomorrowTeaser: { entity: "Chatuchak Market", typeLabel: "place" },
-    puzzles: [
-      { answer:"Jay Fai",prefixVerb:"is",entityType:"restaurant",whyTrending:"still impossible to book",difficulty:"easy",
-        completions:[
-          {text:"impossible to get a table",position:1,specificity:"ambiguous"},
-          {text:"always packed with tourists",position:2,specificity:"ambiguous"},
-          {text:"the most expensive around",position:3,specificity:"triangulating"},
-          {text:"run by a woman in goggles",position:4,specificity:"triangulating"},
-          {text:"charging double what it did",position:5,specificity:"narrowing"},
-          {text:"famous for a single dish",position:6,specificity:"narrowing"},
-          {text:"has a michelin star crab omelette",position:7,specificity:"smoking_gun"}],
-        distractors:["Jeh O Chula","Thip Samai","Som Tam Nua","Gaggan Anand","Sorn","Le Du","Nusara"]},
-      { answer:"Songkran",prefixVerb:"is",entityType:"event",whyTrending:"annual water festival",difficulty:"medium",
-        completions:[
-          {text:"getting bigger every year",position:1,specificity:"ambiguous"},
-          {text:"impossible to stay dry during",position:2,specificity:"ambiguous"},
-          {text:"closing down major streets",position:3,specificity:"triangulating"},
-          {text:"attracting millions of visitors",position:4,specificity:"triangulating"},
-          {text:"banning alcohol in certain zones",position:5,specificity:"narrowing"},
-          {text:"celebrated with ice water buckets",position:6,specificity:"narrowing"},
-          {text:"the thai new year in april",position:7,specificity:"smoking_gun"}],
-        distractors:["Loy Krathong","Wonderfruit","Chiang Mai Flower Festival","Vijit Chao Phraya","Bangkok Design Week","Thai Fight","MotoGP Thailand"]},
-      { answer:"Moo Deng",prefixVerb:"is",entityType:"viral animal",whyTrending:"baby hippo meme",difficulty:"easy",
-        completions:[
-          {text:"going viral on tiktok",position:1,specificity:"ambiguous"},
-          {text:"getting more visitors than ever",position:2,specificity:"ambiguous"},
-          {text:"the cutest thing online",position:3,specificity:"triangulating"},
-          {text:"spawning endless merchandise",position:4,specificity:"triangulating"},
-          {text:"living at a zoo in chonburi",position:5,specificity:"narrowing"},
-          {text:"named after a thai pork dish",position:6,specificity:"narrowing"},
-          {text:"baby pygmy hippo born in thailand",position:7,specificity:"smoking_gun"}],
-        distractors:["Pesto the Penguin","Fiona the Hippo","Hashima the Cat","Lin Bing the Panda","Tama the Cat","Kabosu the Doge","Jumbo the Elephant"]},
-      { answer:"Lisa",prefixVerb:"is",entityType:"musician",whyTrending:"BLACKPINK solo star",difficulty:"medium",
-        completions:[
-          {text:"the most followed on instagram",position:1,specificity:"ambiguous"},
-          {text:"selling out arenas worldwide",position:2,specificity:"ambiguous"},
-          {text:"branching into acting roles",position:3,specificity:"triangulating"},
-          {text:"an ambassador for luxury brands",position:4,specificity:"triangulating"},
-          {text:"the only non-korean member",position:5,specificity:"narrowing"},
-          {text:"from buriram originally",position:6,specificity:"narrowing"},
-          {text:"thai rapper and dancer in blackpink",position:7,specificity:"smoking_gun"}],
-        distractors:["BamBam","Nichkhun","Minnie","Sorn","Ten","Jackson Wang","Rose"]},
-      { answer:"Khao San Road",prefixVerb:"is",entityType:"place",whyTrending:"backpacker hub evolving",difficulty:"hard",
-        completions:[
-          {text:"where everyone ends up at midnight",position:1,specificity:"ambiguous"},
-          {text:"not the same since covid",position:2,specificity:"ambiguous"},
-          {text:"full of bars and tattoo shops",position:3,specificity:"triangulating"},
-          {text:"a rite of passage for travelers",position:4,specificity:"triangulating"},
-          {text:"getting a major facelift soon",position:5,specificity:"narrowing"},
-          {text:"the backpacker strip in old town",position:6,specificity:"narrowing"},
-          {text:"most famous street in bangkok",position:7,specificity:"smoking_gun"}],
-        distractors:["Sukhumvit","Silom","Yaowarat","Ratchada","Thonglor","Ekkamai","Sathorn"]}
-    ]
+    puzzles: [{"answer": "Jay Fai", "prefixVerb": "is", "entityType": "restaurant", "whyTrending": "still impossible to book", "difficulty": "easy", "completions": [{"text": "always packed with tourists", "position": 1, "specificity": "ambiguous"}, {"text": "impossible to get a table", "position": 2, "specificity": "ambiguous"}, {"text": "better than the other famous spots", "position": 3, "specificity": "triangulating"}, {"text": "appearing in every travel guide", "position": 4, "specificity": "triangulating"}, {"text": "charging double what it used to", "position": 5, "specificity": "narrowing"}, {"text": "run by a woman in goggles", "position": 6, "specificity": "narrowing"}, {"text": "has a michelin star crab omelette", "position": 7, "specificity": "smoking_gun"}], "distractors": ["Jeh O Chula", "Thip Samai", "Som Tam Nua", "Gaggan Anand", "Sorn", "Le Du", "Nusara"]}, {"answer": "Songkran", "prefixVerb": "is", "entityType": "event", "whyTrending": "annual water festival", "difficulty": "medium", "completions": [{"text": "getting bigger every year", "position": 1, "specificity": "ambiguous"}, {"text": "attracting millions of visitors", "position": 2, "specificity": "ambiguous"}, {"text": "closing down major streets", "position": 3, "specificity": "triangulating"}, {"text": "celebrated across the whole country", "position": 4, "specificity": "triangulating"}, {"text": "banning alcohol in certain zones", "position": 5, "specificity": "narrowing"}, {"text": "impossible to stay dry during", "position": 6, "specificity": "narrowing"}, {"text": "the thai new year water festival", "position": 7, "specificity": "smoking_gun"}], "distractors": ["Loy Krathong", "Wonderfruit", "Phi Ta Khon", "Bun Bang Fai", "Yi Peng", "Ubon Ratchathani Candle Festival", "Chiang Mai Flower Festival"]}, {"answer": "BTS Skytrain", "prefixVerb": "is", "entityType": "transit", "whyTrending": "new extensions opening", "difficulty": "medium", "completions": [{"text": "always crowded at rush hour", "position": 1, "specificity": "ambiguous"}, {"text": "stations near all the big malls", "position": 2, "specificity": "ambiguous"}, {"text": "announcements in thai then english", "position": 3, "specificity": "triangulating"}, {"text": "expanding with new extensions", "position": 4, "specificity": "triangulating"}, {"text": "freezing cold inside the cars", "position": 5, "specificity": "narrowing"}, {"text": "running above the traffic jams", "position": 6, "specificity": "narrowing"}, {"text": "elevated rail with rabbit cards", "position": 7, "specificity": "smoking_gun"}], "distractors": ["MRT Blue Line", "Airport Rail Link", "BTS Silom Line", "SRT Red Line", "MRT Purple Line", "BTS Gold Line", "MRT Yellow Line"]}, {"answer": "mango sticky rice", "prefixVerb": "is", "entityType": "food", "whyTrending": "viral food trend", "difficulty": "easy", "completions": [{"text": "the most photographed dish", "position": 1, "specificity": "ambiguous"}, {"text": "better than it sounds", "position": 2, "specificity": "ambiguous"}, {"text": "drenched in sweet coconut cream", "position": 3, "specificity": "triangulating"}, {"text": "only good during certain months", "position": 4, "specificity": "triangulating"}, {"text": "sold at every street market", "position": 5, "specificity": "narrowing"}, {"text": "the yellow fruit must be perfectly ripe", "position": 6, "specificity": "narrowing"}, {"text": "thailand iconic glutinous rice dessert", "position": 7, "specificity": "smoking_gun"}], "distractors": ["Khanom Krok", "Bua Loy", "Tub Tim Krob", "Khao Niao Sangkhaya", "Khanom Chan", "Foi Thong", "Khao Tom Mat"]}, {"answer": "7-Eleven", "prefixVerb": "is", "entityType": "brand", "whyTrending": "viral tiktok snacks", "difficulty": "easy", "completions": [{"text": "on every single corner", "position": 1, "specificity": "ambiguous"}, {"text": "open twenty-four hours a day", "position": 2, "specificity": "ambiguous"}, {"text": "selling things you never expected", "position": 3, "specificity": "triangulating"}, {"text": "the best late-night snack run", "position": 4, "specificity": "triangulating"}, {"text": "a cultural institution in disguise", "position": 5, "specificity": "narrowing"}, {"text": "better than the ones back home", "position": 6, "specificity": "narrowing"}, {"text": "thirteen thousand locations in thailand", "position": 7, "specificity": "smoking_gun"}], "distractors": ["FamilyMart", "Lawson 108", "Mini Big C", "Tops Daily", "Jiffy", "Lotus's Express", "MaxValu"]}]
   },
   global: {
     date: formatDate(new Date()), city: "Global", flag: "\uD83C\uDF10",
     tomorrowTeaser: { entity: "Severance", typeLabel: "show" },
-    puzzles: [
-      { answer:"Squid Game",prefixVerb:"is",entityType:"show",whyTrending:"season 3 announced",difficulty:"easy",
-        completions:[
-          {text:"the most watched on the platform",position:1,specificity:"ambiguous"},
-          {text:"spawning endless halloween costumes",position:2,specificity:"ambiguous"},
-          {text:"getting another season this year",position:3,specificity:"triangulating"},
-          {text:"turning actors into global stars",position:4,specificity:"triangulating"},
-          {text:"featuring a giant robot doll",position:5,specificity:"narrowing"},
-          {text:"korean death game with childhood games",position:6,specificity:"narrowing"},
-          {text:"netflix hit where players compete for cash",position:7,specificity:"smoking_gun"}],
-        distractors:["Stranger Things","Wednesday","Bridgerton","The Last of Us","House of the Dragon","Beef","The Bear"]},
-      { answer:"Taylor Swift",prefixVerb:"is",entityType:"musician",whyTrending:"Eras Tour records",difficulty:"medium",
-        completions:[
-          {text:"the biggest tour of the decade",position:1,specificity:"ambiguous"},
-          {text:"breaking every attendance record",position:2,specificity:"ambiguous"},
-          {text:"rerecording her entire back catalog",position:3,specificity:"triangulating"},
-          {text:"causing literal earthquakes at shows",position:4,specificity:"triangulating"},
-          {text:"dating a football player",position:5,specificity:"narrowing"},
-          {text:"sold more albums than any woman",position:6,specificity:"narrowing"},
-          {text:"american singer behind the eras tour",position:7,specificity:"smoking_gun"}],
-        distractors:["BLACKPINK","Billie Eilish","Bruno Mars","Ed Sheeran","Olivia Rodrigo","Sabrina Carpenter","The Weeknd"]},
-      { answer:"ChatGPT",prefixVerb:"is",entityType:"AI tool",whyTrending:"new model viral",difficulty:"hard",
-        completions:[
-          {text:"getting smarter every update",position:1,specificity:"ambiguous"},
-          {text:"replacing entry-level jobs",position:2,specificity:"ambiguous"},
-          {text:"banned in some school districts",position:3,specificity:"triangulating"},
-          {text:"able to write code and essays",position:4,specificity:"triangulating"},
-          {text:"launched november twenty twenty-two",position:5,specificity:"narrowing"},
-          {text:"powered by a large language model",position:6,specificity:"narrowing"},
-          {text:"openai chatbot that started the ai boom",position:7,specificity:"smoking_gun"}],
-        distractors:["Claude","Gemini","Copilot","Midjourney","Perplexity","DALL-E","Stable Diffusion"]},
-      { answer:"Lionel Messi",prefixVerb:"is",entityType:"athlete",whyTrending:"MLS dominance",difficulty:"medium",
-        completions:[
-          {text:"still dominating at his age",position:1,specificity:"ambiguous"},
-          {text:"the highest paid in the league",position:2,specificity:"ambiguous"},
-          {text:"moved to america for the paycheck",position:3,specificity:"triangulating"},
-          {text:"won the trophy that defined his career",position:4,specificity:"triangulating"},
-          {text:"wearing number ten since forever",position:5,specificity:"narrowing"},
-          {text:"playing for inter miami now",position:6,specificity:"narrowing"},
-          {text:"argentine legend with eight ballon dors",position:7,specificity:"smoking_gun"}],
-        distractors:["Cristiano Ronaldo","Kylian Mbappe","Erling Haaland","Neymar","Kevin De Bruyne","Mohamed Salah","Jude Bellingham"]},
-      { answer:"Barbie",prefixVerb:"is",entityType:"film",whyTrending:"Oscar-winning blockbuster",difficulty:"easy",
-        completions:[
-          {text:"the biggest movie of last summer",position:1,specificity:"ambiguous"},
-          {text:"turning everything pink for months",position:2,specificity:"ambiguous"},
-          {text:"people dressed up to see it",position:3,specificity:"triangulating"},
-          {text:"a billion-dollar hit nobody expected",position:4,specificity:"triangulating"},
-          {text:"starring margot and ryan gosling",position:5,specificity:"narrowing"},
-          {text:"directed by greta gerwig",position:6,specificity:"narrowing"},
-          {text:"blockbuster about the iconic mattel doll",position:7,specificity:"smoking_gun"}],
-        distractors:["Oppenheimer","Dune Part Two","Wicked","Inside Out 2","Deadpool & Wolverine","The Super Mario Bros. Movie","Avatar: The Way of Water"]}
-    ]
+    puzzles: [{"answer": "Squid Game", "prefixVerb": "is", "entityType": "show", "whyTrending": "season 3 announced", "difficulty": "easy", "completions": [{"text": "the most watched on the platform", "position": 1, "specificity": "ambiguous"}, {"text": "getting another season this year", "position": 2, "specificity": "ambiguous"}, {"text": "turning actors into global stars", "position": 3, "specificity": "triangulating"}, {"text": "spawning endless halloween costumes", "position": 4, "specificity": "triangulating"}, {"text": "featuring a giant robot doll", "position": 5, "specificity": "narrowing"}, {"text": "korean death game with childhood games", "position": 6, "specificity": "narrowing"}, {"text": "netflix hit where players compete for cash", "position": 7, "specificity": "smoking_gun"}], "distractors": ["Stranger Things", "Wednesday", "Bridgerton", "The Last of Us", "House of the Dragon", "The Mandalorian", "Loki"]}, {"answer": "Taylor Swift", "prefixVerb": "is", "entityType": "musician", "whyTrending": "Eras Tour records", "difficulty": "medium", "completions": [{"text": "the biggest tour of the decade", "position": 1, "specificity": "ambiguous"}, {"text": "selling out stadiums in minutes", "position": 2, "specificity": "ambiguous"}, {"text": "breaking every attendance record", "position": 3, "specificity": "triangulating"}, {"text": "causing literal earthquakes at shows", "position": 4, "specificity": "triangulating"}, {"text": "rerecording her entire back catalog", "position": 5, "specificity": "narrowing"}, {"text": "dating a football player", "position": 6, "specificity": "narrowing"}, {"text": "american singer behind the eras tour", "position": 7, "specificity": "smoking_gun"}], "distractors": ["BLACKPINK", "Billie Eilish", "Bruno Mars", "Ed Sheeran", "Olivia Rodrigo", "Sabrina Carpenter", "The Weeknd"]}, {"answer": "ChatGPT", "prefixVerb": "is", "entityType": "AI tool", "whyTrending": "new model viral", "difficulty": "hard", "completions": [{"text": "getting smarter every update", "position": 1, "specificity": "ambiguous"}, {"text": "replacing entry-level jobs", "position": 2, "specificity": "ambiguous"}, {"text": "banned in some school districts", "position": 3, "specificity": "triangulating"}, {"text": "able to write code and essays", "position": 4, "specificity": "triangulating"}, {"text": "launched late twenty twenty-two", "position": 5, "specificity": "narrowing"}, {"text": "powered by a large language model", "position": 6, "specificity": "narrowing"}, {"text": "openai chatbot that started the ai boom", "position": 7, "specificity": "smoking_gun"}], "distractors": ["Claude", "Gemini", "Copilot", "Perplexity", "Grok", "DeepSeek", "Meta AI"]}, {"answer": "Duolingo", "prefixVerb": "is", "entityType": "app", "whyTrending": "owl meme, Thai course", "difficulty": "medium", "completions": [{"text": "guilting you into daily practice", "position": 1, "specificity": "ambiguous"}, {"text": "sending notifications at weird hours", "position": 2, "specificity": "ambiguous"}, {"text": "free unless you want no ads", "position": 3, "specificity": "triangulating"}, {"text": "gamifying something that was boring", "position": 4, "specificity": "triangulating"}, {"text": "teaching thai with questionable audio", "position": 5, "specificity": "narrowing"}, {"text": "the owl mascot is unhinged", "position": 6, "specificity": "narrowing"}, {"text": "language learning app with a green bird", "position": 7, "specificity": "smoking_gun"}], "distractors": ["Babbel", "Rosetta Stone", "Memrise", "Busuu", "Mondly", "Lingodeer", "Drops"]}, {"answer": "Costco", "prefixVerb": "is", "entityType": "brand", "whyTrending": "membership price hike", "difficulty": "easy", "completions": [{"text": "where you leave with a full cart", "position": 1, "specificity": "ambiguous"}, {"text": "selling everything in bulk sizes", "position": 2, "specificity": "ambiguous"}, {"text": "raising membership fees again", "position": 3, "specificity": "triangulating"}, {"text": "the food court is the main draw", "position": 4, "specificity": "triangulating"}, {"text": "requiring a card just to enter", "position": 5, "specificity": "narrowing"}, {"text": "the hot dog never changes price", "position": 6, "specificity": "narrowing"}, {"text": "warehouse chain with dollar-fifty dogs", "position": 7, "specificity": "smoking_gun"}], "distractors": ["Sam's Club", "BJ's Wholesale", "Makro", "Metro", "Restaurant Depot", "US Foods CHEF'STORE", "Smart & Final"]}]
   }
 };
 
