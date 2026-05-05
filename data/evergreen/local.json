@@ -3,44 +3,44 @@
   "city": "Bangkok",
   "flag": "🇹🇭",
   "tomorrowTeaser": {
-    "entity": "BLACKPINK",
-    "typeLabel": "musician"
+    "entity": "Chatuchak Market",
+    "typeLabel": "place"
   },
   "puzzles": [
     {
       "answer": "Jay Fai",
       "prefixVerb": "is",
       "entityType": "restaurant",
-      "whyTrending": "still impossible to book, waitlist stretches months",
+      "whyTrending": "still impossible to book",
       "difficulty": "easy",
       "completions": [
         {
-          "text": "impossible to get a table",
+          "text": "always packed with tourists",
           "position": 1,
           "specificity": "ambiguous"
         },
         {
-          "text": "always packed with tourists",
+          "text": "impossible to get a table",
           "position": 2,
           "specificity": "ambiguous"
         },
         {
-          "text": "the most expensive around",
+          "text": "better than the other famous spots",
           "position": 3,
           "specificity": "triangulating"
         },
         {
-          "text": "run by a woman in goggles",
+          "text": "appearing in every travel guide",
           "position": 4,
           "specificity": "triangulating"
         },
         {
-          "text": "charging double what it did",
+          "text": "charging double what it used to",
           "position": 5,
           "specificity": "narrowing"
         },
         {
-          "text": "famous for a single dish",
+          "text": "run by a woman in goggles",
           "position": 6,
           "specificity": "narrowing"
         },
@@ -64,7 +64,7 @@
       "answer": "Songkran",
       "prefixVerb": "is",
       "entityType": "event",
-      "whyTrending": "annual water festival just wrapped, tourism records broken",
+      "whyTrending": "annual water festival wrapped",
       "difficulty": "medium",
       "completions": [
         {
@@ -73,7 +73,7 @@
           "specificity": "ambiguous"
         },
         {
-          "text": "impossible to stay dry during",
+          "text": "attracting millions of visitors",
           "position": 2,
           "specificity": "ambiguous"
         },
@@ -83,7 +83,7 @@
           "specificity": "triangulating"
         },
         {
-          "text": "attracting millions of visitors",
+          "text": "celebrated across the whole country",
           "position": 4,
           "specificity": "triangulating"
         },
@@ -93,12 +93,12 @@
           "specificity": "narrowing"
         },
         {
-          "text": "celebrated with ice water buckets",
+          "text": "impossible to stay dry during",
           "position": 6,
           "specificity": "narrowing"
         },
         {
-          "text": "the thai new year in april",
+          "text": "the thai new year water festival",
           "position": 7,
           "specificity": "smoking_gun"
         }
@@ -106,18 +106,18 @@
       "distractors": [
         "Loy Krathong",
         "Wonderfruit",
-        "Chiang Mai Flower Festival",
-        "Vijit Chao Phraya",
-        "Bangkok Design Week",
-        "Thai Fight",
-        "MotoGP Thailand"
+        "Phi Ta Khon",
+        "Bun Bang Fai",
+        "Yi Peng",
+        "Ubon Ratchathani Candle Festival",
+        "Chiang Mai Flower Festival"
       ]
     },
     {
       "answer": "Moo Deng",
       "prefixVerb": "is",
       "entityType": "viral animal",
-      "whyTrending": "baby pygmy hippo became global meme, zoo attendance tripled",
+      "whyTrending": "baby pygmy hippo meme",
       "difficulty": "easy",
       "completions": [
         {
@@ -126,27 +126,27 @@
           "specificity": "ambiguous"
         },
         {
-          "text": "getting more visitors than ever",
+          "text": "getting visitors from everywhere",
           "position": 2,
           "specificity": "ambiguous"
         },
         {
-          "text": "the cutest thing online",
+          "text": "spawning endless merchandise",
           "position": 3,
           "specificity": "triangulating"
         },
         {
-          "text": "spawning endless merchandise",
+          "text": "appearing on every news channel",
           "position": 4,
           "specificity": "triangulating"
         },
         {
-          "text": "living at a zoo in chonburi",
+          "text": "living at a zoo in southeast asia",
           "position": 5,
           "specificity": "narrowing"
         },
         {
-          "text": "named after a thai pork dish",
+          "text": "named after a local food dish",
           "position": 6,
           "specificity": "narrowing"
         },
@@ -159,27 +159,27 @@
       "distractors": [
         "Pesto the Penguin",
         "Fiona the Hippo",
-        "Hashima the Cat",
         "Lin Bing the Panda",
-        "Tama the Cat",
-        "Kabosu the Doge",
-        "Jumbo the Elephant"
+        "Ava the Capybara",
+        "Noodle the Pug",
+        "Juniper the Fox",
+        "Loki the Wolfdog"
       ]
     },
     {
       "answer": "Lisa",
       "prefixVerb": "is",
       "entityType": "musician",
-      "whyTrending": "BLACKPINK star launching solo ventures, huge Thai fanbase",
+      "whyTrending": "BLACKPINK solo star",
       "difficulty": "medium",
       "completions": [
         {
-          "text": "the most followed on instagram",
+          "text": "selling out arenas worldwide",
           "position": 1,
           "specificity": "ambiguous"
         },
         {
-          "text": "selling out arenas worldwide",
+          "text": "the most followed on instagram",
           "position": 2,
           "specificity": "ambiguous"
         },
@@ -189,17 +189,17 @@
           "specificity": "triangulating"
         },
         {
-          "text": "an ambassador for luxury brands",
+          "text": "a luxury brand ambassador",
           "position": 4,
           "specificity": "triangulating"
         },
         {
-          "text": "the only non-korean member",
+          "text": "from a small town in thailand",
           "position": 5,
           "specificity": "narrowing"
         },
         {
-          "text": "from buriram originally",
+          "text": "the only non-korean in the group",
           "position": 6,
           "specificity": "narrowing"
         },
@@ -223,7 +223,7 @@
       "answer": "Khao San Road",
       "prefixVerb": "is",
       "entityType": "place",
-      "whyTrending": "backpacker hub reinventing itself, new night market opened",
+      "whyTrending": "backpacker hub evolving",
       "difficulty": "hard",
       "completions": [
         {
@@ -232,27 +232,27 @@
           "specificity": "ambiguous"
         },
         {
-          "text": "not the same since covid",
+          "text": "a rite of passage for travelers",
           "position": 2,
           "specificity": "ambiguous"
         },
         {
-          "text": "full of bars and tattoo shops",
+          "text": "full of bars and cheap hostels",
           "position": 3,
           "specificity": "triangulating"
         },
         {
-          "text": "a rite of passage for travelers",
+          "text": "not the same since the pandemic",
           "position": 4,
           "specificity": "triangulating"
         },
         {
-          "text": "getting a major facelift soon",
+          "text": "the backpacker strip in the old city",
           "position": 5,
           "specificity": "narrowing"
         },
         {
-          "text": "the backpacker strip in old town",
+          "text": "getting a major facelift this year",
           "position": 6,
           "specificity": "narrowing"
         },
@@ -263,20 +263,20 @@
         }
       ],
       "distractors": [
-        "Sukhumvit",
-        "Silom",
-        "Yaowarat",
-        "Ratchada",
-        "Thonglor",
-        "Ekkamai",
-        "Sathorn"
+        "Sukhumvit Soi 11",
+        "Silom Soi 4",
+        "Yaowarat Road",
+        "Ratchada Soi 4",
+        "Thonglor Soi 10",
+        "Rambuttri Road",
+        "Soi Cowboy"
       ]
     },
     {
       "answer": "7-Eleven",
       "prefixVerb": "is",
       "entityType": "brand",
-      "whyTrending": "viral tiktoks about Thai 7-Eleven snacks, tourist obsession",
+      "whyTrending": "viral tiktok snacks",
       "difficulty": "easy",
       "completions": [
         {
@@ -290,22 +290,22 @@
           "specificity": "ambiguous"
         },
         {
-          "text": "better than the ones back home",
+          "text": "selling things you never expected",
           "position": 3,
           "specificity": "triangulating"
         },
         {
-          "text": "selling things you never expected",
+          "text": "the best late-night snack run",
           "position": 4,
           "specificity": "triangulating"
         },
         {
-          "text": "the best late-night toasties",
+          "text": "a cultural institution in disguise",
           "position": 5,
           "specificity": "narrowing"
         },
         {
-          "text": "a cultural institution in disguise",
+          "text": "better than the ones back home",
           "position": 6,
           "specificity": "narrowing"
         },
@@ -317,19 +317,19 @@
       ],
       "distractors": [
         "FamilyMart",
-        "Lawson",
-        "Tesco Lotus",
-        "Big C",
-        "Tops",
-        "Makro",
-        "Villa Market"
+        "Lawson 108",
+        "Mini Big C",
+        "Tops Daily",
+        "Jiffy",
+        "Lotus's Express",
+        "MaxValu"
       ]
     },
     {
       "answer": "BTS Skytrain",
       "prefixVerb": "is",
       "entityType": "transit",
-      "whyTrending": "new extensions opening, fare restructuring announced",
+      "whyTrending": "new extensions opening",
       "difficulty": "medium",
       "completions": [
         {
@@ -338,60 +338,60 @@
           "specificity": "ambiguous"
         },
         {
-          "text": "the fastest way across town",
+          "text": "stations near all the big malls",
           "position": 2,
           "specificity": "ambiguous"
         },
         {
-          "text": "freezing cold inside the cars",
+          "text": "announcements in thai then english",
           "position": 3,
           "specificity": "triangulating"
         },
         {
-          "text": "expanding with new lines yearly",
+          "text": "expanding with new extensions",
           "position": 4,
           "specificity": "triangulating"
         },
         {
-          "text": "running above the traffic jams",
+          "text": "freezing cold inside the cars",
           "position": 5,
           "specificity": "narrowing"
         },
         {
-          "text": "announcements in thai then english",
+          "text": "running above the traffic jams",
           "position": 6,
           "specificity": "narrowing"
         },
         {
-          "text": "bangkok elevated rail with rabbit cards",
+          "text": "elevated rail with rabbit cards",
           "position": 7,
           "specificity": "smoking_gun"
         }
       ],
       "distractors": [
-        "MRT",
+        "MRT Blue Line",
         "Airport Rail Link",
-        "BRT",
+        "BTS Silom Line",
         "SRT Red Line",
-        "Tuk-tuk",
-        "Chao Phraya Express Boat",
-        "Songthaew"
+        "MRT Purple Line",
+        "BTS Gold Line",
+        "MRT Yellow Line"
       ]
     },
     {
       "answer": "Wonderfruit",
       "prefixVerb": "is",
       "entityType": "festival",
-      "whyTrending": "lineup announced, tickets selling faster than ever",
+      "whyTrending": "lineup announced",
       "difficulty": "hard",
       "completions": [
         {
-          "text": "the most expensive music event",
+          "text": "the most talked-about music event",
           "position": 1,
           "specificity": "ambiguous"
         },
         {
-          "text": "worth flying in for",
+          "text": "worth planning a trip around",
           "position": 2,
           "specificity": "ambiguous"
         },
@@ -401,12 +401,12 @@
           "specificity": "triangulating"
         },
         {
-          "text": "built around sustainability themes",
+          "text": "held outdoors over several days",
           "position": 4,
           "specificity": "triangulating"
         },
         {
-          "text": "held near pattaya every december",
+          "text": "built around sustainability themes",
           "position": 5,
           "specificity": "narrowing"
         },
@@ -435,11 +435,11 @@
       "answer": "mango sticky rice",
       "prefixVerb": "is",
       "entityType": "food",
-      "whyTrending": "viral food trend, tourists posting it everywhere",
+      "whyTrending": "viral food trend",
       "difficulty": "easy",
       "completions": [
         {
-          "text": "the dessert everyone posts",
+          "text": "the most photographed dish",
           "position": 1,
           "specificity": "ambiguous"
         },
@@ -449,12 +449,12 @@
           "specificity": "ambiguous"
         },
         {
-          "text": "only good during certain months",
+          "text": "drenched in sweet coconut cream",
           "position": 3,
           "specificity": "triangulating"
         },
         {
-          "text": "drenched in sweet coconut cream",
+          "text": "only good during certain months",
           "position": 4,
           "specificity": "triangulating"
         },
@@ -464,7 +464,7 @@
           "specificity": "narrowing"
         },
         {
-          "text": "the yellow fruit must be ripe",
+          "text": "the yellow fruit must be perfectly ripe",
           "position": 6,
           "specificity": "narrowing"
         },
@@ -475,20 +475,20 @@
         }
       ],
       "distractors": [
-        "Pad Thai",
-        "Tom Yum",
-        "Som Tam",
-        "Green Curry",
-        "Massaman",
-        "Pad See Ew",
-        "Khao Soi"
+        "Khanom Krok",
+        "Bua Loy",
+        "Tub Tim Krob",
+        "Khao Niao Sangkhaya",
+        "Khanom Chan",
+        "Foi Thong",
+        "Khao Tom Mat"
       ]
     },
     {
       "answer": "Grand Palace",
       "prefixVerb": "is",
       "entityType": "place",
-      "whyTrending": "new visitor rules, dress code enforcement tightened",
+      "whyTrending": "new visitor rules",
       "difficulty": "medium",
       "completions": [
         {
@@ -507,7 +507,7 @@
           "specificity": "triangulating"
         },
         {
-          "text": "home to the most sacred statue",
+          "text": "home to a deeply revered statue",
           "position": 4,
           "specificity": "triangulating"
         },
@@ -517,7 +517,7 @@
           "specificity": "narrowing"
         },
         {
-          "text": "guarded by stone giants at gates",
+          "text": "guarded by stone giants at the gates",
           "position": 6,
           "specificity": "narrowing"
         },
@@ -530,13 +530,12 @@
       "distractors": [
         "Wat Pho",
         "Wat Arun",
-        "Jim Thompson House",
-        "MOCA",
-        "Ancient City",
-        "Erawan Shrine",
-        "Golden Mount"
+        "Wat Benchamabophit",
+        "Wat Saket",
+        "Wat Ratchanatdaram",
+        "Wat Traimit",
+        "Wat Mahathat"
       ]
     }
-  ],
-  "_note": "Pool of 10 puzzles. 5 selected per day by deterministic shuffle."
+  ]
 }

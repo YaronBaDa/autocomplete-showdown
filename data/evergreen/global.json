@@ -3,15 +3,15 @@
   "city": "Global",
   "flag": "🌐",
   "tomorrowTeaser": {
-    "entity": "Jeff Bezos",
-    "typeLabel": "tech figure"
+    "entity": "Severance",
+    "typeLabel": "show"
   },
   "puzzles": [
     {
       "answer": "Squid Game",
       "prefixVerb": "is",
       "entityType": "show",
-      "whyTrending": "season 3 release date announced, filming wrapped",
+      "whyTrending": "season 3 announced",
       "difficulty": "easy",
       "completions": [
         {
@@ -20,17 +20,17 @@
           "specificity": "ambiguous"
         },
         {
-          "text": "spawning endless halloween costumes",
+          "text": "getting another season this year",
           "position": 2,
           "specificity": "ambiguous"
         },
         {
-          "text": "getting another season this year",
+          "text": "turning actors into global stars",
           "position": 3,
           "specificity": "triangulating"
         },
         {
-          "text": "turning actors into global stars",
+          "text": "spawning endless halloween costumes",
           "position": 4,
           "specificity": "triangulating"
         },
@@ -56,15 +56,15 @@
         "Bridgerton",
         "The Last of Us",
         "House of the Dragon",
-        "Beef",
-        "The Bear"
+        "The Mandalorian",
+        "Loki"
       ]
     },
     {
       "answer": "Taylor Swift",
       "prefixVerb": "is",
       "entityType": "musician",
-      "whyTrending": "Eras Tour continues breaking records globally",
+      "whyTrending": "Eras Tour records",
       "difficulty": "medium",
       "completions": [
         {
@@ -73,12 +73,12 @@
           "specificity": "ambiguous"
         },
         {
-          "text": "breaking every attendance record",
+          "text": "selling out stadiums in minutes",
           "position": 2,
           "specificity": "ambiguous"
         },
         {
-          "text": "rerecording her entire back catalog",
+          "text": "breaking every attendance record",
           "position": 3,
           "specificity": "triangulating"
         },
@@ -88,12 +88,12 @@
           "specificity": "triangulating"
         },
         {
-          "text": "dating a football player",
+          "text": "rerecording her entire back catalog",
           "position": 5,
           "specificity": "narrowing"
         },
         {
-          "text": "sold more albums than any woman",
+          "text": "dating a football player",
           "position": 6,
           "specificity": "narrowing"
         },
@@ -117,7 +117,7 @@
       "answer": "ChatGPT",
       "prefixVerb": "is",
       "entityType": "AI tool",
-      "whyTrending": "new model release, image generation went viral",
+      "whyTrending": "new model viral",
       "difficulty": "hard",
       "completions": [
         {
@@ -141,7 +141,7 @@
           "specificity": "triangulating"
         },
         {
-          "text": "launched november twenty twenty-two",
+          "text": "launched late twenty twenty-two",
           "position": 5,
           "specificity": "narrowing"
         },
@@ -160,17 +160,17 @@
         "Claude",
         "Gemini",
         "Copilot",
-        "Midjourney",
         "Perplexity",
-        "DALL-E",
-        "Stable Diffusion"
+        "Grok",
+        "DeepSeek",
+        "Meta AI"
       ]
     },
     {
       "answer": "Lionel Messi",
       "prefixVerb": "is",
       "entityType": "athlete",
-      "whyTrending": "dominating in MLS, World Cup win still reverberating",
+      "whyTrending": "MLS dominance",
       "difficulty": "medium",
       "completions": [
         {
@@ -184,7 +184,7 @@
           "specificity": "ambiguous"
         },
         {
-          "text": "moved to america for the paycheck",
+          "text": "wearing number ten since forever",
           "position": 3,
           "specificity": "triangulating"
         },
@@ -194,7 +194,7 @@
           "specificity": "triangulating"
         },
         {
-          "text": "wearing number ten since forever",
+          "text": "moved to america for the paycheck",
           "position": 5,
           "specificity": "narrowing"
         },
@@ -223,16 +223,16 @@
       "answer": "Barbie",
       "prefixVerb": "is",
       "entityType": "film",
-      "whyTrending": "Oscar-winning film still in cultural conversation",
+      "whyTrending": "Oscar-winning blockbuster",
       "difficulty": "easy",
       "completions": [
         {
-          "text": "the biggest movie of last summer",
+          "text": "the biggest movie of that summer",
           "position": 1,
           "specificity": "ambiguous"
         },
         {
-          "text": "turning everything pink for months",
+          "text": "a billion-dollar hit nobody expected",
           "position": 2,
           "specificity": "ambiguous"
         },
@@ -242,7 +242,7 @@
           "specificity": "triangulating"
         },
         {
-          "text": "a billion-dollar hit nobody expected",
+          "text": "turning everything pink for months",
           "position": 4,
           "specificity": "triangulating"
         },
@@ -276,7 +276,7 @@
       "answer": "The White Lotus",
       "prefixVerb": "is",
       "entityType": "show",
-      "whyTrending": "season 3 filmed in Thailand, massive cast buzz",
+      "whyTrending": "season 3 in Thailand",
       "difficulty": "hard",
       "completions": [
         {
@@ -285,7 +285,7 @@
           "specificity": "ambiguous"
         },
         {
-          "text": "making you want to book a resort",
+          "text": "an all-star cast every season",
           "position": 2,
           "specificity": "ambiguous"
         },
@@ -300,7 +300,7 @@
           "specificity": "triangulating"
         },
         {
-          "text": "season three shot in thailand",
+          "text": "making you want to book a resort",
           "position": 5,
           "specificity": "narrowing"
         },
@@ -317,19 +317,19 @@
       ],
       "distractors": [
         "Severance",
-        "Yellowjackets",
-        "Euphoria",
-        "Slow Horses",
-        "Abbott Elementary",
-        "Only Murders in the Building",
-        "Succession"
+        "The Resort",
+        "Nine Perfect Strangers",
+        "The Perfect Couple",
+        "A Nearly Normal Family",
+        "The Undoing",
+        "Big Little Lies"
       ]
     },
     {
       "answer": "Bitcoin",
       "prefixVerb": "is",
       "entityType": "crypto",
-      "whyTrending": "new all-time high, ETF inflows surging",
+      "whyTrending": "new all-time high",
       "difficulty": "medium",
       "completions": [
         {
@@ -343,7 +343,7 @@
           "specificity": "ambiguous"
         },
         {
-          "text": "making early believers rich",
+          "text": "making early believers wealthy",
           "position": 3,
           "specificity": "triangulating"
         },
@@ -382,7 +382,7 @@
       "answer": "Duolingo",
       "prefixVerb": "is",
       "entityType": "app",
-      "whyTrending": "aggressive notification owl becomes meme, Thai course expanding",
+      "whyTrending": "owl meme, Thai course",
       "difficulty": "medium",
       "completions": [
         {
@@ -396,46 +396,46 @@
           "specificity": "ambiguous"
         },
         {
-          "text": "the owl mascot is unhinged",
+          "text": "free unless you want no ads",
           "position": 3,
           "specificity": "triangulating"
         },
         {
-          "text": "free unless you want no ads",
+          "text": "gamifying something that was boring",
           "position": 4,
           "specificity": "triangulating"
         },
         {
-          "text": "gamifying something that was boring",
+          "text": "teaching thai with questionable audio",
           "position": 5,
           "specificity": "narrowing"
         },
         {
-          "text": "teaching thai with questionable audio",
+          "text": "the owl mascot is unhinged",
           "position": 6,
           "specificity": "narrowing"
         },
         {
-          "text": "language learning app with green bird",
+          "text": "language learning app with a green bird",
           "position": 7,
           "specificity": "smoking_gun"
         }
       ],
       "distractors": [
-        "Spotify",
-        "TikTok",
-        "Instagram",
-        "Notion",
-        "Canva",
-        "Strava",
-        "Uber"
+        "Babbel",
+        "Rosetta Stone",
+        "Memrise",
+        "Busuu",
+        "Mondly",
+        "Lingodeer",
+        "Drops"
       ]
     },
     {
       "answer": "Costco",
       "prefixVerb": "is",
       "entityType": "brand",
-      "whyTrending": "membership price increase, viral food court hacks",
+      "whyTrending": "membership price hike",
       "difficulty": "easy",
       "completions": [
         {
@@ -444,27 +444,27 @@
           "specificity": "ambiguous"
         },
         {
-          "text": "raising membership fees again",
+          "text": "selling everything in bulk sizes",
           "position": 2,
           "specificity": "ambiguous"
         },
         {
-          "text": "the food court is the main draw",
+          "text": "raising membership fees again",
           "position": 3,
           "specificity": "triangulating"
         },
         {
-          "text": "selling everything in bulk",
+          "text": "the food court is the main draw",
           "position": 4,
           "specificity": "triangulating"
         },
         {
-          "text": "the hot dog never changes price",
+          "text": "requiring a card just to enter",
           "position": 5,
           "specificity": "narrowing"
         },
         {
-          "text": "requiring a card just to enter",
+          "text": "the hot dog never changes price",
           "position": 6,
           "specificity": "narrowing"
         },
@@ -475,20 +475,20 @@
         }
       ],
       "distractors": [
-        "Walmart",
-        "Target",
-        "Ikea",
-        "Trader Joe's",
-        "Whole Foods",
         "Sam's Club",
-        "Aldi"
+        "BJ's Wholesale",
+        "Makro",
+        "Metro",
+        "Restaurant Depot",
+        "US Foods CHEF'STORE",
+        "Smart & Final"
       ]
     },
     {
       "answer": "Formula 1",
       "prefixVerb": "is",
       "entityType": "sport",
-      "whyTrending": "Drive to Survive effect, new season with fresh drama",
+      "whyTrending": "Drive to Survive effect",
       "difficulty": "hard",
       "completions": [
         {
@@ -502,17 +502,17 @@
           "specificity": "ambiguous"
         },
         {
-          "text": "the netflix show changed everything",
+          "text": "people now care about tire strategy",
           "position": 3,
           "specificity": "triangulating"
         },
         {
-          "text": "people now care about tire strategy",
+          "text": "races held on six continents",
           "position": 4,
           "specificity": "triangulating"
         },
         {
-          "text": "races held on six continents",
+          "text": "the netflix show changed everything",
           "position": 5,
           "specificity": "narrowing"
         },
@@ -537,6 +537,5 @@
         "Supercars"
       ]
     }
-  ],
-  "_note": "Pool of 10 puzzles. 5 selected per day by deterministic shuffle."
+  ]
 }
