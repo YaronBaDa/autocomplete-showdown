@@ -868,9 +868,10 @@ function resetGame() {
 // ============================
 loadState();
 initLanding();
-loadPuzzles();
-if (state.screen === "playing") { showScreen("playing"); renderRound(); }
-else if (state.screen === "share") { showShare(); }
+loadPuzzles().then(() => {
+  if (state.screen === "playing") { showScreen("playing"); renderRound(); }
+  else if (state.screen === "share") { showShare(); }
+});
 </script>
 </body>
 </html>
