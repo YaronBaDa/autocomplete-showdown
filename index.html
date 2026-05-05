@@ -13,9 +13,9 @@
 <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,500;0,9..144,700;1,9..144,500;1,9..144,700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
 <style>
   :root {
-    --bg: #FAF7F2; --bg-warm: #F5F0E8; --ink: #1A1A1A; --ink-muted: #6B6560; --ink-faint: #A09890;
-    --accent: #C75B39; --accent-hover: #B04D2E; --accent-light: #FDF1ED;
-    --green: #4A7C59; --green-light: #f0f7f2;
+    --bg: #FAF7F2; --bg-warm: #F5F0E8; --ink: #1A1A1A; --ink-muted: #6B6560; --ink-faint: #756D65;
+    --accent: #B84F2F; --accent-hover: #9E3D20; --accent-light: #FFF5F0;
+    --green: #3A6B49; --green-light: #f0f7f2;
     --yellow: #D4A373; --dark: #2C2C2C; --border: #E8E2D9;
     --card: #FFFFFF; --shadow: 0 2px 8px rgba(26,26,26,0.06); --shadow-lg: 0 8px 24px rgba(26,26,26,0.10);
     --paper: #FFFCF8; --paper-border: #E5DDD3;
@@ -54,7 +54,7 @@
 
   .mode-toggle { display: inline-flex; background: var(--card); border: 1px solid var(--border); border-radius: 10px; padding: 4px; margin-top: 20px; box-shadow: var(--shadow); }
   .mode-btn { background: transparent; border: none; border-radius: 8px; padding: 8px 18px; font-family: inherit; font-size: 13px; font-weight: 600; color: var(--ink-muted); cursor: pointer; transition: all 0.2s ease; }
-  .mode-btn.active { background: var(--ink); color: white; }
+  .mode-btn.active { background: var(--accent); color: white; border: none; }
 
   .tomorrow-teaser { margin-top: 32px; padding: 16px 20px; background: var(--card); border-radius: 12px; border: 1px solid var(--border); box-shadow: var(--shadow); max-width: 340px; width: 100%; }
   .tomorrow-teaser-label { font-size: 11px; text-transform: uppercase; letter-spacing: 0.06em; color: var(--ink-faint); font-weight: 600; margin-bottom: 6px; }
@@ -63,13 +63,13 @@
 
   .btn { display: inline-flex; align-items: center; justify-content: center; border: none; border-radius: 12px; padding: 14px 28px; font-family: inherit; font-size: 15px; font-weight: 600; cursor: pointer; transition: transform 0.15s ease, box-shadow 0.15s ease, background 0.15s ease; width: 100%; letter-spacing: 0.01em; }
   .btn:active { transform: scale(0.97); }
-  .btn-primary { background: var(--accent); color: white; box-shadow: 0 4px 12px rgba(199,91,57,0.25); }
+  .btn-primary { background: var(--accent); color: white; box-shadow: 0 4px 12px rgba(184,79,47,0.25); }
   .btn-primary:hover { background: var(--accent-hover); }
   .btn-secondary { background: var(--card); color: var(--ink); border: 1px solid var(--border); box-shadow: var(--shadow); }
   .btn-secondary:hover { background: var(--bg-warm); }
   .btn-ghost { background: transparent; color: var(--ink-faint); font-size: 13px; padding: 10px 16px; width: auto; }
   .btn-ghost:hover { color: var(--ink-muted); }
-  .btn-copy { background: var(--accent); color: white; box-shadow: 0 4px 12px rgba(199,91,57,0.25); }
+  .btn-copy { background: var(--accent); color: white; box-shadow: 0 4px 12px rgba(184,79,47,0.25); }
   .btn-copy:hover { background: var(--accent-hover); }
 
   .completions-list { margin-bottom:18px; }
@@ -105,8 +105,20 @@
     font-family: inherit; font-size: 13px; font-weight: 600; cursor: pointer;
     transition: all 0.2s ease;
   }
-  .reveal-btn:hover { background: #fce8e0; }
-  .reveal-btn.reveal-answer { border-style: solid; background: var(--ink-faint); color: white; border-color: var(--ink-faint); }
+  .reveal-btn:hover { background: var(--accent-light); opacity: 0.8; }
+  .reveal-btn.reveal-answer { border-style: solid; background: var(--accent); color: white; border-color: var(--accent); }
+
+  /* ─── Focus Visibility (WCAG AA 2.4.7) ─── */
+  :focus-visible { outline: 3px solid var(--accent); outline-offset: 2px; }
+  :focus:not(:focus-visible) { outline: none; }
+  .mode-btn:focus-visible { outline-offset: -2px; }
+  .card-option:focus-visible { outline-offset: -2px; }
+  .btn:focus-visible, .reveal-btn:focus-visible { outline-offset: 2px; }
+
+  /* ─── Reduced Motion ─── */
+  @media (prefers-reduced-motion: reduce) {
+    *, *::before, *::after { animation-duration: 0.01ms !important; animation-iteration-count: 1 !important; transition-duration: 0.01ms !important; }
+  }
 
   .reveal-prefix-big { text-align: center; margin-bottom: 20px; animation: fadeIn 0.6s ease-out forwards; }
   .reveal-prefix-big .label { font-size: 11px; text-transform: uppercase; letter-spacing: 0.1em; color: var(--ink-faint); font-weight: 600; margin-bottom: 8px; }
@@ -182,13 +194,14 @@
   /* ─── Dark Mode ─── */
   @media (prefers-color-scheme: dark) {
     :root {
-      --bg: #1A1A1A; --bg-warm: #242424; --ink: #E8E4DD; --ink-muted: #A09890; --ink-faint: #6B6560;
-      --accent: #D4785C; --accent-hover: #C06848; --accent-light: #2A1F1A;
+      --bg: #1A1A1A; --bg-warm: #242424; --ink: #E8E4DD; --ink-muted: #A09890; --ink-faint: #9E9690;
+      --accent: #B84F2F; --accent-hover: #9E3D20; --accent-light: #2A1F1A;
       --green: #6BAF7A; --green-light: #1A2A1E;
       --yellow: #C4A06A; --dark: #E8E4DD; --border: #363330;
       --card: #262422; --shadow: 0 2px 8px rgba(0,0,0,0.25); --shadow-lg: 0 8px 24px rgba(0,0,0,0.35);
       --paper: #2A2824; --paper-border: #3A3632;
     }
+    .reveal-btn { color: #D4957A; border-color: #D4957A; }
   }
 </style>
 </head>
@@ -208,8 +221,8 @@
       </div>
       <div class="animate-fade" style="animation-delay:0.25s">
         <div class="mode-toggle">
-          <button class="mode-btn" id="mode-local" onclick="setMode('local')">Bangkok</button>
-          <button class="mode-btn" id="mode-global" onclick="setMode('global')">Global</button>
+          <button class="mode-btn" id="mode-local" onclick="setMode('local')" aria-label="Bangkok puzzles" aria-pressed="true">Bangkok</button>
+          <button class="mode-btn" id="mode-global" onclick="setMode('global')" aria-label="Global puzzles" aria-pressed="false">Global</button>
         </div>
       </div>
       <div class="animate-fade" style="animation-delay:0.3s">
@@ -268,10 +281,10 @@
     </div>
   </div>
 </div>
-<div class="copy-toast" id="copy-toast">Copied to clipboard!</div>
+<div class="copy-toast" id="copy-toast" role="status" aria-live="polite">Copied to clipboard!</div>
 
 <!-- Instructions Modal -->
-<div class="modal-overlay" id="help-modal">
+<div class="modal-overlay" id="help-modal" role="dialog" aria-modal="true" aria-label="How to play">
   <div class="modal">
     <button class="close-btn" onclick="closeHelp()" aria-label="Close">&times;</button>
     <h2>How to play</h2>
@@ -685,6 +698,8 @@ function setMode(mode) {
   try { localStorage.setItem("bs_mode_pref", mode); } catch (e) {}
   document.getElementById("mode-local").classList.toggle("active", mode === "local");
   document.getElementById("mode-global").classList.toggle("active", mode === "global");
+  document.getElementById("mode-local").setAttribute("aria-pressed", mode === "local");
+  document.getElementById("mode-global").setAttribute("aria-pressed", mode === "global");
   initLanding();
 }
 
